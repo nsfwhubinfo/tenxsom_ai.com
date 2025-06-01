@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/golde/Tenxsom_AI/testing/meta_opt_quant_v6/test_v6_complete_implementation.py", line 20, in <module>
-    from research.meta_opt_quant.enhanced_meta_optimizer_v6_complete import (
-  File "/home/golde/Tenxsom_AI/research/meta_opt_quant/enhanced_meta_optimizer_v6_complete.py", line 23, in <module>
-    from enhanced_meta_optimizer_v6_cuboctahedral import (
-ModuleNotFoundError: No module named 'enhanced_meta_optimizer_v6_cuboctahedral'

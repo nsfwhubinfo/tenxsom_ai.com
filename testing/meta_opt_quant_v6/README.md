@@ -1,1 +1,0 @@
-# tenxsom_ai
