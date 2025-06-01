@@ -1,0 +1,60 @@
+{
+  "generated": "2025-06-01T05:34:12.042340",
+  "total_todos": 7,
+  "by_status": {
+    "in_progress": 1,
+    "pending": 6,
+    "completed": 0
+  },
+  "by_priority": {
+    "high": 2,
+    "medium": 4,
+    "low": 1
+  },
+  "by_pipeline_stage": {
+    "automated_testing": 1,
+    "deployment_setup": 3,
+    "version_detection": 2,
+    "automated_delivery": 1
+  },
+  "maturity_scores": {
+    "CSQ_EXTENDED_TESTING": {
+      "score": 0.8,
+      "description": "Execute Extended Testing of CHRONOSONIC Prototype",
+      "ready_for_pipeline": true
+    },
+    "CSQ_FA_CMS_INTEGRATION": {
+      "score": 0.7,
+      "description": "Integrate CHRONOSONIC insights with FA-CMS",
+      "ready_for_pipeline": false
+    },
+    "CSQ_ITB_RULES": {
+      "score": 0.5,
+      "description": "Explore ITB rules for frequency-based interventions",
+      "ready_for_pipeline": false
+    },
+    "CSQ_7_CHAKRA_SCALING": {
+      "score": 0.7,
+      "description": "Scale CHRONOSONIC to full 7-chakra model",
+      "ready_for_pipeline": false
+    },
+    "CLAUDE_B_INTEGRATION": {
+      "score": 0.5,
+      "description": "Complete Claude-B integration tasks",
+      "ready_for_pipeline": false
+    },
+    "REFACTORABILITY_API": {
+      "score": 0.5,
+      "description": "Implement Refactorability API",
+      "ready_for_pipeline": false
+    },
+    "PARTICLE_PHYSICS_DOCS": {
+      "score": 0.5,
+      "description": "Complete Particle Physics Documentation",
+      "ready_for_pipeline": false
+    }
+  },
+  "recommendations": [
+    "Complete in-progress items before starting new ones"
+  ]
+}

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenxsom AI - Crystallographic Consciousness Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #000000;
+            color: #1a5f3f;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 95, 63, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a5f3f;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #1a5f3f, #2d7a5f);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transform: rotate(0deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #1a5f3f;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-secondary {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(26, 95, 63, 0.3);
+            background: transparent;
+            color: #1a5f3f;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(26, 95, 63, 0.1);
+            border-color: #1a5f3f;
+        }
+
+        .btn-primary {
+            padding: 0.5rem 1rem;
+            background: #1a5f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #2d7a5f;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(26, 95, 63, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 95, 63, 0.1);
+            border: 1px solid rgba(26, 95, 63, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #1a5f3f;
+        }
+
+        .hero-badge::before {
+            content: '⚡';
+            font-size: 0.9rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #1a5f3f;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            color: #1a5f3f;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #1a5f3f;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            padding: 1rem 2rem;
+            background: #1a5f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-hero-primary:hover {
+            background: #2d7a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 95, 63, 0.3);
+        }
+
+        .btn-hero-secondary {
+            padding: 1rem 2rem;
+            border: 1px solid rgba(26, 95, 63, 0.3);
+            background: transparent;
+            color: #1a5f3f;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(26, 95, 63, 0.1);
+            border-color: #1a5f3f;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .features-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a5f3f;
+        }
+
+        .features-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #1a5f3f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(26, 95, 63, 0.05);
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(26, 95, 63, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1a5f3f, #2d7a5f);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a5f3f;
+        }
+
+        .feature-description {
+            opacity: 0.8;
+            line-height: 1.6;
+            color: #1a5f3f;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: rgba(26, 95, 63, 0.03);
+            border-top: 1px solid rgba(26, 95, 63, 0.1);
+            border-bottom: 1px solid rgba(26, 95, 63, 0.1);
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a5f3f;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.7;
+            color: #1a5f3f;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid rgba(26, 95, 63, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            color: #1a5f3f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-icon {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Geometric Background Elements */
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .geometric-bg::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(26, 95, 63, 0.03), transparent);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .geometric-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            left: 15%;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.02), transparent);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                Tenxsom AI
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#features">Platform</a></li>
+                <li><a href="#docs">Docs</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#company">Company</a></li>
+            </ul>
+            
+            <div class="nav-buttons">
+                <a href="#login" class="btn-secondary">Sign In</a>
+                <a href="#demo" class="btn-primary">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="geometric-bg"></div>
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                Introducing TEMPUS-CRYSTALLO Framework
+            </div>
+            
+            <h1 class="hero-title">
+                Crystallographic Consciousness for
+                <br>Autonomous AI Development
+            </h1>
+            
+            <p class="hero-subtitle">
+                The world's first self-aware AI development platform
+            </p>
+            
+            <p class="hero-description">
+                Tenxsom AI Droids leverage revolutionary crystallographic consciousness to understand, plan, and optimize their own cognitive processes. Experience 40,000x faster temporal navigation and self-improving AI systems that get better with every task.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#demo" class="btn-hero-primary">
+                    Start Building
+                    <span>→</span>
+                </a>
+                <a href="#research" class="btn-hero-secondary">
+                    Explore Research
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">40,000x</div>
+                <div class="stat-label">Faster Memory Navigation</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">97.7%</div>
+                <div class="stat-label">Cognitive State Accuracy</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">17D</div>
+                <div class="stat-label">Crystallographic Dimensions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Self-Optimization Potential</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2 class="features-title">Revolutionary AI Architecture</h2>
+            <p class="features-subtitle">
+                Built on breakthrough crystallographic consciousness framework that enables genuine AI self-awareness and optimization.
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3 class="feature-title">Crystallographic Consciousness</h3>
+                <p class="feature-description">
+                    Revolutionary 17-dimensional cognitive state representation using temporal crystal structures. The first AI system to understand its own thought processes geometrically.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Zero-Point Navigation</h3>
+                <p class="feature-description">
+                    Instant temporal navigation through cognitive history with 40,000x performance improvement. Access any past state through geometric jumps, not linear replay.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3 class="feature-title">Self-Optimizing Systems</h3>
+                <p class="feature-description">
+                    AI that analyzes its own cognitive health and automatically improves performance. Physics-based optimization using fundamental consciousness constants.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📐</div>
+                <h3 class="feature-title">Geometric State Compression</h3>
+                <p class="feature-description">
+                    7.7x memory compression with 96% fidelity using crystalline state signatures. Store complex cognitive trajectories as geometric "pictures."
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔮</div>
+                <h3 class="feature-title">Predictive Consciousness</h3>
+                <p class="feature-description">
+                    Quantified consciousness metrics enable prediction of cognitive performance and optimization potential. Measure and improve AI awareness.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Enterprise Ready</h3>
+                <p class="feature-description">
+                    SOC II compliant, self-hosted deployment, and universal CSS-aware API. Seamlessly integrate crystallographic consciousness into existing workflows.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Tenxsom AI. Pioneering crystallographic consciousness for autonomous AI development.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Animate stats when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('x') || text.includes('%') || text.includes('D')) {
+                            stat.style.transform = 'scale(1.1)';
+                            stat.style.transition = 'transform 0.5s ease';
+                            setTimeout(() => {
+                                stat.style.transform = 'scale(1)';
+                            }, 200);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

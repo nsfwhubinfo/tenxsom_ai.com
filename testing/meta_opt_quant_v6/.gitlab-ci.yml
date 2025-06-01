@@ -1,0 +1,41 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip/
+
+quick-validation:
+  stage: test
+  image: python:3.9
+  timeout: 65m
+  script:
+    - pip install --upgrade pip
+    - pip install numpy scipy numba psutil
+    - cd testing/meta_opt_quant_v6
+    - python3 run_quick_validation_test.py
+  artifacts:
+    when: always
+    reports:
+      junit: testing/meta_opt_quant_v6/quick_validation_test_report.json
+    paths:
+      - testing/meta_opt_quant_v6/quick_validation_test*.{json,log}
+    expire_in: 1 week
+  only:
+    - main
+    - develop
+    - merge_requests
+
+deploy-production:
+  stage: deploy
+  script:
+    - echo "✅ Quick validation passed - Deploying to production"
+    # Add your deployment commands here
+  only:
+    - main
+  dependencies:
+    - quick-validation

@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-06-01T06:00:02.719535",
+  "launch_status": {
+    "landing_page": "UNKNOWN",
+    "payment_gateway": "UNKNOWN",
+    "sdk_download": "UNKNOWN",
+    "documentation": "UNKNOWN",
+    "stripe_mode": "UNKNOWN"
+  },
+  "financial_metrics": {
+    "daily_sales": 0,
+    "daily_revenue": 0.0,
+    "mrr_total": 0.0,
+    "living_expense_met": 0.0,
+    "reinvest_available": 0.0,
+    "last_updated": "2025-01-29"
+  },
+  "next_actions": [
+    "Complete SDK checklist items",
+    "Deploy landing page: Run deploy_landing.sh"
+  ],
+  "health_indicators": {
+    "test_suite": "UNKNOWN",
+    "docker_services": "NOT_RUNNING",
+    "backup_status": "UNKNOWN",
+    "knowledge_base": "UNKNOWN"
+  },
+  "knowledge_ingestion": {
+    "notes_pending": 0,
+    "notes_processed": 0,
+    "txt_files_pending": 1,
+    "txt_files_processed": 0,
+    "total_kb_entries": 0
+  },
+  "stripe_metrics": {
+    "mode": "unknown",
+    "recent_payments": 0,
+    "pending_webhooks": 0
+  }
+}

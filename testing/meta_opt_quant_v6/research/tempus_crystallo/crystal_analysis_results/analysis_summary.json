@@ -1,0 +1,48 @@
+{
+  "n_entries": 1000,
+  "n_crystals": 1000,
+  "n_archetypes": 3,
+  "overall_success_rate": 0.733,
+  "predictive_accuracy": 0.822,
+  "top_positive_features": [
+    [
+      "pattern_coherence",
+      0.7117513369399718
+    ],
+    [
+      "growth_rate",
+      0.6915552184296059
+    ],
+    [
+      "stability_index",
+      0.6300953935193995
+    ]
+  ],
+  "top_negative_features": [
+    [
+      "fractal_dimension",
+      -0.6443013282571213
+    ],
+    [
+      "defect_density",
+      -0.6328762898479423
+    ]
+  ],
+  "archetype_summary": [
+    [
+      "Exponential Builder",
+      1.0,
+      0.215
+    ],
+    [
+      "Symmetric Master",
+      1.0,
+      0.006
+    ],
+    [
+      "Adaptive Balancer",
+      0.644927536231884,
+      0.414
+    ]
+  ]
+}

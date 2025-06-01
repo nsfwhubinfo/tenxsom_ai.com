@@ -1,0 +1,27 @@
+[Unit]
+Description=META-OPT-QUANT Continuous Testing Service
+After=network.target
+
+[Service]
+Type=simple
+User=golde
+Group=golde
+WorkingDirectory=/home/golde/Tenxsom_AI/testing
+Environment="PYTHONPATH=/home/golde/Tenxsom_AI/research/meta_opt_quant:/home/golde/Tenxsom_AI"
+ExecStart=/usr/bin/python3 /home/golde/Tenxsom_AI/testing/continuous_meta_opt_testing.py
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/home/golde/Tenxsom_AI/testing/continuous_test_results/service.log
+StandardError=append:/home/golde/Tenxsom_AI/testing/continuous_test_results/service_error.log
+
+# Resource limits
+MemoryLimit=2G
+CPUQuota=80%
+
+# Environment
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target

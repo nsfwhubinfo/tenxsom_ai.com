@@ -1,0 +1,114 @@
+{
+  "total_sessions": 21,
+  "total_optimizations": 20,
+  "patterns_discovered": 0,
+  "average_convergence_improvement": -83.65698143664245,
+  "golden_ratio_discoveries": 0,
+  "session_history": [
+    {
+      "session_id": "e6185cdec9e11bc7",
+      "start_time": "2025-05-30T08:22:41.973824",
+      "patterns_at_start": 0
+    },
+    {
+      "session_id": "b28084ea98413b6b",
+      "start_time": "2025-05-30T08:23:00.091656",
+      "patterns_at_start": 0
+    },
+    {
+      "session_id": "fdf956d6eb1da497",
+      "start_time": "2025-05-30T08:23:08.181330",
+      "patterns_at_start": 3
+    },
+    {
+      "session_id": "c64d358eff0e3176",
+      "start_time": "2025-05-30T08:23:08.964063",
+      "patterns_at_start": 55
+    },
+    {
+      "session_id": "1a391f131262ecb9",
+      "start_time": "2025-05-30T08:23:09.858418",
+      "patterns_at_start": 105
+    },
+    {
+      "session_id": "8792e5eb94d0bdf9",
+      "start_time": "2025-05-30T08:23:10.320403",
+      "patterns_at_start": 107
+    },
+    {
+      "session_id": "f5b0112e5279f3a1",
+      "start_time": "2025-05-30T08:23:10.919136",
+      "patterns_at_start": 107
+    },
+    {
+      "session_id": "a0e3d88a0d1f355a",
+      "start_time": "2025-05-30T08:23:11.594285",
+      "patterns_at_start": 147
+    },
+    {
+      "session_id": "4f7491be2057a7cd",
+      "start_time": "2025-05-30T08:23:11.793356",
+      "patterns_at_start": 154
+    },
+    {
+      "session_id": "41c0461e23b79167",
+      "start_time": "2025-05-30T08:23:12.043754",
+      "patterns_at_start": 167
+    },
+    {
+      "session_id": "438e49bbac04a60a",
+      "start_time": "2025-05-30T08:23:12.738281",
+      "patterns_at_start": 207
+    },
+    {
+      "session_id": "28209b59dfa975ab",
+      "start_time": "2025-05-30T08:23:13.071954",
+      "patterns_at_start": 214
+    },
+    {
+      "session_id": "87375c6cfefffce9",
+      "start_time": "2025-05-30T08:23:13.303961",
+      "patterns_at_start": 226
+    },
+    {
+      "session_id": "7565d79b021e8d01",
+      "start_time": "2025-05-30T08:23:13.794108",
+      "patterns_at_start": 252
+    },
+    {
+      "session_id": "c1d090e2e1995b55",
+      "start_time": "2025-05-30T08:23:14.387748",
+      "patterns_at_start": 280
+    },
+    {
+      "session_id": "29bc6e67e14dd005",
+      "start_time": "2025-05-30T08:23:14.791005",
+      "patterns_at_start": 298
+    },
+    {
+      "session_id": "d959d496c33ec798",
+      "start_time": "2025-05-30T08:23:15.259192",
+      "patterns_at_start": 321
+    },
+    {
+      "session_id": "3e582377cd78bb76",
+      "start_time": "2025-05-30T08:23:15.536816",
+      "patterns_at_start": 331
+    },
+    {
+      "session_id": "282ae270a2d18cb5",
+      "start_time": "2025-05-30T08:23:15.903085",
+      "patterns_at_start": 346
+    },
+    {
+      "session_id": "6f406365be2707a5",
+      "start_time": "2025-05-30T08:23:16.061297",
+      "patterns_at_start": 355
+    },
+    {
+      "session_id": "86e52e0b6c5d900f",
+      "start_time": "2025-05-30T08:23:16.217172",
+      "patterns_at_start": 360
+    }
+  ]
+}

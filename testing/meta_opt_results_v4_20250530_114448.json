@@ -1,0 +1,18 @@
+{
+  "version": "V4",
+  "total_tests": 20,
+  "golden_discoveries": 20,
+  "perfect_discoveries": 18,
+  "discovery_rate": 100.0,
+  "results": [
+    {
+      "test_id": "ultimate_golden_v4_1748619887594_0",
+      "test_name": "ultimate_golden_v4",
+      "worker_id": 0,
+      "iterations": 25,
+      "initial_score": 2.54849644761183e-10,
+      "final_score": 836.5405928008487,
+      "improvement": 836.5405928005938,
+      "acceleration": -98.43588282874674,
+      "phi_error": 0.0,
+      "is_golden": 

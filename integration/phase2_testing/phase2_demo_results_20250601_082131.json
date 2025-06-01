@@ -1,0 +1,41 @@
+{
+  "demo_id": "phase2_demo_20250601_082116",
+  "tests": {
+    "validation": {
+      "success": true,
+      "results": [
+        {
+          "config": "balanced",
+          "runtime": 4.841993570327759,
+          "improvement": NaN,
+          "phi_score": 0.0,
+          "memory_delta": 12.0234375
+        },
+        {
+          "config": "phi_focused",
+          "runtime": 3.749962091445923,
+          "improvement": NaN,
+          "phi_score": 0.0,
+          "memory_delta": 0.95703125
+        }
+      ]
+    },
+    "stability": {
+      "success": false,
+      "events": [
+        {
+          "scenario": "memory_stress",
+          "issue": "exception",
+          "error": "'HolographicMorphEngine' object has no attribute 'morph'"
+        }
+      ]
+    },
+    "performance": {
+      "success": false,
+      "results": {
+        "vectorization_speedup": 0.24875139768915394,
+        "cache_hits": 990
+      }
+    }
+  }
+}

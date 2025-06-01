@@ -1,0 +1,51 @@
+[
+  {
+    "experiment": "Rosenbrock",
+    "final_score": -6.252416704618679,
+    "iterations": 12,
+    "time": 0.05151224136352539,
+    "distance_to_optimum": 2.797286929249655,
+    "final_position": [
+      -1.5,
+      2.2549159990019114
+    ],
+    "expected_optimum": [
+      1,
+      1
+    ]
+  },
+  {
+    "experiment": "Rastrigin",
+    "final_score": -83.27477923084683,
+    "iterations": 12,
+    "time": 0.013397216796875,
+    "avg_distance_to_optimum": 2.2327441273480617,
+    "dimension": 5
+  },
+  {
+    "experiment": "COS-EXP Alignment",
+    "final_score": 15.711139557088012,
+    "iterations": 12,
+    "time": 0.01255178451538086,
+    "final_F": 0.9115580029993559,
+    "final_V": 1.0638067358033787,
+    "final_E": 1.8757657820205413,
+    "fve_ratio": 0.5169736824080587,
+    "vf_ratio": 1.1670203457191637,
+    "phi_alignment": 1.1010603063418363
+  },
+  {
+    "experiment": "Dynamic Optimization",
+    "phase1_avg_score": 0.0,
+    "phase2_avg_score": -4.242640687119285,
+    "adaptation_rate": 4.242640687119285,
+    "time": 0.1506962776184082
+  },
+  {
+    "experiment": "Meta-Learning Efficiency",
+    "first_half_avg_iterations": 37.0,
+    "second_half_avg_iterations": 98.0,
+    "improvement_percentage": -164.86486486486487,
+    "cache_final_size": 4
+  }
+]

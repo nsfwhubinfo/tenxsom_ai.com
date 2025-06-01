@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Setup') {
+            steps {
+                sh '''
+                    python3 -m pip install --upgrade pip
+                    pip3 install numpy scipy numba psutil
+                '''
+            }
+        }
+        
+        stage('Quick Validation') {
+            steps {
+                timeout(time: 65, unit: 'MINUTES') {
+                    sh '''
+                        cd testing/meta_opt_quant_v6
+                        python3 run_quick_validation_test.py
+                    '''
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'testing/meta_opt_quant_v6/quick_validation_test*.{json,log}', fingerprint: true
+                    publishTestResults testResultsPattern: 'testing/meta_opt_quant_v6/quick_validation_test_report.json'
+                }
+                success {
+                    echo '✅ Quick validation PASSED - Ready for deployment'
+                }
+                failure {
+                    echo '❌ Quick validation FAILED - Blocking deployment'
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo 'Deploying to production...'
+                // Add your deployment steps here
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "test_duration_hours": 8.0,
+  "checkpoint_interval_minutes": 30,
+  "max_memory_mb": 500,
+  "batch_size": 100,
+  "difficulty_increment": 0.05,
+  "parallel_workers": 4,
+  "error_threshold": 100,
+  "logging_level": "INFO",
+  "database_path": "eight_hour_test_results.db",
+  "cache_path": "cache_data/",
+  "enable_recovery": true,
+  "compression_targets": {
+    "minimum": 6.0,
+    "target": 15.0,
+    "stretch": 20.0
+  },
+  "efficiency_targets": {
+    "overall": 85.0,
+    "compression": 40.0,
+    "memory": 90.0,
+    "speed": 90.0,
+    "phi_discovery": 100.0
+  }
+}

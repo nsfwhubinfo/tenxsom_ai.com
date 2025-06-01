@@ -1,0 +1,11 @@
+{
+  "test_id": "chronosonic_v2_20250601_071547",
+  "duration_minutes": 0.5,
+  "metrics": [],
+  "phases": {
+    "initialization": {
+      "success": false,
+      "metrics": {
+        "chakra_frequencies_correct": true,
+        "initial_coherence": 0.5,
+        "iam_state_normalized": 

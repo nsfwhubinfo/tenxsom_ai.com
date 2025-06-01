@@ -1,0 +1,73 @@
+[
+  {
+    "experiment": "Golden Ratio Emergence",
+    "trials": 5,
+    "emergence_count": 1,
+    "emergence_rate": 20.0,
+    "target_ratio": 1.618033988749895
+  },
+  {
+    "experiment": "Cross-Session Learning",
+    "sessions": [
+      {
+        "session": 1,
+        "iterations": 17,
+        "final_score": -33.510972672651185,
+        "patterns_used": 6,
+        "time": 0.19906187057495117,
+        "acceleration": 15.0
+      },
+      {
+        "session": 2,
+        "iterations": 21,
+        "final_score": -10.371336327067322,
+        "patterns_used": 6,
+        "time": 0.25037693977355957,
+        "acceleration": 0.0
+      },
+      {
+        "session": 3,
+        "iterations": 50,
+        "final_score": -19.744227925847508,
+        "patterns_used": 10,
+        "time": 0.6940348148345947,
+        "acceleration": -150.0
+      }
+    ],
+    "overall_improvement": -194.11764705882354,
+    "patterns_accumulated": 207
+  },
+  {
+    "experiment": "Complex COS-EXP",
+    "final_score": 49.47129819243326,
+    "iterations": 45,
+    "time": 0.33309197425842285,
+    "final_fve_ratio": 0.7,
+    "particle_alignments": {
+      "alpha": 0.277,
+      "beta": 0.576839154206465,
+      "gamma": 0.07499999999999996,
+      "phi": 0.0037403800384598895
+    },
+    "patterns_used": 13
+  },
+  {
+    "experiment": "Meta-Learning Acceleration",
+    "problem_count": 10,
+    "time_improvement": 41.417467689044216,
+    "iteration_improvement": 45.29411764705882,
+    "final_cache_size": 379
+  },
+  {
+    "experiment": "Pattern Evolution Analysis",
+    "max_generation_depth": 0,
+    "avg_generation_depth": 0,
+    "successful_mutations": [],
+    "average_deltas": {
+      "F": 0,
+      "V": 0,
+      "E": 0
+    },
+    "golden_ratio_discoveries": 0
+  }
+]

@@ -1,0 +1,4 @@
+# Quick Note - general
+# Timestamp: 2025-05-29T12:56:52.896506
+
+Met with SBDC, approved structure A for business entity
