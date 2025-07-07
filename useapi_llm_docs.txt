@@ -1,0 +1,47 @@
+# UseAPI.net provides third-party API for popular AI services
+
+> UseAPI.net provides API access to leading AI models for image generation, video creation, music composition, face swapping, and more - all through a single $10/m subscription. Each API is designed for easy integration and supports multiple accounts with automated load balancing. The documentation below includes detailed guides and links for each supported service, enabling developers to leverage state-of-the-art AI technologies for creative and production workflows.
+
+## Midjourney API v2
+
+- [Midjourney API v2 documentation](https://useapi.net/assets/aibot/api-v2.txt): Complete API documentation for Midjourney AI image generation. Since early 2023, provides simple, reliable and affordable access to Midjourney via experimental API. Supports all Midjourney functionality including seed retrieval, variations mode, remix mode, and everything else available in the Discord bot.
+
+## LTX Studio API
+
+- [LTX Studio API documentation](https://useapi.net/assets/aibot/api-ltxstudio-v1.txt): API documentation for LTX Studio providing access to LTX-Video models for near real-time video generation, Google's Veo model, and the FLUX.1 Kontext model for advanced AI video creation.
+
+## Kling AI API  
+
+- [Kling AI API documentation](https://useapi.net/assets/aibot/api-kling-v1.txt):API documentation for Kling AI by Kuaishou Technology. Considered by many to be the best AI model, leading with prompt adherence, video quality and unmatched consistency. Supports text-to-video generation with superior quality.
+
+## MiniMax | Hailuo AI API
+
+- [MiniMax API documentation](https://useapi.net/assets/aibot/api-minimax-v1.txt): Comprehensive API for MiniMax AI featuring multiple groundbreaking services: text/image-to-video AI models (Hailuo AI), text-to-image generation, chat LLM models (DeepSeek R1 reasoning, MiniMax-Text-01 with 1M context), state-of-the-art TTS (text-to-speech) with voice cloning, and music generation capabilities.
+
+## Runway API
+
+- [Runway API documentation](https://useapi.net/assets/aibot/api-runwayml-v1.txt): Complete API documentation for Runway AI supporting ALL functionality for Gen-4, Gen-3 Alpha and Gen-3 Alpha Turbo: Text/Video-to-Video generation, Video Extend and Expand, Act One (character animation), Lip Sync capabilities, and Frames generation.
+
+## Mureka API
+
+- [Mureka API documentation](https://useapi.net/assets/aibot/api-mureka-v1.txt): Full access to Mureka AI music generation service by Kunlun Tech. Features proprietary SkyMusic 2.0 model positioned to compete with Suno and Udio. Creates unique songs from lyrics/descriptions, musical styles, and vocal references.
+
+## TemPolor API  
+
+- [TemPolor API documentation](https://useapi.net/assets/aibot/api-tempolor-v1.txt): AI-powered royalty-free music generation service creating high-quality soundtracks from text prompts, custom lyrics, MIDI, with voice cloning support. Offers extensive customization for instrumental tracks and supports multiple export formats (mp3, wav, stems).
+
+## PixVerse API v2
+
+- [PixVerse API v2 documentation](https://useapi.net/assets/aibot/api-pixverse-v2.txt): Enhanced API for PixVerse.ai video generation from text and image prompts. Supports extensive video effects, video extension, upscaling, and lip sync capabilities.
+
+## InsightFaceSwap API
+
+- [InsightFaceSwap API documentation](https://useapi.net/assets/aibot/api-faceswap-v1.txt): API for InsightFaceSwap Discord Bot by Picsi.Ai. Enables face swapping from source images onto target images with features like HiFidelity Mode, ARTIFY effects, age transformation, and multi-face morphing.
+
+## Pika API
+
+- [Pika API documentation](https://useapi.net/assets/aibot/api-pika-v1.txt): API documentation for Pika Discord Bot by Pika.art. Supports text and image inputs for video generation with private generation capabilities via direct bot messaging.
+
+## HeyGen API
+
+- [HeyGen API documentation](https://useapi.net/assets/aibot/api-heygen-v1.txt): API documentation HeyGen AI. HeyGen AI turns text to video in only a few minutes. It provides access to multiple text-to-speech models including ElevenLabs Multilingual v2 with over 1K voices.

@@ -1,0 +1,2918 @@
+{
+  "content_plan": [
+    {
+      "content_id": "premium_20250705_01",
+      "platform": "youtube",
+      "quality_tier": "premium",
+      "topic": "Future of remote work technology",
+      "duration": 30,
+      "scheduled_time": "2025-07-05 08:00:00.524825",
+      "priority": 1
+    },
+    {
+      "content_id": "premium_20250705_02",
+      "platform": "youtube",
+      "quality_tier": "premium",
+      "topic": "Future of remote work technology",
+      "duration": 30,
+      "scheduled_time": "2025-07-05 10:00:00.524825",
+      "priority": 1
+    },
+    {
+      "content_id": "premium_20250705_03",
+      "platform": "youtube",
+      "quality_tier": "premium",
+      "topic": "Cryptocurrency market analysis",
+      "duration": 30,
+      "scheduled_time": "2025-07-05 12:00:00.524825",
+      "priority": 1
+    },
+    {
+      "content_id": "premium_20250705_04",
+      "platform": "youtube",
+      "quality_tier": "premium",
+      "topic": "AI revolutionizing business workflows",
+      "duration": 30,
+      "scheduled_time": "2025-07-05 14:00:00.524825",
+      "priority": 1
+    },
+    {
+      "content_id": "volume_20250705_01",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_02",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_03",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_04",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_05",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_06",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_07",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_08",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_09",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_10",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 12:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_11",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_12",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_13",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_14",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_15",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_16",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_17",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_18",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_19",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_20",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 13:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_21",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_22",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_23",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_24",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_25",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_26",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_27",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_28",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_29",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_30",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 14:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_31",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_32",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_33",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_34",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_35",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_36",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_37",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_38",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_39",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_40",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 15:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_41",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_42",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_43",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_44",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_45",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_46",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_47",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_48",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_49",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_50",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 16:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_51",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_52",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_53",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_54",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_55",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_56",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_57",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_58",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_59",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_60",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 17:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_61",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_62",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_63",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_64",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_65",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_66",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_67",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_68",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_69",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_70",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 18:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_71",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_72",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_73",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_74",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_75",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_76",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_77",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_78",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_79",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_80",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 19:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_81",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_82",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:06:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_83",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:12:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_84",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:18:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_85",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:24:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_86",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:30:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_87",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:36:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_88",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Entertainment highlights",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:42:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_89",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Trending news summary",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:48:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_90",
+      "platform": "youtube",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 20:54:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_91",
+      "platform": "tiktok",
+      "quality_tier": "volume",
+      "topic": "Quick life hacks",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 21:00:00.524825",
+      "priority": 3
+    },
+    {
+      "content_id": "volume_20250705_92",
+      "platform": "instagram",
+      "quality_tier": "volume",
+      "topic": "Motivational quotes",
+      "duration": 15,
+      "scheduled_time": "2025-07-05 21:06:00.524825",
+      "priority": 3
+    }
+  ],
+  "generation_results": [
+    {
+      "content_id": "premium_20250705_01",
+      "success": true,
+      "video_id": "ltx_primary_1751765325",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.207551,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Future of remote work technology",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube",
+          "fallback": true
+        }
+      }
+    },
+    {
+      "content_id": "premium_20250705_02",
+      "success": true,
+      "video_id": "ltx_primary_1751765325",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000158,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Future of remote work technology",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube",
+          "fallback": true
+        }
+      }
+    },
+    {
+      "content_id": "premium_20250705_03",
+      "success": true,
+      "video_id": "ltx_primary_1751765325",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00012,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Cryptocurrency market analysis",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube",
+          "fallback": true
+        }
+      }
+    },
+    {
+      "content_id": "premium_20250705_04",
+      "success": true,
+      "video_id": "ltx_primary_1751765325",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 9.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "AI revolutionizing business workflows",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube",
+          "fallback": true
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_01",
+      "success": true,
+      "video_id": "ltx_primary_1751765327",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000562,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_02",
+      "success": true,
+      "video_id": "ltx_primary_1751765327",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000282,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_03",
+      "success": true,
+      "video_id": "ltx_primary_1751765327",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00013,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_04",
+      "success": true,
+      "video_id": "ltx_primary_1751765327",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000116,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_05",
+      "success": true,
+      "video_id": "ltx_primary_1751765327",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 9.5e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_06",
+      "success": true,
+      "video_id": "ltx_primary_1751765329",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000494,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_07",
+      "success": true,
+      "video_id": "ltx_primary_1751765329",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000216,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_08",
+      "success": true,
+      "video_id": "ltx_primary_1751765329",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000177,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_09",
+      "success": true,
+      "video_id": "ltx_primary_1751765329",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00033,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_10",
+      "success": true,
+      "video_id": "ltx_primary_1751765329",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000257,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_11",
+      "success": true,
+      "video_id": "ltx_primary_1751765331",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000387,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_12",
+      "success": true,
+      "video_id": "ltx_primary_1751765331",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000178,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_13",
+      "success": true,
+      "video_id": "ltx_primary_1751765331",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 9.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_14",
+      "success": true,
+      "video_id": "ltx_primary_1751765331",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 7.7e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_15",
+      "success": true,
+      "video_id": "ltx_primary_1751765331",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 7e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_16",
+      "success": true,
+      "video_id": "ltx_primary_1751765333",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000228,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_17",
+      "success": true,
+      "video_id": "ltx_primary_1751765333",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 6.7e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_18",
+      "success": true,
+      "video_id": "ltx_primary_1751765333",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 5.4e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_19",
+      "success": true,
+      "video_id": "ltx_primary_1751765333",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 4.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_20",
+      "success": true,
+      "video_id": "ltx_primary_1751765333",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 4.1e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_21",
+      "success": true,
+      "video_id": "ltx_primary_1751765335",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00058,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_22",
+      "success": true,
+      "video_id": "ltx_primary_1751765335",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00025,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_23",
+      "success": true,
+      "video_id": "ltx_primary_1751765335",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000226,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_24",
+      "success": true,
+      "video_id": "ltx_primary_1751765335",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000249,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_25",
+      "success": true,
+      "video_id": "ltx_primary_1751765335",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000167,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_26",
+      "success": true,
+      "video_id": "ltx_primary_1751765337",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000488,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_27",
+      "success": true,
+      "video_id": "ltx_primary_1751765337",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000271,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_28",
+      "success": true,
+      "video_id": "ltx_primary_1751765337",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000155,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_29",
+      "success": true,
+      "video_id": "ltx_primary_1751765337",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000113,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_30",
+      "success": true,
+      "video_id": "ltx_primary_1751765337",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000101,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_31",
+      "success": true,
+      "video_id": "ltx_primary_1751765339",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000143,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_32",
+      "success": true,
+      "video_id": "ltx_primary_1751765339",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 3.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_33",
+      "success": true,
+      "video_id": "ltx_primary_1751765339",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_34",
+      "success": true,
+      "video_id": "ltx_primary_1751765339",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.9e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_35",
+      "success": true,
+      "video_id": "ltx_primary_1751765339",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.1e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_36",
+      "success": true,
+      "video_id": "ltx_primary_1751765341",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000305,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_37",
+      "success": true,
+      "video_id": "ltx_primary_1751765341",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000126,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_38",
+      "success": true,
+      "video_id": "ltx_primary_1751765341",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 8.8e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_39",
+      "success": true,
+      "video_id": "ltx_primary_1751765341",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 7e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_40",
+      "success": true,
+      "video_id": "ltx_primary_1751765341",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 6.1e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_41",
+      "success": true,
+      "video_id": "ltx_primary_1751765343",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000446,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_42",
+      "success": true,
+      "video_id": "ltx_primary_1751765343",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000174,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_43",
+      "success": true,
+      "video_id": "ltx_primary_1751765343",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000126,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_44",
+      "success": true,
+      "video_id": "ltx_primary_1751765343",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 8.9e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_45",
+      "success": true,
+      "video_id": "ltx_primary_1751765343",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 8.9e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_46",
+      "success": true,
+      "video_id": "ltx_primary_1751765345",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000282,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_47",
+      "success": true,
+      "video_id": "ltx_primary_1751765345",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 9.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_48",
+      "success": true,
+      "video_id": "ltx_primary_1751765345",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 6.5e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_49",
+      "success": true,
+      "video_id": "ltx_primary_1751765345",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 5.4e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_50",
+      "success": true,
+      "video_id": "ltx_primary_1751765345",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 5.5e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_51",
+      "success": true,
+      "video_id": "ltx_primary_1751765347",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000204,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_52",
+      "success": true,
+      "video_id": "ltx_primary_1751765347",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 6.4e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_53",
+      "success": true,
+      "video_id": "ltx_primary_1751765347",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 4.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_54",
+      "success": true,
+      "video_id": "ltx_primary_1751765347",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 4e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_55",
+      "success": true,
+      "video_id": "ltx_primary_1751765347",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 4.3e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_56",
+      "success": true,
+      "video_id": "ltx_primary_1751765349",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000649,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_57",
+      "success": true,
+      "video_id": "ltx_primary_1751765349",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000286,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_58",
+      "success": true,
+      "video_id": "ltx_primary_1751765349",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.001005,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_59",
+      "success": true,
+      "video_id": "ltx_primary_1751765349",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00025,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_60",
+      "success": true,
+      "video_id": "ltx_primary_1751765349",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000171,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_61",
+      "success": true,
+      "video_id": "ltx_primary_1751765351",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000309,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_62",
+      "success": true,
+      "video_id": "ltx_primary_1751765351",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000112,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_63",
+      "success": true,
+      "video_id": "ltx_primary_1751765351",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 7.1e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_64",
+      "success": true,
+      "video_id": "ltx_primary_1751765351",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 5.8e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_65",
+      "success": true,
+      "video_id": "ltx_primary_1751765351",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 5.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_66",
+      "success": true,
+      "video_id": "ltx_primary_1751765354",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000138,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_67",
+      "success": true,
+      "video_id": "ltx_primary_1751765354",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_68",
+      "success": true,
+      "video_id": "ltx_primary_1751765354",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.8e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_69",
+      "success": true,
+      "video_id": "ltx_primary_1751765354",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_70",
+      "success": true,
+      "video_id": "ltx_primary_1751765354",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_71",
+      "success": true,
+      "video_id": "ltx_primary_1751765356",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000537,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_72",
+      "success": true,
+      "video_id": "ltx_primary_1751765356",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000228,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_73",
+      "success": true,
+      "video_id": "ltx_primary_1751765356",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000175,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_74",
+      "success": true,
+      "video_id": "ltx_primary_1751765356",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000158,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_75",
+      "success": true,
+      "video_id": "ltx_primary_1751765356",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00014,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_76",
+      "success": true,
+      "video_id": "ltx_primary_1751765358",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000576,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_77",
+      "success": true,
+      "video_id": "ltx_primary_1751765358",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.00029,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_78",
+      "success": true,
+      "video_id": "ltx_primary_1751765358",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000195,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_79",
+      "success": true,
+      "video_id": "ltx_primary_1751765358",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000165,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_80",
+      "success": true,
+      "video_id": "ltx_primary_1751765358",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000123,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_81",
+      "success": true,
+      "video_id": "ltx_primary_1751765360",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000128,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_82",
+      "success": true,
+      "video_id": "ltx_primary_1751765360",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.8e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_83",
+      "success": true,
+      "video_id": "ltx_primary_1751765360",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 2.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_84",
+      "success": true,
+      "video_id": "ltx_primary_1751765360",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.6e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_85",
+      "success": true,
+      "video_id": "ltx_primary_1751765360",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.3e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_86",
+      "success": true,
+      "video_id": "ltx_primary_1751765362",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000133,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_87",
+      "success": true,
+      "video_id": "ltx_primary_1751765362",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 3.2e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_88",
+      "success": true,
+      "video_id": "ltx_primary_1751765362",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.9e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Entertainment highlights",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_89",
+      "success": true,
+      "video_id": "ltx_primary_1751765362",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.5e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Trending news summary",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_90",
+      "success": true,
+      "video_id": "ltx_primary_1751765362",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 1.3e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "youtube",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "youtube"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_91",
+      "success": true,
+      "video_id": "ltx_primary_1751765364",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 0.000299,
+      "error_message": null,
+      "metadata": {
+        "platform": "tiktok",
+        "topic": "Quick life hacks",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "tiktok"
+        }
+      }
+    },
+    {
+      "content_id": "volume_20250705_92",
+      "success": true,
+      "video_id": "ltx_primary_1751765364",
+      "video_url": "https://example.com/video.mp4",
+      "thumbnail_path": null,
+      "model_used": "ltx_turbo",
+      "service_used": "useapi_volume",
+      "credits_used": 0,
+      "cost_usd": 0.0,
+      "generation_time": 9.8e-05,
+      "error_message": null,
+      "metadata": {
+        "platform": "instagram",
+        "topic": "Motivational quotes",
+        "router_metadata": {
+          "account": "goldensonproperties@gmail.com",
+          "platform": "instagram"
+        }
+      }
+    }
+  ],
+  "upload_results": {
+    "upload_attempts": 96,
+    "upload_successes": 96,
+    "upload_failures": 0,
+    "platforms": {}
+  },
+  "daily_metrics": {
+    "target_videos": 96,
+    "videos_generated": 96,
+    "videos_uploaded": 96,
+    "generation_success_rate": 100.0,
+    "upload_success_rate": 100.0,
+    "total_credits": 0,
+    "total_cost": 0.0,
+    "cost_per_video": 0.0,
+    "platform_breakdown": {
+      "youtube": 34,
+      "tiktok": 31,
+      "instagram": 31
+    },
+    "quality_tier_breakdown": {
+      "premium": 0,
+      "standard": 0,
+      "volume": 96
+    }
+  },
+  "report_timestamp": "2025-07-05T22:40:59.162374",
+  "execution_date": "2025-07-05T21:28:45.524825"
+}

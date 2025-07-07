@@ -1,0 +1,28 @@
+{
+  "workflow": "ltx_studio_volume_tier",
+  "steps": {
+    "asset_creation": {
+      "success": false,
+      "error": "HTTP 400",
+      "status_code": 400
+    },
+    "video_generation": {
+      "success": false,
+      "error": "Parameter validation failed: {\"error\":\"Parameter startAssetId (test-background-default) has incorrect format\",\"code\":400}",
+      "status_code": 400,
+      "endpoint_accessible": true,
+      "payload_sent": {
+        "prompt": "A peaceful mountain landscape with gentle camera movement",
+        "model": "ltxv-turbo",
+        "duration": 5,
+        "aspectRatio": "169",
+        "intensity": "medium",
+        "startAssetId": "test-background-default"
+      }
+    }
+  },
+  "overall_status": "failed_generation",
+  "video_url": null,
+  "cost": "FREE (0 credits)",
+  "duration_tested": null
+}

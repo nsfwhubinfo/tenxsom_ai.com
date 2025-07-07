@@ -1,0 +1,308 @@
+
+Hello UseAPI.net MiniMax Support Assistant,
+
+I need help resolving persistent 522 Connection Timeout errors that have been blocking our video generation pipeline for several months. Below is our complete configuration and error logs in XML format for analysis.
+
+## ISSUE SUMMARY
+- **Problem**: 522 Connection Timeout errors on video generation endpoints
+- **Duration**: Several months
+- **Impact**: Complete video generation pipeline blocked
+- **Partial Fix**: Added trailing slashes (25% success rate - only assets endpoint working)
+- **Current Status**: 1/6 endpoints working, video generation still blocked
+
+## CONFIGURATION DETAILS
+<?xml version="1.0" encoding="UTF-8"?>
+<useapi_configuration>
+    <client_info>
+        <account_email>goldensonproperties@gmail.com</account_email>
+        <bearer_token>user:1831-r8vA1WGayarXKuYwpT1PW</bearer_token>
+        <account_type>premium</account_type>
+        <models_subscribed>
+            <model>veo2</model>
+            <model>ltx-turbo</model>
+            <model>flux</model>
+        </models_subscribed>
+        <credit_limit>5000</credit_limit>
+        <current_credits>10000</current_credits>
+    </client_info>
+    
+    <integration_details>
+        <system_name>Tenxsom AI Video Generation</system_name>
+        <integration_type>python_aiohttp</integration_type>
+        <authentication_method>bearer_token</authentication_method>
+        <timeout_settings>
+            <total_timeout>60</total_timeout>
+            <connect_timeout>15</connect_timeout>
+        </timeout_settings>
+        <retry_logic>
+            <max_retries>3</max_retries>
+            <backoff_delays>5,15,30</backoff_delays>
+        </retry_logic>
+    </integration_details>
+    
+    <affected_endpoints>
+        <endpoint>
+            <url>https://api.useapi.net/v1/veo2/generate/</url>
+            <method>POST</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Video generation with Veo2 model</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/ltxstudio/create/</url>
+            <method>POST</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Video generation with LTX Turbo model</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/accounts/credits/</url>
+            <method>GET</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Account credits check</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/ltxstudio/assets/</url>
+            <method>GET</method>
+            <status>working</status>
+            <error_code>200</error_code>
+            <description>Asset management - ONLY WORKING ENDPOINT</description>
+        </endpoint>
+    </affected_endpoints>
+    
+    <current_issue>
+        <summary>522 Connection Timeout Errors</summary>
+        <duration>Several months</duration>
+        <impact>Video generation completely blocked</impact>
+        <partial_fix_applied>
+            <description>Added trailing slashes to all endpoints</description>
+            <result>Assets endpoint now working, others still failing</result>
+            <success_rate>25%</success_rate>
+        </partial_fix_applied>
+    </current_issue>
+    
+    <request_patterns>
+        <veo2_request>
+            <endpoint>https://api.useapi.net/v1/veo2/generate/</endpoint>
+            <headers>
+                <header name="Authorization">Bearer user:1831-r8vA1WGayarXKuYwpT1PW</header>
+                <header name="Content-Type">application/json</header>
+            </headers>
+            <payload>
+                <prompt>A beautiful sunset over a calm lake</prompt>
+                <duration>15</duration>
+                <aspect_ratio>16:9</aspect_ratio>
+                <style>cinematic</style>
+                <motion>smooth</motion>
+            </payload>
+        </veo2_request>
+        
+        <ltx_turbo_request>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/create/</endpoint>
+            <headers>
+                <header name="Authorization">Bearer user:1831-r8vA1WGayarXKuYwpT1PW</header>
+                <header name="Content-Type">application/json</header>
+            </headers>
+            <payload>
+                <prompt>A beautiful sunset over a calm lake</prompt>
+                <aspect_ratio>16:9</aspect_ratio>
+                <seed>null</seed>
+                <num_outputs>1</num_outputs>
+                <num_frames>120</num_frames>
+                <frame_rate>8</frame_rate>
+                <use_motion>true</use_motion>
+                <override_negative_prompt>false</override_negative_prompt>
+            </payload>
+        </ltx_turbo_request>
+    </request_patterns>
+    
+    <network_environment>
+        <client_location>WSL2 Linux environment</client_location>
+        <os_version>Linux 5.15.167.4-microsoft-standard-WSL2</os_version>
+        <python_version>3.x</python_version>
+        <aiohttp_version>latest</aiohttp_version>
+        <connection_type>residential_broadband</connection_type>
+        <firewall_proxy>none</firewall_proxy>
+    </network_environment>
+</useapi_configuration>
+
+## ERROR LOGS
+<?xml version="1.0" encoding="UTF-8"?>
+<error_logs>
+    <log_summary>
+        <timestamp>2025-07-06 04:00:00</timestamp>
+        <total_errors>15</total_errors>
+        <error_types>
+            <error_type name="522_connection_timeout" count="12" />
+            <error_type name="523_origin_unreachable" count="2" />
+            <error_type name="timeout_exception" count="1" />
+        </error_types>
+    </log_summary>
+    
+    <detailed_logs>
+        <log_entry>
+            <timestamp>2025-07-06 04:01:22</timestamp>
+            <level>WARNING</level>
+            <component>enhanced_model_router</component>
+            <message>LTX Turbo server error 522, retrying in 5s (attempt 1/3)</message>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/create/</endpoint>
+            <method>POST</method>
+            <response_code>522</response_code>
+            <response_body><!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Connection timed out | api.useapi.net | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css" />
+<!--[if lt IE 9]><link rel="stylesheet" id='cf_styles-ie-css' href="/cdn-cgi/styles/cf.errors.ie.css" /><![endif]-->
+<style>body{margin:0;padding:0}</style>
+</head>
+<body>
+<div id="cf-wrapper">
+    <div id="cf-error-details" class="cf-error-details-wrapper">
+        <div class="cf-wrapper cf-header cf-error-overview">
+            <h1 data-translate="error">Error</h1>
+            <h2 class="cf-subheadline"><span data-translate="error_desc">Connection timed out</span></h2>
+        </div>
+    </div>
+</div>
+</body>
+</html></response_body>
+        </log_entry>
+        
+        <log_entry>
+            <timestamp>2025-07-06 04:01:31</timestamp>
+            <level>WARNING</level>
+            <component>enhanced_model_router</component>
+            <message>LTX Turbo server error 523, retrying in 15s (attempt 2/3)</message>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/create/</endpoint>
+            <method>POST</method>
+            <response_code>523</response_code>
+            <response_body><!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<title>Origin is unreachable | api.useapi.net | Cloudflare</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css" />
+<!--[if lt IE 9]><link rel="stylesheet" id='cf_styles-ie-css' href="/cdn-cgi/styles/cf.errors.ie.css" /><![endif]-->
+<style>body{margin:0;padding:0}</style>
+</head>
+<body>
+<div id="cf-wrapper">
+    <div id="cf-error-details" class="cf-error-details-wrapper">
+        <div class="cf-wrapper cf-header cf-error-overview">
+            <h1 data-translate="error">Error</h1>
+            <h2 class="cf-subheadline"><span data-translate="error_desc">Origin is unreachable</span></h2>
+        </div>
+    </div>
+</div>
+</body>
+</html></response_body>
+        </log_entry>
+        
+        <log_entry>
+            <timestamp>2025-07-06 04:02:07</timestamp>
+            <level>ERROR</level>
+            <component>enhanced_model_router</component>
+            <message>LTX Turbo generation failed after 3 attempts: 522</message>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/create/</endpoint>
+            <final_status>failed</final_status>
+            <retry_attempts>3</retry_attempts>
+            <total_time>45.28</total_time>
+        </log_entry>
+        
+        <log_entry>
+            <timestamp>2025-07-06 04:00:30</timestamp>
+            <level>ERROR</level>
+            <component>enhanced_model_router</component>
+            <message>Veo2 generation failed after 3 attempts: 522</message>
+            <endpoint>https://api.useapi.net/v1/veo2/generate/</endpoint>
+            <final_status>failed</final_status>
+            <retry_attempts>3</retry_attempts>
+            <total_time>60.15</total_time>
+        </log_entry>
+        
+        <log_entry>
+            <timestamp>2025-07-06 03:45:15</timestamp>
+            <level>SUCCESS</level>
+            <component>comprehensive_test</component>
+            <message>LTX Studio Assets endpoint working correctly</message>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/assets/</endpoint>
+            <method>GET</method>
+            <response_code>200</response_code>
+            <response_time>1.08</response_time>
+            <response_body>{"items": [{"id": "0197cc47-bb3b-732e-be80-9357b6dbee3b", "signedAsset": {"assetUrl": "https://storage.googleapis.com/lt-infinity-prd/artifacts/vertex-ai/..."}}]}</response_body>
+        </log_entry>
+    </detailed_logs>
+    
+    <troubleshooting_attempted>
+        <step>
+            <action>Added trailing slashes to all endpoints</action>
+            <result>Assets endpoint now working (200 OK), others still failing</result>
+            <success_rate>25%</success_rate>
+        </step>
+        <step>
+            <action>Implemented progressive retry logic with backoff</action>
+            <result>Still failing after 3 attempts per endpoint</result>
+            <success_rate>0%</success_rate>
+        </step>
+        <step>
+            <action>Increased timeout settings (total: 60s, connect: 15s)</action>
+            <result>Still timing out, suggests server-side issue</result>
+            <success_rate>0%</success_rate>
+        </step>
+        <step>
+            <action>Tested different request methods and payloads</action>
+            <result>Same 522/523 errors across all video generation endpoints</result>
+            <success_rate>0%</success_rate>
+        </step>
+    </troubleshooting_attempted>
+    
+    <current_status>
+        <working_endpoints>1</working_endpoints>
+        <failing_endpoints>5</failing_endpoints>
+        <success_rate>16.7%</success_rate>
+        <impact>Video generation completely blocked</impact>
+        <business_impact>Production pipeline unable to operate</business_impact>
+    </current_status>
+</error_logs>
+
+## SPECIFIC QUESTIONS FOR MINIMAX ASSISTANT:
+
+1. **Server Infrastructure**: Are there known server-side issues affecting video generation endpoints (veo2/generate, ltxstudio/create) that could cause 522/523 errors?
+
+2. **Endpoint Configuration**: Beyond trailing slashes, are there other URL format requirements or headers needed for video generation endpoints?
+
+3. **Authentication**: Is our bearer token format (user:1831-r8vA1WGayarXKuYwpT1PW) correct for all endpoints? Why does it work for assets but not video generation?
+
+4. **Regional Issues**: Are there geographic routing issues that could cause selective endpoint failures?
+
+5. **Rate Limiting**: Could undisclosed rate limiting be causing 522 errors instead of proper rate limit responses?
+
+6. **Service Status**: What is the current operational status of video generation services? Are there planned maintenance periods?
+
+7. **Payload Requirements**: Are there specific payload requirements for veo2/generate and ltxstudio/create that could cause timeouts?
+
+8. **Cloudflare Configuration**: Are there Cloudflare settings affecting these specific endpoints differently than the assets endpoint?
+
+## URGENT BUSINESS IMPACT:
+Our production video generation system (96 videos/day target) has been completely blocked. We've implemented Google AI Ultra failover, but need UseAPI.net video generation restored for cost optimization and capacity.
+
+Please provide specific technical guidance to resolve the remaining 522 errors on video generation endpoints.
+
+Thank you for your assistance.

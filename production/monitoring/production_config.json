@@ -1,0 +1,34 @@
+{
+  "deployment_config": {
+    "environment": "production",
+    "auto_start": true,
+    "monitoring_enabled": true,
+    "backup_enabled": true,
+    "log_level": "INFO",
+    "max_retry_attempts": 3,
+    "health_check_interval": 300,
+    "backup_interval_hours": 6
+  },
+  "services_configuration": {
+    "config_manager": "ProductionConfigManager",
+    "strategy_executor": "MonetizationStrategyExecutor",
+    "content_scheduler": "DailyContentScheduler",
+    "upload_orchestrator": "ContentUploadOrchestrator",
+    "analytics_tracker": "AnalyticsTracker"
+  },
+  "production_directories": {
+    "logs": "/home/golde/tenxsom-ai-vertex/production/logs",
+    "backups": "/home/golde/tenxsom-ai-vertex/production/backups",
+    "monitoring": "/home/golde/tenxsom-ai-vertex/production/monitoring",
+    "reports": "/home/golde/tenxsom-ai-vertex/production/reports",
+    "tmp": "/home/golde/tenxsom-ai-vertex/production/tmp"
+  },
+  "monitoring_tasks": 5,
+  "deployment_state": {
+    "deployment_time": "2025-07-05 21:28:43.359553",
+    "system_uptime": 0.0,
+    "total_restarts": 0,
+    "last_backup": null,
+    "health_status": "healthy"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "start_time": "2025-07-05 13:52:32.190320",
+  "services_started": [
+    "production_deployment",
+    "monetization_executor",
+    "upload_orchestrator"
+  ],
+  "services_failed": [
+    "content_scheduler",
+    "analytics_tracker",
+    "telegram_bot",
+    "mcp_server"
+  ],
+  "environment_status": "valid",
+  "system_ready": false,
+  "health_status": {
+    "overall_health": "healthy",
+    "services_running": 3,
+    "services_total": 3,
+    "services_healthy": [
+      "production_deployment",
+      "monetization_executor",
+      "upload_orchestrator"
+    ],
+    "services_unhealthy": [],
+    "system_metrics": {}
+  },
+  "startup_duration_seconds": 18.056208
+}

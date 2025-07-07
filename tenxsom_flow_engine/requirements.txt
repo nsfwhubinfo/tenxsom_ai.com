@@ -1,0 +1,9 @@
+requests
+aiohttp
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-cloud-aiplatform
+dataclasses
+redis>=4.5.0
+aioredis>=2.0.0

@@ -1,0 +1,54 @@
+[Unit]
+Description=Tenxsom AI Agent: {{AgentName}}
+Documentation=file:///home/golde/tenxsom-ai-vertex/PRODUCTION-INTEGRATION-SUMMARY.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Security settings
+User={{User}}
+Group={{Group}}
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Working directory and environment
+WorkingDirectory={{WorkingDirectory}}
+EnvironmentFile=/home/golde/tenxsom-ai-vertex/production-config.env
+Environment="PYTHONUNBUFFERED=1"
+
+# Process management
+Type=exec
+ExecStartPre=/bin/bash -c 'test -f /home/golde/tenxsom-ai-vertex/production-config.env || (echo "ERROR: production-config.env not found!" && exit 1)'
+ExecStart=/usr/bin/python3 {{MainScriptPath}} --production --daemon
+ExecReload=/bin/kill -USR1 $MAINPID
+
+# Restart policy with exponential backoff
+Restart=on-failure
+RestartSec=10s
+RestartPreventExitStatus=0
+StartLimitInterval=600s
+StartLimitBurst=5
+
+# Resource limits
+MemoryLimit=2G
+CPUQuota=80%
+TasksMax=100
+
+# Kill settings
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30s
+SendSIGKILL=yes
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tenxsom-{{AgentName}}
+
+# Health checking
+# Expects agent to expose health endpoint on specific port
+ExecStartPost=/bin/sleep 5
+ExecStartPost=/bin/bash -c 'curl -f http://localhost:{{HealthPort}}/health || exit 1'
+
+[Install]
+WantedBy=multi-user.target

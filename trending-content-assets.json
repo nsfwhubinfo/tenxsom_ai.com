@@ -1,0 +1,46 @@
+{
+  "tenxsom_ai_trending_content_pipeline": {
+    "generated_at": "2025-07-01T21:26:00Z",
+    "concept": "Trend-based content generation for multi-platform automation",
+    "assets": [
+      {
+        "trend": "AI Developer/Tech Workspace",
+        "platform_target": "YouTube, LinkedIn",
+        "aspect_ratio": "16:9",
+        "asset_id": "asset:80d32de9b3184c870c5a2a9d14cd5833d0c426e0473aa56ba1e55034f97257a1-type:image/jpeg",
+        "prompt": "Modern AI developer workspace, multiple curved monitors displaying code and neural network visualizations, RGB backlighting, futuristic holographic interfaces, trending cyberpunk aesthetic, 4K ultra-detailed",
+        "use_case": "Tech tutorials, coding content, AI education videos"
+      },
+      {
+        "trend": "Crypto Bull Market",
+        "platform_target": "TikTok, YouTube Shorts",
+        "aspect_ratio": "9:16",
+        "asset_id": "asset:4ae07f998e4082002d221562eec1758f013e8d68626157641527abb44d58effd-type:image/jpeg",
+        "prompt": "Bitcoin rocket ship launching through digital clouds, golden cryptocurrency coins floating, trending bull market aesthetic, neon green charts in background, futuristic finance visualization, dramatic lighting",
+        "use_case": "Crypto news, market analysis, trading content"
+      },
+      {
+        "trend": "Minimalist Lifestyle",
+        "platform_target": "Instagram, Pinterest",
+        "aspect_ratio": "1:1",
+        "asset_id": "asset:80877243eaaa65ab5fb1b56f25fb55e0d10dbe2d30dbdf1a8ed2a1584717f500-type:image/jpeg",
+        "prompt": "Scandinavian minimalist morning routine, warm natural lighting, ceramic coffee cup on marble countertop, iPhone and MacBook arranged aesthetically, plants in background, trending clean aesthetic",
+        "use_case": "Lifestyle content, productivity tips, morning routines"
+      },
+      {
+        "trend": "AI Virtual Influencer",
+        "platform_target": "YouTube, Instagram",
+        "aspect_ratio": "16:9",
+        "asset_id": "asset:919711135f2606632cadc40892f1e5fc2030286c26e45a11f69f6b18a36be963-type:image/jpeg",
+        "prompt": "Hyper-realistic AI virtual influencer, perfect features, trendy outfit, recording content with ring light and professional camera setup, holographic AI logo floating nearby, trending social media aesthetic",
+        "use_case": "AI showcase, tech reviews, virtual content creation"
+      }
+    ],
+    "next_steps": {
+      "video_generation": "Use asset IDs as startAssetId for video creation once 402 error is resolved",
+      "content_strategy": "Each image serves as seed for 5-10 video variations",
+      "automation_pipeline": "trend_analysis → image_generation → video_creation → multi_platform_posting",
+      "estimated_content_output": "40+ videos per week across all platforms"
+    }
+  }
+}

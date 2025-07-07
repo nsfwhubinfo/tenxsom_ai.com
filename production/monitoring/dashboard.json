@@ -1,0 +1,58 @@
+{
+  "system_status": {
+    "overall_health": "unknown",
+    "services_running": 4,
+    "total_services": 6,
+    "uptime_hours": 0.0
+  },
+  "service_details": {
+    "config_manager": {
+      "status": "initialized",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    },
+    "strategy_executor": {
+      "status": "running",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    },
+    "content_scheduler": {
+      "status": "ready",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    },
+    "upload_orchestrator": {
+      "status": "running",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    },
+    "analytics_tracker": {
+      "status": "running",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    },
+    "mcp_server": {
+      "status": "running",
+      "uptime": 0.0,
+      "errors": 0,
+      "restarts": 0
+    }
+  },
+  "production_metrics": {
+    "deployment_time": "2025-07-05 21:28:43.359553",
+    "monitoring_active": true,
+    "backup_enabled": true,
+    "last_backup": null
+  },
+  "monetization_pipeline": {
+    "target_daily_videos": 96,
+    "estimated_monthly_cost": 80.0,
+    "platforms_supported": 4,
+    "analytics_tracking": "enabled"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "start_time": "2025-07-05 14:10:35.528105",
+  "services_started": [
+    "production_deployment",
+    "monetization_executor",
+    "content_scheduler",
+    "upload_orchestrator",
+    "analytics_tracker",
+    "mcp_server"
+  ],
+  "services_failed": [
+    "telegram_bot"
+  ],
+  "environment_status": "valid",
+  "system_ready": false,
+  "health_status": {
+    "overall_health": "healthy",
+    "services_running": 6,
+    "services_total": 6,
+    "services_healthy": [
+      "production_deployment",
+      "monetization_executor",
+      "content_scheduler",
+      "upload_orchestrator",
+      "analytics_tracker",
+      "mcp_server"
+    ],
+    "services_unhealthy": [],
+    "system_metrics": {}
+  },
+  "startup_duration_seconds": 24.050591
+}

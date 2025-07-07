@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "useapi.net LTX Studio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Test Base Account",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 1831-r8vA1WGayarXKuYwpT1PW",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.useapi.net/v1/account",
+          "protocol": "https",
+          "host": ["api", "useapi", "net"],
+          "path": ["v1", "account"]
+        }
+      }
+    },
+    {
+      "name": "2. Configure LTX Studio Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 1831-r8vA1WGayarXKuYwpT1PW",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cookie\": \"lt_refresh_token=dbfJ8LzH4B96OOC_9v9Aur8S9-0m-kOD3UN7hKLYhX-O74vCVo8FjGV1dRQO_vrR;lt_id=3sxqBbVPUEswhSaYx11m;lt_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImF1dGgtdG9rZW4tMDAxIiwidHlwIjoiSldUIn0.eyJzdWIiOiIzc3hxQmJWUFVFc3doU2FZeDExbSIsImlzcyI6ImZvcnRyZXNzOjp3dzo6cHJkIiwiZXhwIjoxNzUxNDI2NDE1LCJpYXQiOjE3NTEzOTc2MTUsIm5iZiI6MTc1MTM5NzYxNSwiaWRwIjoiZ29vZ2xlIiwianRpIjoiOTNhZjUxZWItNzE1ZC00YjMyLWIwYzEtM2UwMTNhZDZmODNlIiwiYXVkIjoiY29tLmxpZ2h0cmlja3MuaW5maW5pdHk6Onc6OnByb2R1Y3Rpb24iLCJuYW1lIjoiTWFyayBHb2xkZW4iLCJlbWFpbCI6ImdvbGRlbnNvbnByb3BlcnRpZXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NJQTgwdDlUc3RIR3hieXQweGRrTlBJMHFzdm4wX0NfRmVkeUlZZlc0Rl8tX1g4eU1nPXM5Ni1jIn0.VxAO-9TmuVAsogSCZK78dr2l0m8G4so1X3NWZcuBYKULJNhqWBwDZMLsToQXmLk5leCCDrnsH8yozdimWhc7_ZU6tZ1Lze8xX8ir2aBMyK5_9PDgBo9BEZBenel7ulzLFulzT6vibeBofkVUeRqxVe4kiorSU-ipWv8gDfsYwaW7O4uWVCwqgnxhCxU1JiAi2YpAzhBkcJh0Ei10fNOWVVt0b-Z7_ddS2OR6stP4sSH0-qYWSlwnrnurgzESnVYMWBuWwwtpLo4L9gustqvja1Q-I0C21uLXA2Si133ikb5q8N72VmuPoKU1EaghKuVkGXGqJpY-OsjaQG0aEcNenQ\",\n  \"maxJobs\": 5\n}"
+        },
+        "url": {
+          "raw": "https://api.useapi.net/v1/ltxstudio/accounts",
+          "protocol": "https",
+          "host": ["api", "useapi", "net"],
+          "path": ["v1", "ltxstudio", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "3. Check LTX Studio Accounts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 1831-r8vA1WGayarXKuYwpT1PW",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.useapi.net/v1/ltxstudio/accounts",
+          "protocol": "https",
+          "host": ["api", "useapi", "net"],
+          "path": ["v1", "ltxstudio", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "4. Generate Video (Veo3)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer 1831-r8vA1WGayarXKuYwpT1PW",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"A futuristic AI workspace with glowing screens showing Tenxsom AI interface\",\n  \"model\": \"veo3\",\n  \"pollForResult\": 10\n}"
+        },
+        "url": {
+          "raw": "https://api.useapi.net/v1/ltxstudio/videos/veo-create",
+          "protocol": "https",
+          "host": ["api", "useapi", "net"],
+          "path": ["v1", "ltxstudio", "videos", "veo-create"]
+        }
+      }
+    }
+  ]
+}

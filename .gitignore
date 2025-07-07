@@ -1,0 +1,61 @@
+# Environment and secrets
+production-config.env
+.env
+*.env
+!*.env.template
+!*.env.example
+
+# API tokens and credentials
+*token*
+*secret*
+*credential*
+*apikey*
+*.pem
+*.key
+
+# Process and state files
+.agent_pids
+*.pid
+*.lock
+
+# Logs and temporary files
+*.log
+logs/
+temp/
+tmp/
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Monitoring data
+monitoring_data/
+metrics/
+*.rrd

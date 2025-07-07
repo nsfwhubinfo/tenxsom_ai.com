@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "useapi": {
+      "command": "python",
+      "args": ["-m", "useapi_mcp_server"],
+      "env": {
+        "USEAPI_API_KEY": "your-useapi-api-key-here"
+      }
+    }
+  }
+}

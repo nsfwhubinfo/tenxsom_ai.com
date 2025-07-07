@@ -1,0 +1,66 @@
+{
+  "deployment_timestamp": "2025-07-05T13:52:32.206818",
+  "deployment_status": "successful",
+  "environment": "production",
+  "services_deployed": 6,
+  "services_running": 4,
+  "service_summary": {
+    "config_manager": {
+      "status": "initialized",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    },
+    "strategy_executor": {
+      "status": "running",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    },
+    "content_scheduler": {
+      "status": "ready",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    },
+    "upload_orchestrator": {
+      "status": "running",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    },
+    "analytics_tracker": {
+      "status": "running",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    },
+    "mcp_server": {
+      "status": "running",
+      "uptime": 0.0,
+      "error_count": 0,
+      "restart_count": 0
+    }
+  },
+  "system_capacity": {
+    "daily_video_target": 96,
+    "premium_videos_daily": 4,
+    "volume_videos_daily": 92,
+    "estimated_monthly_cost": 80.0
+  },
+  "monitoring_enabled": true,
+  "backup_enabled": true,
+  "production_directories": {
+    "logs": "/home/golde/tenxsom-ai-vertex/production/logs",
+    "backups": "/home/golde/tenxsom-ai-vertex/production/backups",
+    "monitoring": "/home/golde/tenxsom-ai-vertex/production/monitoring",
+    "reports": "/home/golde/tenxsom-ai-vertex/production/reports",
+    "tmp": "/home/golde/tenxsom-ai-vertex/production/tmp"
+  },
+  "next_actions": [
+    "\ud83d\ude80 System ready for automated content generation",
+    "\ud83d\udcca Monitor performance through dashboard",
+    "\ud83d\udcc8 Track monetization progress daily",
+    "\ud83d\udd27 Optimize based on analytics insights"
+  ]
+}

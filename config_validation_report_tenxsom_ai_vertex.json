@@ -1,0 +1,88 @@
+{
+  "validation_timestamp": "1751734165.5716982",
+  "environment": "production",
+  "project_root": "/home/golde/tenxsom-ai-vertex",
+  "env_file": "/home/golde/tenxsom-ai-vertex/.env",
+  "validation_results": {
+    "useapi": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "bearer_token": "user:1831-r8vA1WGayarXKuYwpT1PW",
+        "email": "goldensonproperties@gmail.com",
+        "base_url": "https://api.useapi.net/v1"
+      }
+    },
+    "google_cloud": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "credentials_path": "/home/golde/.google-ai-ultra-credentials.json",
+        "project_id": "tenxsom-ai-1631088",
+        "location": "us-central1"
+      }
+    },
+    "youtube": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "api_key": "AIzaSyC3zuRXZc06A6EGBgL8yxnrNQlzuMN1eAg",
+        "channel_id": "UCHTnKvKvQiglq2_yaOcQiFg",
+        "channel_url": "https://www.youtube.com/channel/UCHTnKvKvQiglq2_yaOcQiFg",
+        "oauth_client_secrets": "/home/golde/tenxsom-ai-vertex/youtube-upload-pipeline/auth/client_secrets.json",
+        "default_privacy": "private",
+        "default_category": 22,
+        "default_language": "en",
+        "default_tags": [
+          "TenxsomAI",
+          "automation",
+          "AI"
+        ]
+      }
+    },
+    "telegram": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "bot_token": "8165715351:AAGx8GbvklCMy0o7B2Kuo6wz8_aKcvBcMO8",
+        "user_id": "8088003389",
+        "bot_username": "@TenxsomAI_bot"
+      }
+    },
+    "heygen": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "api_key": "your-heygen-api-key-here",
+        "base_url": "https://api.heygen.com/v1"
+      }
+    },
+    "mcp": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "host": "localhost",
+        "port": 8000,
+        "log_level": "INFO"
+      }
+    },
+    "thumbnail": {
+      "status": "valid",
+      "issues": [],
+      "config": {
+        "width": 1280,
+        "height": 720,
+        "quality": 90
+      }
+    }
+  },
+  "system_status": {
+    "overall_status": "ready",
+    "valid_services": 7,
+    "warning_services": 0,
+    "invalid_services": 0,
+    "total_services": 7,
+    "readiness_percentage": 100.0,
+    "critical_issues": []
+  }
+}

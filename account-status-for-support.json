@@ -1,0 +1,17 @@
+{
+  "id": 1831,
+  "email": "goldensonproperties@gmail.com", 
+  "created": "2025-06-23T09:21:14.257Z",
+  "name": "Mark Golden",
+  "subscriptionIsActive": true,
+  "subscriptions": 1,
+  "maxAccountsPerAPI": 3,
+  "accounts": {
+    "LTX Studio API": {
+      "total": 1,
+      "active": 1
+    }
+  },
+  "verified": "2025-06-23T09:24:07.967Z",
+  "sub": "250623"
+}

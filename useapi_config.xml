@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<useapi_configuration>
+    <client_info>
+        <account_email>goldensonproperties@gmail.com</account_email>
+        <bearer_token>user:1831-r8vA1WGayarXKuYwpT1PW</bearer_token>
+        <account_type>premium</account_type>
+        <models_subscribed>
+            <model>veo2</model>
+            <model>ltx-turbo</model>
+            <model>flux</model>
+        </models_subscribed>
+        <credit_limit>5000</credit_limit>
+        <current_credits>10000</current_credits>
+    </client_info>
+    
+    <integration_details>
+        <system_name>Tenxsom AI Video Generation</system_name>
+        <integration_type>python_aiohttp</integration_type>
+        <authentication_method>bearer_token</authentication_method>
+        <timeout_settings>
+            <total_timeout>60</total_timeout>
+            <connect_timeout>15</connect_timeout>
+        </timeout_settings>
+        <retry_logic>
+            <max_retries>3</max_retries>
+            <backoff_delays>5,15,30</backoff_delays>
+        </retry_logic>
+    </integration_details>
+    
+    <affected_endpoints>
+        <endpoint>
+            <url>https://api.useapi.net/v1/veo2/generate/</url>
+            <method>POST</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Video generation with Veo2 model</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/ltxstudio/create/</url>
+            <method>POST</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Video generation with LTX Turbo model</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/accounts/credits/</url>
+            <method>GET</method>
+            <status>failing</status>
+            <error_code>522</error_code>
+            <description>Account credits check</description>
+        </endpoint>
+        <endpoint>
+            <url>https://api.useapi.net/v1/ltxstudio/assets/</url>
+            <method>GET</method>
+            <status>working</status>
+            <error_code>200</error_code>
+            <description>Asset management - ONLY WORKING ENDPOINT</description>
+        </endpoint>
+    </affected_endpoints>
+    
+    <current_issue>
+        <summary>522 Connection Timeout Errors</summary>
+        <duration>Several months</duration>
+        <impact>Video generation completely blocked</impact>
+        <partial_fix_applied>
+            <description>Added trailing slashes to all endpoints</description>
+            <result>Assets endpoint now working, others still failing</result>
+            <success_rate>25%</success_rate>
+        </partial_fix_applied>
+    </current_issue>
+    
+    <request_patterns>
+        <veo2_request>
+            <endpoint>https://api.useapi.net/v1/veo2/generate/</endpoint>
+            <headers>
+                <header name="Authorization">Bearer user:1831-r8vA1WGayarXKuYwpT1PW</header>
+                <header name="Content-Type">application/json</header>
+            </headers>
+            <payload>
+                <prompt>A beautiful sunset over a calm lake</prompt>
+                <duration>15</duration>
+                <aspect_ratio>16:9</aspect_ratio>
+                <style>cinematic</style>
+                <motion>smooth</motion>
+            </payload>
+        </veo2_request>
+        
+        <ltx_turbo_request>
+            <endpoint>https://api.useapi.net/v1/ltxstudio/create/</endpoint>
+            <headers>
+                <header name="Authorization">Bearer user:1831-r8vA1WGayarXKuYwpT1PW</header>
+                <header name="Content-Type">application/json</header>
+            </headers>
+            <payload>
+                <prompt>A beautiful sunset over a calm lake</prompt>
+                <aspect_ratio>16:9</aspect_ratio>
+                <seed>null</seed>
+                <num_outputs>1</num_outputs>
+                <num_frames>120</num_frames>
+                <frame_rate>8</frame_rate>
+                <use_motion>true</use_motion>
+                <override_negative_prompt>false</override_negative_prompt>
+            </payload>
+        </ltx_turbo_request>
+    </request_patterns>
+    
+    <network_environment>
+        <client_location>WSL2 Linux environment</client_location>
+        <os_version>Linux 5.15.167.4-microsoft-standard-WSL2</os_version>
+        <python_version>3.x</python_version>
+        <aiohttp_version>latest</aiohttp_version>
+        <connection_type>residential_broadband</connection_type>
+        <firewall_proxy>none</firewall_proxy>
+    </network_environment>
+</useapi_configuration>

@@ -1,0 +1,137 @@
+UseAPI.net cURL Test Commands
+Based on MiniMax Chatbot Recommendations
+============================================================
+
+## Test account credits endpoint (GET)
+Test ID: credits_endpoint
+
+```bash
+curl -X GET "https://api.useapi.net/v1/accounts/credits" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -v
+```
+
+----------------------------------------
+
+## Test assets endpoint (GET) - Known working
+Test ID: assets_endpoint
+
+```bash
+curl -X GET "https://api.useapi.net/v1/ltxstudio/assets/" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -v
+```
+
+----------------------------------------
+
+## Test LTX Studio Create with minimal payload
+Test ID: ltx_create_minimal
+
+```bash
+curl -X POST "https://api.useapi.net/v1/ltxstudio/create" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -d '{
+    "prompt": "Test video",
+    "model": "ltxv-turbo"
+  }' \
+  -v
+```
+
+----------------------------------------
+
+## Test LTX Studio Create with full correct payload
+Test ID: ltx_create_full
+
+```bash
+curl -X POST "https://api.useapi.net/v1/ltxstudio/create" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -d '{
+    "prompt": "A serene mountain landscape",
+    "model": "ltxv-turbo",
+    "duration": 5,
+    "aspectRatio": "169",
+    "intensity": "medium",
+    "seed": 123456
+  }' \
+  -v
+```
+
+----------------------------------------
+
+## Test Veo2 Generate with minimal payload
+Test ID: veo2_minimal
+
+```bash
+curl -X POST "https://api.useapi.net/v1/veo2/generate" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -d '{
+    "model": "veo2",
+    "duration": 5
+  }' \
+  -v
+```
+
+----------------------------------------
+
+## Test Veo2 Generate with full payload (missing startAssetId)
+Test ID: veo2_full
+
+```bash
+curl -X POST "https://api.useapi.net/v1/veo2/generate" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  -H "Content-Type: application/json" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -d '{
+    "model": "veo2",
+    "prompt": "A peaceful forest stream",
+    "duration": 5,
+    "aspectRatio": "169",
+    "seed": 789012
+  }' \
+  -v
+```
+
+----------------------------------------
+
+## Test API root endpoint
+Test ID: api_root
+
+```bash
+curl -X GET "https://api.useapi.net/" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -v
+```
+
+----------------------------------------
+
+## Test API v1 root endpoint
+Test ID: api_v1_root
+
+```bash
+curl -X GET "https://api.useapi.net/v1/" \
+  -H "Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW" \
+  --connect-timeout 10 \
+  --max-time 30 \
+  -v
+```
+
+----------------------------------------
+

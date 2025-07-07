@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-07-06T09:23:14.985689",
+  "mode": "hybrid_automated",
+  "content_generation": {
+    "images": {
+      "provider": "google_imagen",
+      "model": "imagegeneration@002",
+      "capabilities": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3"
+      ],
+      "quality": "high"
+    },
+    "audio": {
+      "provider": "heygen_tts",
+      "voices": 1500,
+      "languages": "multi",
+      "cost": "free_unlimited"
+    },
+    "video_assets": {
+      "provider": "useapi_net",
+      "available": 17,
+      "types": [
+        "backgrounds",
+        "transitions",
+        "effects"
+      ]
+    }
+  },
+  "workflow_steps": [
+    {
+      "step": 1,
+      "name": "Content Planning",
+      "automation": "full",
+      "description": "AI generates trending content ideas"
+    },
+    {
+      "step": 2,
+      "name": "Image Generation",
+      "automation": "full",
+      "description": "Google Imagen creates visuals"
+    },
+    {
+      "step": 3,
+      "name": "Script Writing",
+      "automation": "full",
+      "description": "AI writes engaging scripts"
+    },
+    {
+      "step": 4,
+      "name": "Voiceover Generation",
+      "automation": "full",
+      "description": "HeyGen TTS creates narration"
+    },
+    {
+      "step": 5,
+      "name": "Video Assembly",
+      "automation": "manual",
+      "description": "Combine assets into videos"
+    },
+    {
+      "step": 6,
+      "name": "Upload & Distribution",
+      "automation": "full",
+      "description": "Automated YouTube uploads"
+    }
+  ],
+  "daily_targets": {
+    "content_pieces": "10-20",
+    "automation_level": "80%",
+    "manual_effort": "20% (video assembly only)"
+  }
+}

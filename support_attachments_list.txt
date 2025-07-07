@@ -1,0 +1,15 @@
+UseAPI.net Support Submission - Available Attachments
+
+📎 TECHNICAL DOCUMENTATION:
+   1. useapi_support_ticket.md - Complete technical support ticket
+   2. MiniMax_Investigation_Final_Report.md - Investigation summary
+   3. useapi_config.xml - Account configuration details
+   4. useapi_error_logs.xml - Detailed error logs
+   5. test_useapi_curl.sh - Manual testing scripts
+   6. useapi_curl_commands.txt - cURL test commands
+   7. comprehensive_useapi_test.py - Automated test results
+   8. test_minimax_fixes.py - MiniMax fix validation
+
+💡 RECOMMENDATION:
+Start with the main support ticket (useapi_support_ticket.md)
+Provide additional files if technical team requests them

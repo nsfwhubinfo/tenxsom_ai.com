@@ -1,0 +1,43 @@
+# Sensitive authentication files
+client_secrets.json
+*.json
+credentials/
+
+# Environment configuration
+.env
+.env.*
+
+# OAuth tokens and credentials
+token.pickle
+oauth_credentials.json
+refresh_token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Logs and temporary files
+*.log
+uploads/
+temp/
+downloads/
+
+# Test files
+test_videos/
+test_thumbnails/
+test_uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db

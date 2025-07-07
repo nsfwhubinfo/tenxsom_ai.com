@@ -1,0 +1,28 @@
+# Tenxsom AI Chatbot Requirements
+
+# Core dependencies
+httpx>=0.25.0
+asyncio-throttle>=1.0.2
+python-telegram-bot>=20.0
+python-dotenv>=1.0.0
+
+# MCP Protocol
+mcp>=0.3.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Vector search (optional - for advanced document search)
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2
+
+# Configuration and utilities
+pydantic>=2.0.0
+click>=8.1.0
+rich>=13.0.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+black>=23.0.0

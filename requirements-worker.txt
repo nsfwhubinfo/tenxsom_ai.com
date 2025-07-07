@@ -1,0 +1,7 @@
+google-cloud-tasks==2.19.3
+flask==3.1.1
+aiohttp==3.12.13
+google-cloud-aiplatform>=1.38.0
+google-cloud-storage>=2.10.0
+google-auth>=2.23.0
+requests>=2.31.0

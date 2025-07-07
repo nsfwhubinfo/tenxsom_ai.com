@@ -1,0 +1,13 @@
+{
+  "launch_time": "2025-07-06T09:23:14.986527",
+  "mode": "hybrid_production",
+  "services": {
+    "google_imagen": "operational",
+    "useapi_assets": "operational",
+    "heygen_tts": "operational",
+    "video_generation": "manual_required"
+  },
+  "automation_level": "80%",
+  "daily_capacity": "10-20 pieces",
+  "ready_for_scale": true
+}

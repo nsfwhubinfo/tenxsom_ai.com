@@ -1,0 +1,23 @@
+{
+  "content_sources": [
+    "trend_analysis",
+    "manual_prompts",
+    "existing_assets"
+  ],
+  "content_generation": {
+    "images": "available",
+    "text": "available",
+    "videos": "blocked_useapi_522",
+    "audio": "heygen_tts_available"
+  },
+  "distribution": {
+    "youtube": "upload_ready",
+    "storage": "local_available"
+  },
+  "fallback_strategies": [
+    "use_existing_useapi_assets",
+    "manual_video_creation",
+    "image_based_content",
+    "audio_podcasts"
+  ]
+}

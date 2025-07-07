@@ -1,0 +1,97 @@
+{
+  "test_timestamp": "2025-07-06T14:54:58.068661",
+  "total_endpoints": 8,
+  "accessible_endpoints": 4,
+  "error_522_endpoints": 4,
+  "health_percentage": 50.0,
+  "results": [
+    {
+      "name": "ltx_studio_create",
+      "url": "https://api.useapi.net/v1/ltxstudio/videos/ltx-create",
+      "method": "POST",
+      "status": "accessible",
+      "status_code": 400,
+      "response_time": 0.459067,
+      "error": null,
+      "is_522_error": false,
+      "is_accessible": true
+    },
+    {
+      "name": "ltx_studio_assets",
+      "url": "https://api.useapi.net/v1/ltxstudio/assets/",
+      "method": "GET",
+      "status": "accessible",
+      "status_code": 200,
+      "response_time": 1.236048,
+      "error": null,
+      "is_522_error": false,
+      "is_accessible": true
+    },
+    {
+      "name": "pixverse_create",
+      "url": "https://api.useapi.net/v2/pixverse/videos/create-v4",
+      "method": "POST",
+      "status": "accessible",
+      "status_code": 400,
+      "response_time": 0.480625,
+      "error": null,
+      "is_522_error": false,
+      "is_accessible": true
+    },
+    {
+      "name": "account_credits",
+      "url": "https://api.useapi.net/v1/accounts/credits",
+      "method": "GET",
+      "status": "522_error",
+      "status_code": 522,
+      "response_time": 18.842462,
+      "error": "Connection timed out (522)",
+      "is_522_error": true,
+      "is_accessible": false
+    },
+    {
+      "name": "midjourney_imagine",
+      "url": "https://api.useapi.net/v1/midjourney/imagine",
+      "method": "POST",
+      "status": "522_error",
+      "status_code": 522,
+      "response_time": 18.580686,
+      "error": "Connection timed out (522)",
+      "is_522_error": true,
+      "is_accessible": false
+    },
+    {
+      "name": "runway_image_to_video",
+      "url": "https://api.useapi.net/v1/runway/image-to-video",
+      "method": "POST",
+      "status": "522_error",
+      "status_code": 522,
+      "response_time": 18.693983,
+      "error": "Connection timed out (522)",
+      "is_522_error": true,
+      "is_accessible": false
+    },
+    {
+      "name": "minimax_video",
+      "url": "https://api.useapi.net/v1/minimax/video",
+      "method": "POST",
+      "status": "522_error",
+      "status_code": 522,
+      "response_time": 18.683171,
+      "error": "Connection timed out (522)",
+      "is_522_error": true,
+      "is_accessible": false
+    },
+    {
+      "name": "heygen_tts",
+      "url": "https://api.useapi.net/v1/heygen/tts/create",
+      "method": "POST",
+      "status": "accessible",
+      "status_code": 400,
+      "response_time": 0.43628,
+      "error": null,
+      "is_522_error": false,
+      "is_accessible": true
+    }
+  ]
+}

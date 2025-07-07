@@ -1,0 +1,78 @@
+{
+  "report_date": "2025-07-05T23:32:32.561685",
+  "generated_at": "2025-07-05T23:32:32.564298",
+  "daily_metrics": {
+    "date": "2025-07-05 23:32:32.561685",
+    "total_videos": 0,
+    "total_views": 0,
+    "total_watch_time_hours": 0.0,
+    "estimated_revenue": 0,
+    "subscriber_count": 100,
+    "subscriber_growth": 0,
+    "monetization_eligible": false,
+    "youtube_partner_status": "building"
+  },
+  "platform_breakdown": {
+    "youtube": {
+      "platform": "youtube",
+      "videos_uploaded": 0,
+      "total_views": 0,
+      "avg_views_per_video": 0.0,
+      "total_engagement": 0,
+      "engagement_rate": 0.0,
+      "top_performing_video": null,
+      "revenue_contribution": 0.0
+    },
+    "tiktok": {
+      "platform": "tiktok",
+      "videos_uploaded": 0,
+      "total_views": 0,
+      "avg_views_per_video": 0.0,
+      "total_engagement": 0,
+      "engagement_rate": 0.0,
+      "top_performing_video": null,
+      "revenue_contribution": 0.0
+    },
+    "instagram": {
+      "platform": "instagram",
+      "videos_uploaded": 0,
+      "total_views": 0,
+      "avg_views_per_video": 0.0,
+      "total_engagement": 0,
+      "engagement_rate": 0.0,
+      "top_performing_video": null,
+      "revenue_contribution": 0.0
+    },
+    "x": {
+      "platform": "x",
+      "videos_uploaded": 0,
+      "total_views": 0,
+      "avg_views_per_video": 0.0,
+      "total_engagement": 0,
+      "engagement_rate": 0.0,
+      "top_performing_video": null,
+      "revenue_contribution": 0.0
+    }
+  },
+  "performance_insights": {
+    "status": "insufficient_data"
+  },
+  "monetization_progress": {
+    "status": "no_youtube_content"
+  },
+  "roi_analysis": {
+    "total_revenue": 0,
+    "estimated_costs": 2.67,
+    "net_profit": -2.67,
+    "roi_percentage": -100.0,
+    "cost_per_video": 2.6667,
+    "revenue_per_video": 0.0,
+    "break_even_videos": "N/A",
+    "tracking_period_days": 1
+  },
+  "recommendations": [
+    "\ud83d\ude80 Focus on subscriber growth and watch time optimization"
+  ],
+  "total_videos_tracked": 0,
+  "tracking_period_days": 0
+}

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UseAPIProductionConfiguration>
+  <metadata>
+    <version>1.0.0</version>
+    <created>2025-01-03</created>
+    <description>Production-ready UseAPI.net configuration for Tenxsom AI multimedia content generation</description>
+    <author>Tenxsom AI</author>
+    <mode>PRODUCTION</mode>
+    <priorities>
+      <priority level="1">YouTube integration for monetization</priority>
+      <priority level="2">24/7 automated content generation</priority>
+      <priority level="3">Cross-platform distribution</priority>
+    </priorities>
+  </metadata>
+
+  <authentication>
+    <bearer>
+      <format>user:{user_id}-{api_key}</format>
+      <example>user:1831-r8vA1WGayarXKuYwpT1PW</example>
+      <storage>environment_variable</storage>
+      <envVar>USEAPI_BEARER_TOKEN</envVar>
+    </bearer>
+    <account>
+      <email>goldensonproperties@gmail.com</email>
+      <plan>LTX Studio Standard Plan</plan>
+      <monthlyFee>28.00</monthlyFee>
+      <credits>
+        <balance>27028</balance>
+        <currency>credits</currency>
+      </credits>
+    </account>
+  </authentication>
+
+  <endpoints>
+    <baseUrl>https://api.useapi.net/v1</baseUrl>
+    
+    <imageGeneration>
+      <flux>
+        <endpoint>/flux-pro-1.1/text-to-image</endpoint>
+        <method>POST</method>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+          <header name="Content-Type">application/json</header>
+        </headers>
+        <parameters>
+          <param name="prompt" type="string" required="true" maxLength="1000"/>
+          <param name="width" type="integer" default="1024" options="512,768,1024,1536,2048"/>
+          <param name="height" type="integer" default="1024" options="512,768,1024,1536,2048"/>
+          <param name="promptOptimization" type="boolean" default="true"/>
+          <param name="safeMode" type="boolean" default="true"/>
+        </parameters>
+        <cost>
+          <credits>30</credits>
+          <usd>0.03</usd>
+        </cost>
+      </flux>
+    </imageGeneration>
+
+    <assetManagement>
+      <upload>
+        <endpoint>/ltxstudio/assets/</endpoint>
+        <method>POST</method>
+        <queryParams>
+          <param name="email" type="string" required="true" value="{account_email}"/>
+          <param name="type" type="string" required="true" value="reference-image"/>
+        </queryParams>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+          <header name="Content-Type">{mime_type}</header>
+        </headers>
+        <supportedFormats>
+          <format>image/jpeg</format>
+          <format>image/png</format>
+          <format>image/webp</format>
+        </supportedFormats>
+        <response>
+          <field name="asset.fileId" type="string" description="Asset ID for video generation"/>
+        </response>
+      </upload>
+    </assetManagement>
+
+    <videoGeneration>
+      <veo2>
+        <endpoint>/ltxstudio/videos/veo-create</endpoint>
+        <method>POST</method>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+          <header name="Content-Type">application/json</header>
+        </headers>
+        <parameters>
+          <param name="prompt" type="string" required="true" maxLength="2000"/>
+          <param name="startAssetId" type="string" required="true" format="asset:{uuid}-type:{mime}"/>
+          <param name="model" type="string" required="true" value="veo2"/>
+          <param name="duration" type="string" required="true" options="5,10,15,30,45"/>
+          <param name="aspectRatio" type="string" required="true" options="16:9,9:16,1:1,4:3,3:4"/>
+        </parameters>
+        <cost>
+          <credits>700</credits>
+          <usd>0.85</usd>
+          <note>Flat rate for any duration up to 45 seconds</note>
+        </cost>
+        <processingTime>120-180 seconds</processingTime>
+      </veo2>
+      
+      <ltxTurbo>
+        <endpoint>/ltxstudio/videos/ltx-turbo</endpoint>
+        <method>POST</method>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+          <header name="Content-Type">application/json</header>
+        </headers>
+        <parameters>
+          <param name="prompt" type="string" required="true" maxLength="2000"/>
+          <param name="startAssetId" type="string" required="true" format="asset:{uuid}-type:{mime}"/>
+          <param name="model" type="string" required="true" value="ltx-turbo"/>
+          <param name="duration" type="string" required="true" options="5,10"/>
+          <param name="aspectRatio" type="string" required="true" options="16:9,9:16,1:1"/>
+        </parameters>
+        <cost>
+          <credits>0</credits>
+          <usd>0.00</usd>
+          <note>Currently free or delayed billing - ideal for high-volume generation</note>
+        </cost>
+        <processingTime>60-120 seconds</processingTime>
+      </ltxTurbo>
+    </videoGeneration>
+
+    <jobManagement>
+      <status>
+        <endpoint>/jobs</endpoint>
+        <method>GET</method>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+        </headers>
+        <polling>
+          <interval>5000</interval>
+          <maxAttempts>60</maxAttempts>
+        </polling>
+        <statuses>
+          <status value="IN_QUEUE"/>
+          <status value="IN_PROGRESS"/>
+          <status value="COMPLETED"/>
+          <status value="FAILED"/>
+        </statuses>
+      </status>
+    </jobManagement>
+
+    <accountManagement>
+      <balance>
+        <endpoint>/accounts/credits</endpoint>
+        <method>GET</method>
+        <headers>
+          <header name="Authorization">Bearer {token}</header>
+        </headers>
+        <response>
+          <field name="credits" type="integer"/>
+          <field name="subscription" type="object"/>
+        </response>
+      </balance>
+    </accountManagement>
+  </endpoints>
+
+  <productionPipeline>
+    <workflow name="trending_to_video">
+      <description>Complete pipeline from trend analysis to video publication</description>
+      
+      <step order="1" name="trend_analysis">
+        <agent>Platform Expert Agents</agent>
+        <actions>
+          <action>Monitor trending topics across platforms</action>
+          <action>Generate content ideas based on trends</action>
+          <action>Create prompts for visual content</action>
+        </actions>
+      </step>
+      
+      <step order="2" name="image_generation">
+        <endpoint>/flux-pro-1.1/text-to-image</endpoint>
+        <input>
+          <field name="prompt" source="trend_analysis.visual_prompt"/>
+          <field name="width" value="1920"/>
+          <field name="height" value="1080"/>
+        </input>
+        <output>
+          <field name="imageUrl" type="string"/>
+          <field name="jobId" type="string"/>
+        </output>
+      </step>
+      
+      <step order="3" name="asset_upload">
+        <endpoint>/ltxstudio/assets/</endpoint>
+        <input>
+          <field name="image" source="image_generation.imageUrl"/>
+          <field name="type" value="reference-image"/>
+        </input>
+        <output>
+          <field name="assetId" type="string"/>
+        </output>
+      </step>
+      
+      <step order="4" name="video_generation">
+        <strategy>
+          <highVolume>
+            <model>ltx-turbo</model>
+            <reason>Zero cost for 24/7 generation</reason>
+          </highVolume>
+          <premium>
+            <model>veo2</model>
+            <reason>Higher quality for monetized content</reason>
+          </premium>
+        </strategy>
+        <input>
+          <field name="prompt" source="trend_analysis.video_prompt"/>
+          <field name="startAssetId" source="asset_upload.assetId"/>
+          <field name="duration" value="45"/>
+          <field name="aspectRatio" platform="youtube" value="16:9"/>
+          <field name="aspectRatio" platform="tiktok" value="9:16"/>
+          <field name="aspectRatio" platform="instagram" value="1:1"/>
+        </input>
+        <output>
+          <field name="videoUrl" type="string"/>
+          <field name="assetId" type="string"/>
+        </output>
+      </step>
+      
+      <step order="5" name="platform_publishing">
+        <platforms>
+          <platform name="youtube" priority="1">
+            <agent>YouTube Expert Agent</agent>
+            <actions>
+              <action>Optimize title and description for SEO</action>
+              <action>Generate thumbnail</action>
+              <action>Schedule publication</action>
+              <action>Enable monetization</action>
+            </actions>
+          </platform>
+          <platform name="tiktok" priority="2">
+            <agent>TikTok Expert Agent</agent>
+            <actions>
+              <action>Add trending sounds</action>
+              <action>Optimize hashtags</action>
+              <action>Schedule for peak hours</action>
+            </actions>
+          </platform>
+          <platform name="instagram" priority="3">
+            <agent>Instagram Expert Agent</agent>
+            <actions>
+              <action>Create reel with trending audio</action>
+              <action>Optimize hashtags and captions</action>
+              <action>Cross-post to stories</action>
+            </actions>
+          </platform>
+        </platforms>
+      </step>
+    </workflow>
+  </productionPipeline>
+
+  <errorHandling>
+    <retryStrategy>
+      <maxRetries>3</maxRetries>
+      <backoffMultiplier>2</backoffMultiplier>
+      <initialDelay>1000</initialDelay>
+    </retryStrategy>
+    
+    <errorCodes>
+      <error code="402">
+        <meaning>Payment Required - Insufficient credits or wrong model</meaning>
+        <action>Check account balance and model availability</action>
+      </error>
+      <error code="400">
+        <meaning>Bad Request - Invalid parameters</meaning>
+        <action>Validate request format and asset IDs</action>
+      </error>
+      <error code="429">
+        <meaning>Rate Limited</meaning>
+        <action>Implement exponential backoff</action>
+      </error>
+    </errorCodes>
+  </errorHandling>
+
+  <costOptimization>
+    <strategies>
+      <strategy name="tiered_quality">
+        <description>Use LTX Turbo for volume, Veo2 for premium</description>
+        <implementation>
+          <rule>Use LTX Turbo for testing and high-frequency posts</rule>
+          <rule>Reserve Veo2 for YouTube monetized content</rule>
+          <rule>Generate 45-second videos to maximize Veo2 value</rule>
+        </implementation>
+      </strategy>
+      
+      <strategy name="credit_monitoring">
+        <description>Monitor credit usage and optimize</description>
+        <thresholds>
+          <warning level="5000" action="alert"/>
+          <critical level="1000" action="switch_to_ltx_turbo_only"/>
+        </thresholds>
+      </strategy>
+    </strategies>
+    
+    <projections>
+      <scenario name="conservative">
+        <dailyVideos>10</dailyVideos>
+        <model>veo2</model>
+        <dailyCost>8.50</dailyCost>
+        <monthlyCost>255.00</monthlyCost>
+      </scenario>
+      
+      <scenario name="aggressive">
+        <dailyVideos>100</dailyVideos>
+        <model>ltx-turbo</model>
+        <dailyCost>0.00</dailyCost>
+        <monthlyCost>0.00</monthlyCost>
+      </scenario>
+      
+      <scenario name="hybrid">
+        <dailyVideos>50</dailyVideos>
+        <breakdown>
+          <ltxTurbo count="45" cost="0.00"/>
+          <veo2 count="5" cost="4.25"/>
+        </breakdown>
+        <dailyCost>4.25</dailyCost>
+        <monthlyCost>127.50</monthlyCost>
+      </scenario>
+    </projections>
+  </costOptimization>
+
+  <monitoring>
+    <metrics>
+      <metric name="video_generation_success_rate" unit="percentage"/>
+      <metric name="average_processing_time" unit="seconds"/>
+      <metric name="credit_usage_rate" unit="credits_per_hour"/>
+      <metric name="platform_publish_success_rate" unit="percentage"/>
+      <metric name="cost_per_engagement" unit="usd"/>
+    </metrics>
+    
+    <alerts>
+      <alert name="low_credits" threshold="1000" severity="warning"/>
+      <alert name="generation_failure_rate" threshold="10%" severity="critical"/>
+      <alert name="slow_processing" threshold="300s" severity="warning"/>
+    </alerts>
+  </monitoring>
+
+  <integration>
+    <tenxsomAI>
+      <orchestrator>/home/golde/Tenxsom_AI/TenxsomAI-Main/</orchestrator>
+      <agents>
+        <agent name="DeepAgent" role="browser_automation"/>
+        <agent name="X_Platform_Expert" role="trend_analysis"/>
+        <agent name="YouTube_Expert" role="youtube_optimization"/>
+        <agent name="TikTok_Expert" role="tiktok_strategy"/>
+        <agent name="Instagram_Expert" role="instagram_content"/>
+      </agents>
+    </tenxsomAI>
+    
+    <vertexAI>
+      <project>tenxsom-ai-vertex</project>
+      <region>us-central1</region>
+      <services>
+        <service>Cloud Functions for webhook handling</service>
+        <service>Cloud Storage for asset management</service>
+        <service>Cloud Scheduler for automation</service>
+      </services>
+    </vertexAI>
+  </integration>
+</UseAPIProductionConfiguration>

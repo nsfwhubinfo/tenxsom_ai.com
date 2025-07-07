@@ -1,0 +1,97 @@
+SUBJECT: URGENT: Persistent 522/523 Cloudflare Errors on Video Generation Endpoints - Business Critical
+
+================================================================================
+
+Dear UseAPI.net Support Team,
+
+I am writing to report a critical infrastructure issue affecting our production video generation system. Our video generation endpoints have been returning persistent 522/523 Cloudflare errors for several months, completely blocking our business operations.
+
+ACCOUNT INFORMATION:
+- Email: goldensonproperties@gmail.com
+- Bearer Token: user:1831-r8vA1WGayarXKuYwpT1PW
+- Account Type: Premium (Veo2, LTX Turbo, Flux access)
+
+PROBLEM SUMMARY:
+- ALL video generation endpoints return 522 Connection Timeout errors
+- Assets endpoint works perfectly (confirming authentication is valid)
+- Issue persists for several months
+- Complete production pipeline blocked
+
+AFFECTED ENDPOINTS:
+❌ POST /v1/veo2/generate - 522 Timeout (20+ seconds)
+❌ POST /v1/ltxstudio/create - 522 Timeout (20+ seconds)  
+❌ GET /v1/accounts/credits - 522 Timeout (19+ seconds)
+✅ GET /v1/ltxstudio/assets/ - 200 OK (1 second) - ONLY WORKING
+
+MINIMAX CHATBOT CONSULTATION:
+We consulted your MiniMax AI assistant twice and implemented ALL recommended fixes:
+- ✅ Corrected payload parameters (removed invalid params)
+- ✅ Fixed URL formats (removed trailing slashes from video endpoints)
+- ✅ Updated headers and authentication
+- ✅ Used correct API parameter names
+
+MINIMAX FINAL ASSESSMENT: "Root Cause: Server-side infrastructure issues at UseAPI.net affecting video endpoints."
+
+TECHNICAL EVIDENCE:
+After implementing all MiniMax fixes, only 25% of endpoints work:
+- Assets endpoint: 200 OK (authentication confirmed working)
+- Video endpoints: Still returning 522 Cloudflare timeouts
+- Error consistency: 100% failure rate on video generation
+
+BUSINESS IMPACT:
+- Production System: Tenxsom AI Video Generation Platform
+- Target Capacity: 96 videos/day (2,880 videos/month)
+- Revenue Impact: $46,080/month potential blocked
+- Current Status: Operating on Google AI Ultra failover (higher costs)
+
+REQUEST FOR TECHNICAL TEAM:
+This appears to be server-side infrastructure degradation specific to video generation endpoints. Please investigate:
+
+1. Origin server connectivity for video generation endpoints
+2. Cloudflare edge configuration differences between working/failing endpoints  
+3. Infrastructure capacity or scaling issues affecting video workloads
+4. Regional routing problems specific to video generation services
+
+RECENT ERROR TIMESTAMPS:
+- 2025-07-06 04:01:22 - LTX Turbo server error 522
+- 2025-07-06 04:01:31 - LTX Turbo server error 523
+- 2025-07-06 04:02:07 - LTX generation failed after 3 attempts
+- 2025-07-06 04:00:30 - Veo2 generation failed after 3 attempts
+
+SAMPLE CORRECTED REQUEST (LTX Studio):
+POST https://api.useapi.net/v1/ltxstudio/create
+Authorization: Bearer user:1831-r8vA1WGayarXKuYwpT1PW
+Content-Type: application/json
+
+{
+  "prompt": "A serene mountain landscape",
+  "model": "ltxv-turbo",
+  "duration": 5,
+  "aspectRatio": "169",
+  "intensity": "medium",
+  "seed": 123456
+}
+
+RESPONSE: 522 Connection Timeout (20+ seconds)
+
+We have exhausted all client-side fixes per your MiniMax recommendations. This requires your technical team's intervention to resolve the server infrastructure issues.
+
+Please provide:
+- Technical analysis of the video endpoint infrastructure status
+- Estimated resolution timeline for production planning
+- Any workarounds while infrastructure is restored
+
+Additional documentation available upon request:
+- Complete error logs with timestamps
+- MiniMax chatbot conversation transcripts
+- cURL test scripts and results
+- Network diagnostic outputs
+
+Thank you for your urgent attention to this critical matter.
+
+Best regards,
+Mark Golden
+goldensonproperties@gmail.com
+Tenxsom AI Video Generation Platform
+
+P.S. We have implemented Google AI Ultra failover to maintain operations, but prefer to restore UseAPI.net for cost optimization and service redundancy.

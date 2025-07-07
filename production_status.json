@@ -1,0 +1,27 @@
+{
+  "google_ai_ultra": {
+    "status": "model_access_needed",
+    "project_id": "tenxsom-ai-1631088",
+    "location": "us-central1",
+    "available_models": [],
+    "fallback_mode": true
+  },
+  "useapi_net": {
+    "status": "degraded",
+    "working_endpoints": [
+      "/ltxstudio/assets/"
+    ],
+    "failing_endpoints": [
+      "/ltxstudio/create",
+      "/veo2/generate"
+    ],
+    "support_ticket_submitted": true
+  },
+  "production_strategy": {
+    "primary": "google_ai_ultra",
+    "fallback": "useapi_net_assets_only",
+    "emergency": "manual_content_creation",
+    "target_daily_videos": 96,
+    "current_capability": "limited"
+  }
+}
