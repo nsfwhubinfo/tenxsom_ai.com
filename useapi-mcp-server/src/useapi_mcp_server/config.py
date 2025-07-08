@@ -40,10 +40,11 @@ class UseAPIConfig:
     def __post_init__(self):
         """Load configuration from environment variables if not provided"""
         if self.api_key is None:
-            self.api_key = os.getenv("USEAPI_API_KEY")
+            # Support both environment variable names
+            self.api_key = os.getenv("USEAPI_BEARER_TOKEN") or os.getenv("USEAPI_API_KEY")
             
         if not self.api_key:
-            raise ValueError("USEAPI_API_KEY environment variable or api_key parameter is required")
+            raise ValueError("USEAPI_BEARER_TOKEN or USEAPI_API_KEY environment variable is required")
             
         # Override with environment variables if present
         self.base_url = os.getenv("USEAPI_BASE_URL", self.base_url)

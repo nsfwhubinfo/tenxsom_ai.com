@@ -1,66 +1,56 @@
-# Multi-stage build for optimized production image
+# Dockerfile
+
+# --- Builder Stage ---
+# Used to compile Python packages that need a build environment
 FROM python:3.11-slim as builder
 
-# Set build arguments
-ARG BUILDPLATFORM
-ARG TARGETPLATFORM
-
-# Install build dependencies
-RUN apt-get update && apt-get install -y \
-    gcc \
-    g++ \
-    python3-dev \
+# Install only essential build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Create app directory
 WORKDIR /app
 
-# Copy requirements first for better caching
+# Copy only requirements.txt to leverage Docker cache
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir --user -r requirements.txt
+# Install dependencies. Using --prefix ensures they go to a predictable location.
+RUN pip install --no-cache-dir --prefix="/install" -r requirements.txt
 
-# Production stage
+# --- Production Stage ---
+# The final, lean image
 FROM python:3.11-slim
 
-# Install runtime dependencies
-RUN apt-get update && apt-get install -y \
+# Install only essential runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq5 \
     && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user
-RUN groupadd -r mcpserver && useradd -r -g mcpserver mcpserver
+# Create a non-root user and group
+RUN groupadd --system appuser && useradd --system --gid appuser appuser
 
-# Set working directory
-WORKDIR /app
-
-# Copy Python packages from builder
-COPY --from=builder /root/.local /home/mcpserver/.local
+# Copy installed packages from the builder stage
+COPY --from=builder /install /usr/local
 
 # Copy application code
+WORKDIR /app
 COPY src/ ./src/
 COPY *.py ./
 
-# Create necessary directories
-RUN mkdir -p /app/logs && \
-    chown -R mcpserver:mcpserver /app
+# Change ownership to the non-root user
+RUN chown -R appuser:appuser /app
 
-# Switch to non-root user
-USER mcpserver
+# Switch to the non-root user
+USER appuser
 
-# Set environment variables
+# Set environment variables for the application
 ENV PYTHONPATH=/app/src
 ENV PYTHONUNBUFFERED=1
-ENV PATH="/home/mcpserver/.local/bin:$PATH"
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python -c "import requests; requests.get('http://localhost:8000/health')" || exit 1
-
-# Expose port
+# Expose the port the app will run on
 EXPOSE 8000
 
-# Start command
-CMD ["python", "-m", "uvicorn", "src.useapi_mcp_server.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+# Command to run the application
+# Let Cloud Run set the --workers flag dynamically based on concurrency
+CMD ["uvicorn", "src.useapi_mcp_server.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -49,12 +49,20 @@ https://api.useapi.net/v2/pixverse/videos/{video_id}
 
 ### 3. MCP Framework Implementation (2025-07-08)
 
-**NEW**: Complete Model Context Protocol (MCP) framework for template-based content generation:
-- **MCP Server**: FastAPI-based server with PostgreSQL template storage
-- **Template Library**: 10 foundational archetypes for professional content generation
+**DEPLOYED**: Complete Model Context Protocol (MCP) framework for template-based content generation:
+- **MCP Server**: FastAPI-based server deployed at https://tenxsom-mcp-server-hpkm6siuqq-uc.a.run.app
+- **Database**: PostgreSQL on Cloud SQL (tenxsom-mcp-db) with 11 templates loaded
+- **Template Library**: 11 foundational archetypes covering premium/standard/volume tiers
 - **Multi-Modal Workflows**: Coordinated video + audio + thumbnail generation
 - **Strategic Integration**: YouTube Expert Agent provides template selection intelligence
 - **Production Ready**: Google Cloud Run deployment with automated scaling
+- **API Endpoints**:
+  - GET `/health` - Health check
+  - GET `/api/status` - System status and metrics
+  - GET `/api/templates` - List all templates
+  - POST `/api/templates` - Store new template
+  - POST `/api/templates/process` - Process template into production plan
+  - POST `/api/batch/templates` - Batch load templates
 
 ## API Configurations
 

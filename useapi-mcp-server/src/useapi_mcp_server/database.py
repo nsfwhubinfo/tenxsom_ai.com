@@ -27,12 +27,37 @@ class MCPTemplateDatabase:
     async def init_pool(self):
         """Initialize connection pool"""
         try:
-            self.pool = await asyncpg.create_pool(
-                self.database_url,
-                min_size=2,
-                max_size=10,
-                command_timeout=60
-            )
+            # Parse the database URL for Cloud SQL compatibility
+            if '/cloudsql/' in self.database_url:
+                # Extract components from Cloud SQL URL
+                # Format: postgresql://user:pass@/dbname?host=/cloudsql/project:region:instance
+                from urllib.parse import urlparse, parse_qs
+                parsed = urlparse(self.database_url)
+                query_params = parse_qs(parsed.query)
+                
+                # Get the actual database name from query params
+                dbname = query_params.get('dbname', ['tenxsom_mcp'])[0]
+                host = query_params.get('host', [''])[0]
+                
+                # Create connection with proper parameters
+                self.pool = await asyncpg.create_pool(
+                    host=host,
+                    database=dbname,
+                    user=parsed.username,
+                    password=parsed.password,
+                    min_size=2,
+                    max_size=10,
+                    command_timeout=60
+                )
+            else:
+                # Standard connection for local development
+                self.pool = await asyncpg.create_pool(
+                    self.database_url,
+                    min_size=2,
+                    max_size=10,
+                    command_timeout=60
+                )
+            
             logger.info("Database connection pool initialized")
             
             # Create tables if they don't exist

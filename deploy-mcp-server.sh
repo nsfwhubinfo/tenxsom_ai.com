@@ -44,7 +44,6 @@ if ! gcloud sql instances describe $DB_INSTANCE_NAME --project=$PROJECT_ID >/dev
         --storage-size=20GB \
         --storage-auto-increase \
         --backup-start-time=03:00 \
-        --enable-bin-log \
         --deletion-protection
     
     echo "⏳ Waiting for database instance to be ready..."
@@ -90,16 +89,12 @@ else
 fi
 
 # Build and deploy using Cloud Build
-echo "🏗️ Building and deploying MCP server..."
-cd useapi-mcp-server
+echo "🏗️ Building and deploying MCP server via Cloud Build..."
 
-# Substitute PROJECT_ID in service.yaml
-sed "s/PROJECT_ID/$PROJECT_ID/g" service.yaml > service-deployed.yaml
-
-# Submit build
-gcloud builds submit --config cloudbuild.yaml \
-    --substitutions _PROJECT_ID=$PROJECT_ID \
-    ..
+# Submit the build from the project root, pointing to the correct config
+gcloud builds submit . \
+    --config useapi-mcp-server/cloudbuild.yaml \
+    --substitutions=_PROJECT_ID=$PROJECT_ID,COMMIT_SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "latest")
 
 # Get service URL
 echo "🌐 Getting service URL..."

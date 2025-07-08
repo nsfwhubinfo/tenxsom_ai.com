@@ -4,25 +4,25 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA',
-      '-t', 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:latest',
+      '-t', 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA',
+      '-t', 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:latest',
       '.'
     ]
     dir: 'useapi-mcp-server'
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA']
+    args: ['push', 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:latest']
+    args: ['push', 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:latest']
 
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args: [
       'run', 'deploy', 'tenxsom-mcp-server',
-      '--image', 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA',
+      '--image', 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA',
       '--region', 'us-central1',
       '--platform', 'managed',
       '--allow-unauthenticated',
@@ -34,13 +34,14 @@ steps:
       '--concurrency', '80',
       '--timeout', '900',
       '--set-env-vars', 'PYTHONPATH=/app/src,PYTHONUNBUFFERED=1',
-      '--set-cloudsql-instances', '$PROJECT_ID:us-central1:tenxsom-mcp-db'
+      '--set-secrets', 'USEAPI_BEARER_TOKEN=useapi-bearer-token:latest,DATABASE_URL=mcp-database-url:latest',
+      '--set-cloudsql-instances', '$_PROJECT_ID:us-central1:tenxsom-mcp-db'
     ]
 
 # Store images in Container Registry
 images:
-  - 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/tenxsom-mcp-server:latest'
+  - 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:$COMMIT_SHA'
+  - 'gcr.io/$_PROJECT_ID/tenxsom-mcp-server:latest'
 
 # Build options
 options:
