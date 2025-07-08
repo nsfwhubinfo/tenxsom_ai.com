@@ -1,0 +1,147 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Calm_Productivity_LoFi_v1",
+  "description": "Creates a soothing, ambient experience for work or study. Template focuses on long takes, aesthetic prompts, and layered ambient soundscapes.",
+  "archetype": "calm_productivity_companion",
+  "target_platform": "youtube",
+  "content_tier": "volume",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "cozy aesthetic, warm lighting, peaceful environments, study vibes, minimal movement",
+      "artifacts": [
+        { "type": "warm_color_grading", "tone": "golden" },
+        { "type": "soft_focus_edges", "intensity": "subtle" },
+        { "type": "minimal_camera_movement", "style": "breathing" }
+      ]
+    },
+    "audio": {
+      "music_palette": "lo-fi hip hop, ambient study beats, gentle instrumental, rain sounds, café ambiance",
+      "narration_style": "minimal or none - focus on ambient soundscape",
+      "sfx_palette": "ambient environmental sounds, typing, page turning, coffee shop atmosphere, nature sounds"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Study_Space_Setup",
+      "scene_type": "Cozy Environment",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Optional gentle introduction to the study session. Create a welcoming atmosphere for focus and productivity. Mention {study_theme} or {ambient_setting}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Cozy study space with {ambient_setting}. Books, laptop, coffee cup, plants, warm lighting. Everything suggests comfort and focus. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Slow zoom into study materials. Open books, notes, or laptop screen showing {study_theme}. Camera movement is barely perceptible, like gentle breathing. {global_visual_modifiers}"},
+        {"time": 30, "prompt": "Detail shots of the study environment. Steam from coffee, plant details, book spines, cozy textures. Focus on elements that enhance concentration. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Gentle introduction to lo-fi rhythm, establishing the productive mood"},
+        "sfx": [
+          {"time": 5, "description": "Gentle coffee brewing or pouring sound", "volume": "low"},
+          {"time": 15, "description": "Soft page turning or laptop keyboard typing", "volume": "very_low"},
+          {"time": 25, "description": "Ambient room tone with subtle nature sounds", "volume": "very_low"},
+          {"time": 35, "description": "Gentle rain on window or distant café ambiance", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "study_session_title",
+          "content": "{study_theme} Study Session",
+          "timing": "From second 10 to 20"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Deep_Focus_Environment",
+      "scene_type": "Productive Atmosphere",
+      "duration_estimate_seconds": 120,
+      "llm_prompt_for_script": "Optional: very minimal, encouraging words about maintaining focus and finding flow. Mostly let the ambient soundscape carry the scene.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Long, steady shot of the study environment. Minimal movement - perhaps gentle swaying of plants or steam rising. Focus on creating a meditative, productive atmosphere. {global_visual_modifiers}"},
+        {"time": 40, "prompt": "Slowly shift perspective to another angle of the study space. Show different cozy elements - bookshelf, window view, comfortable seating. Movement is glacial and calming. {global_visual_modifiers}"},
+        {"time": 80, "prompt": "Close-up on productive details. Hands occasionally entering frame to write notes or turn pages. Laptop screen with work in progress. Everything suggests calm productivity. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Steady lo-fi beat that supports concentration without distraction"},
+        "sfx": [
+          {"time": 20, "description": "Occasional gentle typing sounds", "volume": "very_low"},
+          {"time": 45, "description": "Soft page turning", "volume": "very_low"},
+          {"time": 70, "description": "Coffee sip or gentle movement sounds", "volume": "very_low"},
+          {"time": 90, "description": "Ambient environmental layer - birds, distant traffic, café atmosphere", "volume": "very_low"},
+          {"time": 110, "description": "Gentle paper rustling or note-taking sounds", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "03_Seasonal_Variation",
+      "scene_type": "Environmental Shift",
+      "duration_estimate_seconds": 60,
+      "llm_prompt_for_script": "Optional: brief mention of the {seasonal_element} enhancing the study atmosphere. Keep narration minimal to maintain the peaceful mood.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Introduce {seasonal_element} to the environment. If autumn: falling leaves outside window. If winter: snow or frost. If spring: blooming plants. If summer: warm natural light. {global_visual_modifiers}"},
+        {"time": 30, "prompt": "Show how the {seasonal_element} affects the study space. Changing light patterns, seasonal decorations, or appropriate seasonal study materials. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Subtle variation in the lo-fi rhythm to reflect seasonal mood"},
+        "sfx": [
+          {"time": 10, "description": "Seasonal ambient sound - rain, wind, birds, or summer insects", "volume": "low"},
+          {"time": 35, "description": "Seasonal texture sounds appropriate to {seasonal_element}", "volume": "very_low"},
+          {"time": 50, "description": "Gentle return to core ambient study sounds", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "seasonal_indicator",
+          "content": "{seasonal_element}",
+          "timing": "From second 5 to 15"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Study_Break_Moment",
+      "scene_type": "Gentle Transition",
+      "duration_estimate_seconds": 30,
+      "llm_prompt_for_script": "Optional: gentle suggestion for a mindful break. Encourage stretching, breathing, or just appreciating the peaceful moment.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Gentle break activity. Hands reaching for coffee cup, stretching, looking out window, or closing books momentarily. Everything suggests mindful rest. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Peaceful view outside window or meditation on study space. A moment of appreciation for the calm, productive environment. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Slightly softer, more meditative variation of the lo-fi beat"},
+        "sfx": [
+          {"time": 5, "description": "Deep, contented sigh or gentle movement", "volume": "very_low"},
+          {"time": 20, "description": "Nature sounds or peaceful ambient atmosphere", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "05_Return_to_Focus",
+      "scene_type": "Renewed Productivity",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Optional: gentle encouragement to return to productive work. Mention the satisfaction of focused effort and progress toward {study_goals}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Return to study activities with renewed focus. Opening books, positioning laptop, organizing notes. Everything suggests refreshed concentration. {global_visual_modifiers}"},
+        {"time": 22, "prompt": "Productive study activity in progress. Note-taking, reading, typing. Hands occasionally visible but focus remains on the peaceful, productive atmosphere. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Return to steady, supportive lo-fi rhythm that encourages continued focus"},
+        "sfx": [
+          {"time": 8, "description": "Gentle page opening or laptop starting up", "volume": "low"},
+          {"time": 25, "description": "Steady typing or writing sounds", "volume": "very_low"},
+          {"time": 40, "description": "Ambient study atmosphere with subtle productivity sounds", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "progress_encouragement",
+          "content": "Stay focused on {study_goals}",
+          "timing": "From second 15 to 25"
+        },
+        {
+          "type": "subscribe_for_study_content",
+          "content": "Subscribe for more study sessions",
+          "timing": "From second 35 to 45"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "High_Energy_Listicle_WatchMojo_v1",
+  "description": "Fast-cut countdowns for pop culture topics, relying on source material clips and energetic graphics with rapid pacing.",
+  "archetype": "high_energy_listicle",
+  "target_platform": "youtube",
+  "content_tier": "volume",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "high energy, fast cuts, vibrant colors, pop culture aesthetic, dynamic graphics",
+      "artifacts": [
+        { "type": "motion_blur_transitions", "intensity": "medium" },
+        { "type": "colorful_overlays", "style": "pop_culture" },
+        { "type": "rapid_zoom_effects", "frequency": "frequent" }
+      ]
+    },
+    "audio": {
+      "music_palette": "upbeat, energetic, electronic pop, driving rhythm",
+      "narration_style": "enthusiastic, clear, fast-paced, engaging announcer voice",
+      "sfx_palette": "whooshes, zaps, pop sounds, countdown effects, celebration sounds"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Intro_Montage",
+      "scene_type": "High Energy Opening",
+      "duration_estimate_seconds": 12,
+      "llm_prompt_for_script": "Create an exciting intro for 'Top {list_count} {list_topic}'. Build anticipation for the countdown and mention that viewers won't believe number 1.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Fast-paced montage of highlights from the {list_topic} category. Quick cuts of the most exciting moments, dramatic close-ups, and action sequences. High energy visuals. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "High energy intro with building crescendo"},
+        "sfx": [
+          {"time": 0, "description": "Dramatic opening whoosh", "volume": "high"},
+          {"time": 3, "description": "Countdown beep sequence", "volume": "medium"},
+          {"time": 8, "description": "Explosion or big impact sound", "volume": "high"},
+          {"time": 10, "description": "Anticipation build-up sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "title_explosion",
+          "content": "TOP {list_count} {list_topic}",
+          "timing": "From second 3 to 8"
+        },
+        {
+          "type": "channel_logo",
+          "content": "YourChannel",
+          "timing": "From second 9 to 12"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Rules_Introduction",
+      "scene_type": "List Rules & Setup",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Quickly explain the criteria for inclusion in this top {list_count} {list_topic} list. Mention the methodology and encourage viewers to share their own picks in the comments. Reference {selection_criteria}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Animated graphics showing the selection criteria, with examples from {list_topic}. Clean infographic style with dynamic animations and rule callouts. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Maintains energy while allowing narration clarity"},
+        "sfx": [
+          {"time": 5, "description": "Rule presentation sound", "volume": "medium"},
+          {"time": 10, "description": "Community engagement chime", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "criteria_list",
+          "content": "{selection_criteria}",
+          "timing": "From second 3 to 12"
+        },
+        {
+          "type": "comment_prompt",
+          "content": "Share your picks below!",
+          "timing": "From second 10 to 15"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Countdown_Item",
+      "scene_type": "List Item Presentation",
+      "duration_estimate_seconds": 25,
+      "llm_prompt_for_script": "Present #{item_number}: {item_name}. Explain why this {list_topic} earned its spot with specific examples and memorable moments. Reference {item_details} and {item_significance}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Big, bold number reveal for #{item_number} with explosion effects. High impact graphics. {global_visual_modifiers}"},
+        {"time": 3, "prompt": "Showcase footage of {item_name}. The most iconic, recognizable, or exciting clips that represent why this made the list. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Additional supporting footage showing {item_significance}. More examples and evidence for the ranking. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Builds excitement for each reveal"},
+        "sfx": [
+          {"time": 0, "description": "Number reveal explosion sound", "volume": "high"},
+          {"time": 2, "description": "Transition whoosh to content", "volume": "medium"},
+          {"time": 20, "description": "Approval or 'that's why' confirmation sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "rank_number_big",
+          "content": "#{item_number}",
+          "timing": "From second 0 to 5"
+        },
+        {
+          "type": "item_title_card",
+          "content": "{item_name}",
+          "timing": "From second 5 to 10"
+        },
+        {
+          "type": "key_fact_popup",
+          "content": "{item_key_fact}",
+          "timing": "From second 18 to 23"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Honorable_Mentions",
+      "scene_type": "Quick Fire Honorable Mentions",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Rapid-fire presentation of honorable mentions that didn't quite make the top {list_count}. Mention {honorable_mention_1}, {honorable_mention_2}, and {honorable_mention_3} with brief explanations.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Ultra-fast montage of the honorable mentions. Rapid cuts between {honorable_mention_1}, {honorable_mention_2}, {honorable_mention_3}. Each gets 3-4 seconds of highlight footage. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Tempo increases for rapid-fire segment"},
+        "sfx": [
+          {"time": 0, "description": "Honorable mentions intro sound", "volume": "medium"},
+          {"time": 5, "description": "Quick transition zap", "volume": "medium"},
+          {"time": 10, "description": "Another quick transition zap", "volume": "medium"},
+          {"time": 15, "description": "Building to number 1 tension sound", "volume": "high"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "honorable_mentions_banner",
+          "content": "HONORABLE MENTIONS",
+          "timing": "From second 0 to 3"
+        },
+        {
+          "type": "rapid_fire_titles",
+          "content": "{honorable_mention_1}, {honorable_mention_2}, {honorable_mention_3}",
+          "timing": "Rapid succession from second 3 to 17"
+        }
+      ]
+    },
+    {
+      "scene_id": "05_Number_One_Reveal",
+      "scene_type": "Dramatic #1 Reveal",
+      "duration_estimate_seconds": 35,
+      "llm_prompt_for_script": "Build maximum suspense before revealing #1: {number_one_item}. Explain why this is the ultimate {list_topic} with compelling evidence. Reference {number_one_reasons} and make it feel definitive.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Maximum suspense build-up with dramatic countdown graphics. Tension-building visuals leading to the big reveal. {global_visual_modifiers}"},
+        {"time": 8, "prompt": "EXPLOSIVE #1 reveal with maximum visual impact. The biggest, most dramatic presentation possible. {global_visual_modifiers}"},
+        {"time": 12, "prompt": "The absolute best footage showcasing {number_one_item}. All the most iconic, legendary moments that justify this ranking. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Builds to maximum crescendo for #1 reveal, then triumphant conclusion"},
+        "sfx": [
+          {"time": 0, "description": "Dramatic tension build with heartbeat or ticking", "volume": "medium"},
+          {"time": 6, "description": "Drum roll or suspense peak", "volume": "high"},
+          {"time": 8, "description": "MASSIVE explosion/revelation sound", "volume": "maximum"},
+          {"time": 12, "description": "Triumphant fanfare", "volume": "high"},
+          {"time": 30, "description": "Victory/completion sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "suspense_countdown",
+          "content": "AND #1 IS...",
+          "timing": "From second 3 to 8"
+        },
+        {
+          "type": "massive_number_one",
+          "content": "#1",
+          "timing": "From second 8 to 12"
+        },
+        {
+          "type": "winner_title_explosion",
+          "content": "{number_one_item}",
+          "timing": "From second 12 to 20"
+        },
+        {
+          "type": "justification_points",
+          "content": "{number_one_reasons}",
+          "timing": "From second 22 to 32"
+        }
+      ]
+    },
+    {
+      "scene_id": "06_Outro_CTA",
+      "scene_type": "Engagement & Subscribe",
+      "duration_estimate_seconds": 12,
+      "llm_prompt_for_script": "Wrap up by asking viewers if they agree with the #1 choice and encouraging them to share their own top {list_topic} picks. Promote subscription and mention related videos.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Channel branding with subscribe animations and engagement prompts. Show related video thumbnails and community interaction elements. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Upbeat outro with clear resolution"},
+        "sfx": [
+          {"time": 3, "description": "Subscribe bell notification", "volume": "medium"},
+          {"time": 8, "description": "Positive engagement sound", "volume": "medium"},
+          {"time": 10, "description": "Final outro flourish", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "agreement_poll",
+          "content": "Do you agree with our #1?",
+          "timing": "From second 0 to 6"
+        },
+        {
+          "type": "subscribe_explosion",
+          "content": "SUBSCRIBE for more lists!",
+          "timing": "From second 6 to 12"
+        },
+        {
+          "type": "related_videos_grid",
+          "content": "More {list_topic} content",
+          "timing": "From second 8 to 12"
+        }
+      ]
+    }
+  ]
+}

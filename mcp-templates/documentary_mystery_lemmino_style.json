@@ -1,0 +1,106 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Documentary_Mystery_LEMMiNO_Style_v1",
+  "description": "A template for creating long-form mystery documentaries. Focuses on building atmosphere, presenting evidence methodically, and maintaining a sense of unease and intrigue.",
+  "archetype": "documentary_mystery",
+  "target_platform": "youtube",
+  "content_tier": "premium",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "shot on 16mm film, anamorphic lenses, detailed, hyperrealistic, atmospheric, dimly lit",
+      "artifacts": [
+        { "type": "film_grain", "intensity": "subtle" },
+        { "type": "vignette", "intensity": "medium" },
+        { "type": "light_flicker", "frequency": "occasional" }
+      ]
+    },
+    "audio": {
+      "narration_style": "male, deep, calm, inquisitive, slow-paced, close-mic intimacy",
+      "music_palette": "dark ambient synth, low-frequency drones, minimalist piano melodies",
+      "sfx_palette": "digital glitches, distorted radio static, subtle organic textures (wood creaks, wind)"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_TheSetup",
+      "scene_type": "Atmospheric Opening",
+      "duration_estimate_seconds": 25,
+      "llm_prompt_for_script": "Write a haunting opening about the concept of things that vanish without a trace. Use {topic} as the prime example. End with the key mystery hook that will drive the investigation.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "An extreme close-up of aged, cracked wood or stone. Ancient text or symbols slowly come into focus. Moss and weathering show the passage of time. Cinematic, moody. {global_visual_modifiers}"},
+        {"time": 10, "prompt": "An ultra-wide, slow-panning shot of a misty, dense, and dark forest at dusk. The environment relates to {topic}. Trees are gnarled and ancient. No signs of life. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Starts with a single, low drone. A simple, melancholic piano melody enters at 10 seconds."},
+        "sfx": [
+          {"time": 5, "description": "Sound of wind through ancient structures, subtly mixed.", "volume": "low"},
+          {"time": 15, "description": "Distant, unintelligible whisper mixed with radio static.", "volume": "very_low"},
+          {"time": 22, "description": "A single, sharp digital glitch sound effect, timed with the narrator revealing the mystery hook.", "volume": "high"}
+        ]
+      },
+      "on_screen_elements": [
+        {"type": "title_card", "content": "{topic}", "font": "Custom_Serif, Bold", "timing": "From second 18 to 25"}
+      ]
+    },
+    {
+      "scene_id": "02_TheEvidence",
+      "scene_type": "Information Delivery - The Facts",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Present the undisputed facts about {topic}. Focus on timeline, key figures, and what we know for certain. Keep it objective and forensic. Reference {key_evidence} if provided.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "An animated timeline or map showing key locations and dates related to {topic}. Style is minimalist, dark, with glowing lines and points of interest."},
+        {"time": 15, "prompt": "Photorealistic recreation of historical documents, photographs, or artifacts related to {topic}. Papers are aged, slightly yellowed. {global_visual_modifiers}"},
+        {"time": 30, "prompt": "A wide establishing shot of the main location where {topic} occurred. Weather is overcast, creating a somber mood. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "low-frequency drone continues", "dynamic": "remains flat and tense, providing a bed for narration."},
+        "sfx": [
+          {"time": 15, "description": "Sound of paper rustling and old documents being handled.", "volume": "low"},
+          {"time": 30, "description": "Ambient environmental sounds appropriate to the location.", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {"type": "text_overlay_kinematic", "content": "{key_fact_1}", "font": "Custom_Serif, Regular", "timing": "From second 35 to 42"},
+        {"type": "date_stamp", "content": "{key_date}", "font": "Mono, Light", "timing": "From second 5 to 12"}
+      ]
+    },
+    {
+      "scene_id": "03_TheQuestions",
+      "scene_type": "Raising Doubts",
+      "duration_estimate_seconds": 30,
+      "llm_prompt_for_script": "Present the unresolved questions and conflicting evidence about {topic}. What doesn't add up? What are the main theories? Reference {conflicting_evidence} if provided.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A series of question marks or investigative elements appearing and disappearing. Red strings connecting photos and documents on a conspiracy board style setup."},
+        {"time": 15, "prompt": "Close-up shots of evidence that contradicts the official story. Documents with redacted sections, conflicting timestamps, or unexplained details. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Tension builds. Dissonant notes enter the drone. Rhythm becomes slightly more urgent."},
+        "sfx": [
+          {"time": 10, "description": "Subtle ticking clock or metronome sound.", "volume": "very_low"},
+          {"time": 25, "description": "Sharp string scrape or discord to emphasize contradiction.", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {"type": "text_overlay_question", "content": "{main_question}", "font": "Custom_Serif, Italic", "timing": "From second 20 to 28"}
+      ]
+    },
+    {
+      "scene_id": "04_TheConclusion",
+      "scene_type": "Philosophical Resolution",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Conclude with a thoughtful reflection on what {topic} teaches us about mystery, human nature, or the limits of knowledge. Don't provide definitive answers but rather meaningful questions. Reference {conclusion_theme} if provided.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A slow pull-back shot revealing the scope of the mystery. The camera moves from close details to a wider perspective showing the bigger picture. {global_visual_modifiers}"},
+        {"time": 10, "prompt": "A contemplative final image that relates to the theme. A person silhouetted against a vast landscape, ancient ruins, or an endless library. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Music reaches a quiet resolution. The drone fades to a single sustained note. Piano melody becomes more hopeful but still haunting."},
+        "sfx": []
+      },
+      "on_screen_elements": [
+        {"type": "logo_reveal", "content": "YourBrandLogo.png", "timing": "Last 4 seconds"},
+        {"type": "end_card", "content": "Subscribe for more mysteries", "timing": "Last 8 seconds"}
+      ]
+    }
+  ]
+}

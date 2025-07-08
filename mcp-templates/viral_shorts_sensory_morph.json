@@ -1,0 +1,71 @@
+{
+  "mcp_version": "1.2_Shorts",
+  "template_name": "Sensory_Morph_Short_v1",
+  "description": "An archetype for creating viral, short-form looping videos (8-15 seconds) based on a satisfying visual transformation. Optimized for immediate hooks, sensory focus, and algorithmic replay.",
+  "archetype": "sensory_morph_short",
+  "target_platform": "youtube_shorts",
+  "content_tier": "volume",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "hyper-realistic, studio lighting, macro details, 8K, vibrant colors, clean focus, bokeh background",
+      "artifacts": [{ "type": "subtle_chromatic_aberration", "intensity": "low" }]
+    },
+    "audio": {
+      "music_palette": "trending instrumental audio from TikTok/Reels, simple Lofi beat",
+      "sfx_palette": "hyper-crisp, high-fidelity, satisfying sounds (clicks, pops, slices, whooshes)"
+    },
+    "format": {
+        "aspect_ratio": "9:16",
+        "looping_strategy": "seamless_transition_end_to_start"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_EstablishPattern",
+      "scene_type": "Pattern Establishment",
+      "duration_estimate_seconds": 4,
+      "llm_prompt_for_script": "N/A - This archetype is audio-visual only.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Static shot of the initial subject: {subject_A}. Example: 'Pixel art of {character_name} from {source_material}'. The subject is perfectly centered. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "starts immediately, constant volume."},
+        "sfx": [
+          {"time": 0.5, "description": "A subtle, welcoming 'chime' or 'pop' sound to mark the start.", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "02_TheMorph",
+      "scene_type": "Visual Transformation",
+      "duration_estimate_seconds": 6,
+      "llm_prompt_for_script": "N/A - This archetype is audio-visual only.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A smooth, mesmerizing morph transition from {subject_A} to {subject_B}. Example: 'Pixel art {character_name} transforms into a hyper-realistic photograph of a real-life cosplayer as {character_name}'. The transformation should be the central focus, with background details subtly warping. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "continues."},
+        "sfx": [
+          {"time": 0, "description": "A smooth, building 'whoosh' sound that perfectly syncs with the visual morph.", "volume": "high"},
+          {"time": 5.5, "description": "A final, satisfying 'click' or 'snap' as the transformation completes.", "volume": "high"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "03_TheRevealAndLoop",
+      "scene_type": "Payoff & Reset",
+      "duration_estimate_seconds": 4,
+      "llm_prompt_for_script": "N/A - This archetype is audio-visual only.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "The final subject, {subject_B}, holds the frame for 3 seconds, then begins to subtly hint at a reverse morph back to {subject_A} to create a perfect loop. The final shot holds, allowing the viewer to absorb the detail, then subtly reverses the first few frames of the morph just before the video cuts. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Fades out slightly in the last second to blend with the start of the loop."},
+        "sfx": []
+      },
+      "on_screen_elements": []
+    }
+  ]
+}

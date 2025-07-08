@@ -18,6 +18,7 @@ from monetization_strategy_executor import GenerationResult
 from production_config_manager import ProductionConfigManager
 from agents.youtube_expert.main import YouTubePlatformExpert, ContentCategory
 from intelligent_resource_optimizer import IntelligentResourceOptimizer
+from mcp_orchestrator_integration import MCPOrchestratorIntegration, MCPProductionPlan
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -77,7 +78,7 @@ class ContentUploadOrchestrator:
     - Performance analytics and monitoring
     """
     
-    def __init__(self, config_manager: ProductionConfigManager = None):
+    def __init__(self, config_manager: ProductionConfigManager = None, mcp_server_url: str = "http://localhost:8000"):
         """Initialize the upload orchestrator"""
         self.config = config_manager or ProductionConfigManager()
         
@@ -86,6 +87,12 @@ class ContentUploadOrchestrator:
         
         # Initialize intelligent resource optimizer
         self.resource_optimizer = IntelligentResourceOptimizer(self.config)
+        
+        # Initialize MCP integration for template-based workflows
+        self.mcp_integration = MCPOrchestratorIntegration(
+            mcp_server_url=mcp_server_url,
+            youtube_expert=self.youtube_expert
+        )
         
         # Get AI-optimized platform configurations
         self.platform_configs = self._get_intelligent_platform_configs()
@@ -189,6 +196,107 @@ class ContentUploadOrchestrator:
         logger.info(f"✅ Upload orchestration complete: {orchestration_summary['total_uploads']}/{len(successful_results)} uploaded")
         
         return orchestration_summary
+    
+    async def orchestrate_mcp_content_generation(
+        self, 
+        topics: List[str], 
+        content_tiers: List[str],
+        target_platforms: List[str] = None,
+        batch_size: int = 5
+    ) -> Dict[str, Any]:
+        """
+        Orchestrate content generation using MCP templates
+        
+        Args:
+            topics: List of content topics to generate
+            content_tiers: List of content tiers (premium/standard/volume)
+            target_platforms: Target platforms for optimization
+            batch_size: Number of concurrent generations
+            
+        Returns:
+            MCP generation results and upload orchestration
+        """
+        logger.info(f"🎬 Starting MCP-based content generation for {len(topics)} topics")
+        
+        target_platforms = target_platforms or ["youtube"]
+        
+        # Generate production plans using MCP templates
+        production_plans = []
+        for i, topic in enumerate(topics):
+            content_tier = content_tiers[i % len(content_tiers)]
+            target_platform = target_platforms[i % len(target_platforms)]
+            
+            try:
+                production_plan = await self.mcp_integration.generate_production_plan(
+                    topic=topic,
+                    content_tier=content_tier,
+                    target_platform=target_platform,
+                    duration_preference=30 if target_platform == "youtube" else 15
+                )
+                production_plans.append(production_plan)
+                
+            except Exception as e:
+                logger.error(f"❌ Failed to generate production plan for '{topic}': {e}")
+                continue
+        
+        logger.info(f"📋 Generated {len(production_plans)} production plans")
+        
+        # Execute multi-modal workflows in batches
+        generation_results = []
+        for i in range(0, len(production_plans), batch_size):
+            batch = production_plans[i:i + batch_size]
+            
+            logger.info(f"🎨 Processing batch {i//batch_size + 1}: {len(batch)} production plans")
+            
+            # Execute workflows concurrently within batch
+            batch_tasks = [
+                self.mcp_integration.execute_multi_modal_workflow(plan) 
+                for plan in batch
+            ]
+            
+            batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
+            
+            # Process batch results
+            for j, result in enumerate(batch_results):
+                if isinstance(result, Exception):
+                    logger.error(f"❌ Batch workflow failed: {result}")
+                    continue
+                
+                if result.get("success"):
+                    # Convert MCP workflow result to GenerationResult format
+                    generation_result = self._convert_mcp_to_generation_result(
+                        production_plans[i + j], 
+                        result
+                    )
+                    generation_results.append(generation_result)
+                else:
+                    logger.warning(f"⚠️ MCP workflow failed: {result.get('errors', [])}")
+        
+        logger.info(f"✅ MCP generation complete: {len(generation_results)} successful generations")
+        
+        # Proceed with upload orchestration using existing pipeline
+        if generation_results:
+            upload_results = await self.orchestrate_uploads(generation_results)
+            
+            # Combine MCP generation metrics with upload results
+            mcp_summary = {
+                "mcp_enabled": True,
+                "production_plans_generated": len(production_plans),
+                "successful_generations": len(generation_results),
+                "template_usage": self._analyze_template_usage(production_plans),
+                "estimated_total_cost": sum(plan.estimated_cost for plan in production_plans),
+                "upload_orchestration": upload_results
+            }
+            
+            return mcp_summary
+        
+        else:
+            return {
+                "mcp_enabled": True,
+                "success": False,
+                "reason": "no_successful_generations",
+                "production_plans_attempted": len(production_plans)
+            }
     
     async def _create_upload_requests(self, generation_results: List[GenerationResult]) -> List[UploadRequest]:
         """Create upload requests from generation results"""
@@ -1137,6 +1245,127 @@ class ContentUploadOrchestrator:
                 error_message=f"X Platform upload error: {str(e)}",
                 upload_time=datetime.now()
             )
+
+
+    def _convert_mcp_to_generation_result(
+        self, 
+        production_plan: MCPProductionPlan, 
+        mcp_workflow_result: Dict[str, Any]
+    ) -> GenerationResult:
+        """Convert MCP workflow result to GenerationResult format"""
+        
+        # Extract video clips - use the first successful one as primary video
+        video_clips = mcp_workflow_result.get("video_clips", [])
+        primary_video = video_clips[0] if video_clips else None
+        
+        # Extract thumbnail variants - use the first one as primary thumbnail
+        thumbnail_variants = mcp_workflow_result.get("thumbnail_variants", [])
+        primary_thumbnail = thumbnail_variants[0] if thumbnail_variants else None
+        
+        return GenerationResult(
+            content_id=production_plan.execution_id,
+            success=mcp_workflow_result.get("success", False),
+            video_id=primary_video.get("clip_data", {}).get("video_id") if primary_video else None,
+            video_url=primary_video.get("clip_data", {}).get("video_url") if primary_video else None,
+            thumbnail_path=primary_thumbnail.get("image_url") if primary_thumbnail else None,
+            model_used=production_plan.recommended_generation_tier,
+            service_used="mcp_template_workflow",
+            generation_time=production_plan.total_duration,
+            metadata={
+                "template_name": production_plan.template_name,
+                "execution_id": production_plan.execution_id,
+                "topic": production_plan.context_variables.get("topic"),
+                "platform": production_plan.context_variables.get("target_platform", "youtube"),
+                "content_tier": production_plan.context_variables.get("content_tier", "standard"),
+                "scene_count": len(production_plan.scenes),
+                "estimated_cost": production_plan.estimated_cost,
+                "mcp_enabled": True,
+                "video_clips_generated": len(video_clips),
+                "thumbnail_variants_generated": len(thumbnail_variants),
+                "audio_elements_generated": len(mcp_workflow_result.get("audio_elements", [])),
+                "workflow_errors": mcp_workflow_result.get("errors", [])
+            }
+        )
+    
+    def _analyze_template_usage(self, production_plans: List[MCPProductionPlan]) -> Dict[str, Any]:
+        """Analyze template usage patterns for optimization insights"""
+        
+        template_counts = {}
+        tier_distribution = {}
+        total_estimated_cost = 0
+        total_duration = 0
+        
+        for plan in production_plans:
+            # Count template usage
+            template_name = plan.template_name
+            template_counts[template_name] = template_counts.get(template_name, 0) + 1
+            
+            # Track tier distribution
+            tier = plan.recommended_generation_tier
+            tier_distribution[tier] = tier_distribution.get(tier, 0) + 1
+            
+            # Accumulate metrics
+            total_estimated_cost += plan.estimated_cost
+            total_duration += plan.total_duration
+        
+        return {
+            "template_usage_counts": template_counts,
+            "tier_distribution": tier_distribution,
+            "total_estimated_cost": total_estimated_cost,
+            "total_content_duration": total_duration,
+            "average_cost_per_video": total_estimated_cost / len(production_plans) if production_plans else 0,
+            "average_duration_per_video": total_duration / len(production_plans) if production_plans else 0,
+            "most_used_template": max(template_counts.items(), key=lambda x: x[1])[0] if template_counts else None,
+            "most_used_tier": max(tier_distribution.items(), key=lambda x: x[1])[0] if tier_distribution else None
+        }
+    
+    async def get_mcp_template_performance_analytics(self) -> Dict[str, Any]:
+        """Get performance analytics for MCP templates"""
+        try:
+            # This would call the MCP server to get template analytics
+            response = await self.mcp_integration.client.get(
+                f"{self.mcp_integration.mcp_server_url}/api/mcp_template_list"
+            )
+            response.raise_for_status()
+            templates = response.json()
+            
+            analytics = {
+                "total_templates_available": len(templates.get("templates", [])),
+                "templates_by_tier": {},
+                "templates_by_archetype": {},
+                "performance_summary": []
+            }
+            
+            for template in templates.get("templates", []):
+                # Group by tier
+                tier = template.get("content_tier", "unknown")
+                analytics["templates_by_tier"][tier] = analytics["templates_by_tier"].get(tier, 0) + 1
+                
+                # Group by archetype
+                archetype = template.get("archetype", "unknown")
+                analytics["templates_by_archetype"][archetype] = analytics["templates_by_archetype"].get(archetype, 0) + 1
+                
+                # Add performance summary
+                analytics["performance_summary"].append({
+                    "template_name": template.get("template_name"),
+                    "usage_count": template.get("usage_count", 0),
+                    "success_rate": template.get("success_rate", 0),
+                    "avg_engagement_score": template.get("avg_engagement_score", 0)
+                })
+            
+            # Sort performance summary by usage
+            analytics["performance_summary"].sort(key=lambda x: x["usage_count"], reverse=True)
+            
+            return analytics
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to get MCP template analytics: {e}")
+            return {"error": str(e), "templates_available": False}
+    
+    async def close(self):
+        """Clean up resources"""
+        if hasattr(self, 'mcp_integration'):
+            await self.mcp_integration.close()
 
 
 def main():

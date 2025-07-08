@@ -1,0 +1,78 @@
+{
+  "mcp_version": "1.2_Shorts",
+  "template_name": "Satisfying_Sensory_Slice_v1",
+  "description": "Focus on a single, satisfying action repeated with different subjects. The key is perfect audio-visual sync and sensory satisfaction.",
+  "archetype": "satisfying_sensory_slice",
+  "target_platform": "youtube_shorts",
+  "content_tier": "volume",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "macro photography, ultra-slow motion, pristine detail, vibrant colors, perfect lighting, studio quality",
+      "artifacts": [
+        { "type": "motion_blur", "intensity": "subtle" },
+        { "type": "color_saturation", "boost": "high" },
+        { "type": "shallow_depth_of_field", "focus": "razor_sharp" }
+      ]
+    },
+    "audio": {
+      "music_palette": "minimal ambient, subtle rhythmic background",
+      "narration_style": "N/A - purely sensory content",
+      "sfx_palette": "hyper-crisp, high-fidelity satisfying sounds (slices, cracks, pops, crunches)"
+    },
+    "format": {
+        "aspect_ratio": "9:16",
+        "duration_strategy": "perfect_loop_15_seconds"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Subject_Introduction",
+      "scene_type": "Object Presentation",
+      "duration_estimate_seconds": 3,
+      "llm_prompt_for_script": "N/A - This is purely visual/auditory content with no narration.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Perfect presentation shot of pristine {subject_type}. Example: 'A perfect, ripe {fruit_name} on a cutting board with a razor-sharp knife positioned nearby'. Studio lighting, macro detail, anticipation building. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Subtle ambient tone, building slight anticipation"},
+        "sfx": [
+          {"time": 1, "description": "Gentle placement sound of object or tool", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "02_The_Slice",
+      "scene_type": "Satisfying Action",
+      "duration_estimate_seconds": 8,
+      "llm_prompt_for_script": "N/A - This is purely visual/auditory content with no narration.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Ultra-slow motion slice through {subject_type}. A razor-sharp knife cleanly cuts through in one smooth motion. Capture every detail: the blade entering, the clean separation, any juice or particles, the perfect cross-section reveal. Maximum visual satisfaction. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Minimal, allowing the slice sound to be the star"},
+        "sfx": [
+          {"time": 0.5, "description": "THE SLICE - extremely crisp, high-fidelity cut sound perfectly synced to the visual. The most satisfying {subject_type} cutting sound possible.", "volume": "high"},
+          {"time": 4, "description": "Gentle settling sound as pieces separate", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "03_Cross_Section_Reveal",
+      "scene_type": "Detail Showcase",
+      "duration_estimate_seconds": 4,
+      "llm_prompt_for_script": "N/A - This is purely visual/auditory content with no narration.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Close-up reveal of the perfect cross-section of the sliced {subject_type}. Show the internal structure, textures, colors, and patterns. Camera slowly pulls back to show the complete cut. Perfect lighting reveals every detail. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Gentle resolution, satisfaction"},
+        "sfx": [
+          {"time": 2, "description": "Soft, satisfying completion sound or gentle exhale", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": []
+    }
+  ]
+}

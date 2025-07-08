@@ -17,6 +17,8 @@ import json
 from monetization_strategy_executor import MonetizationStrategyExecutor, ContentRequest
 from production_config_manager import ProductionConfigManager
 from intelligent_topic_generator import IntelligentTopicGenerator
+from content_upload_orchestrator import ContentUploadOrchestrator
+from agents.youtube_expert.main import YouTubePlatformExpert
 
 # Configure logging
 logging.basicConfig(
@@ -42,7 +44,7 @@ class DailyContentScheduler:
     - Performance analytics and reporting
     """
     
-    def __init__(self, config_manager: ProductionConfigManager = None):
+    def __init__(self, config_manager: ProductionConfigManager = None, mcp_enabled: bool = True):
         """Initialize the daily scheduler"""
         self.config = config_manager or ProductionConfigManager()
         self.executor = MonetizationStrategyExecutor(self.config)
@@ -50,14 +52,46 @@ class DailyContentScheduler:
         # Initialize intelligent topic generator
         self.topic_generator = IntelligentTopicGenerator(self.config)
         
-        # Scheduling configuration
+        # Initialize MCP-enabled content orchestrator
+        self.mcp_enabled = mcp_enabled
+        if self.mcp_enabled:
+            self.content_orchestrator = ContentUploadOrchestrator(
+                config_manager=self.config,
+                mcp_server_url="http://localhost:8000"
+            )
+            self.youtube_expert = YouTubePlatformExpert()
+            logger.info("✅ MCP integration enabled for template-based content generation")
+        else:
+            self.content_orchestrator = None
+            self.youtube_expert = None
+            logger.info("ℹ️ MCP integration disabled, using traditional generation methods")
+        
+        # Scheduling configuration with MCP template strategy
         self.execution_times = [
-            "06:00",  # Morning batch - Premium content
-            "10:00",  # Midday batch - Standard content  
-            "14:00",  # Afternoon batch - Volume content
-            "18:00",  # Evening batch - Additional volume
-            "22:00"   # Night batch - Volume content
+            "06:00",  # Morning batch - Premium content (Documentary, Cinematic)
+            "10:00",  # Midday batch - Standard content (Explainer, Tech News)
+            "14:00",  # Afternoon batch - Volume content (Shorts, ASMR)
+            "18:00",  # Evening batch - Additional volume (Gaming, Viral)
+            "22:00"   # Night batch - Volume content (Productivity, LoFi)
         ]
+        
+        # MCP Template tier distribution by time
+        self.tier_distribution = {
+            "06:00": {"premium": 0.6, "standard": 0.4, "volume": 0.0},
+            "10:00": {"premium": 0.2, "standard": 0.6, "volume": 0.2},
+            "14:00": {"premium": 0.1, "standard": 0.2, "volume": 0.7},
+            "18:00": {"premium": 0.1, "standard": 0.2, "volume": 0.7},
+            "22:00": {"premium": 0.0, "standard": 0.2, "volume": 0.8}
+        }
+        
+        # Platform distribution strategy
+        self.platform_distribution = {
+            "06:00": {"youtube": 0.8, "youtube_shorts": 0.2},
+            "10:00": {"youtube": 0.7, "youtube_shorts": 0.3},
+            "14:00": {"youtube": 0.3, "youtube_shorts": 0.5, "tiktok": 0.2},
+            "18:00": {"youtube": 0.2, "youtube_shorts": 0.5, "tiktok": 0.2, "instagram": 0.1},
+            "22:00": {"youtube": 0.5, "youtube_shorts": 0.3, "instagram": 0.2}
+        }
         
         # Resource management
         self.daily_limits = {
@@ -180,8 +214,11 @@ class DailyContentScheduler:
                 # Generate batch content requests
                 content_requests = self._generate_batch_requests(batch_size)
                 
-                # Execute the batch
-                result = await self._execute_content_batch(content_requests)
+                # Execute the batch (MCP-enabled or traditional)
+                if self.mcp_enabled:
+                    result = await self._execute_mcp_content_batch(execution_id, batch_size)
+                else:
+                    result = await self._execute_content_batch(content_requests)
                 
                 # Update usage tracking
                 self._update_usage_tracking(result)
@@ -520,6 +557,80 @@ class DailyContentScheduler:
             "upload_results": upload_results
         }
     
+    async def _execute_mcp_content_batch(self, execution_id: str, batch_size: int) -> Dict[str, Any]:
+        """Execute MCP template-based content generation batch"""
+        logger.info(f"🎬 Executing MCP-enabled batch {execution_id} with {batch_size} videos")
+        
+        # Get current time for tier/platform distribution
+        current_time = datetime.now().strftime("%H:%M")
+        
+        # Generate topics using intelligent topic generator
+        topics = await self._generate_strategic_topics(batch_size, current_time)
+        
+        # Determine content tiers based on time distribution
+        content_tiers = self._distribute_content_tiers(batch_size, current_time)
+        
+        # Determine target platforms based on time distribution
+        target_platforms = self._distribute_target_platforms(batch_size, current_time)
+        
+        logger.info(f"📋 Generated batch plan:")
+        logger.info(f"   Topics: {len(topics)}")
+        logger.info(f"   Tier distribution: {dict(zip(set(content_tiers), [content_tiers.count(t) for t in set(content_tiers)]))}")
+        logger.info(f"   Platform distribution: {dict(zip(set(target_platforms), [target_platforms.count(p) for p in set(target_platforms)]))}")
+        
+        # Execute MCP content generation and upload orchestration
+        try:
+            mcp_result = await self.content_orchestrator.orchestrate_mcp_content_generation(
+                topics=topics,
+                content_tiers=content_tiers,
+                target_platforms=target_platforms,
+                batch_size=5  # Process in smaller concurrent batches
+            )
+            
+            # Extract metrics from MCP result
+            batch_metrics = {
+                "requests": batch_size,
+                "generated": mcp_result.get("successful_generations", 0),
+                "uploaded": mcp_result.get("upload_orchestration", {}).get("successful_uploads", 0),
+                "production_plans_generated": mcp_result.get("production_plans_generated", 0),
+                "generation_success_rate": (mcp_result.get("successful_generations", 0) / batch_size) * 100,
+                "upload_success_rate": self._calculate_upload_success_rate(mcp_result),
+                "total_estimated_cost": mcp_result.get("estimated_total_cost", 0),
+                "template_usage": mcp_result.get("template_usage", {}),
+                "execution_time": datetime.now().isoformat(),
+                "mcp_enabled": True
+            }
+            
+            logger.info(f"✅ MCP Batch complete:")
+            logger.info(f"   Production plans: {batch_metrics['production_plans_generated']}")
+            logger.info(f"   Generated: {batch_metrics['generated']}/{batch_metrics['requests']}")
+            logger.info(f"   Uploaded: {batch_metrics['uploaded']}")
+            logger.info(f"   Estimated cost: ${batch_metrics['total_estimated_cost']:.2f}")
+            
+            return {
+                "metrics": batch_metrics,
+                "mcp_result": mcp_result,
+                "topics_used": topics,
+                "tiers_used": content_tiers,
+                "platforms_used": target_platforms
+            }
+            
+        except Exception as e:
+            logger.error(f"❌ MCP batch execution failed: {e}")
+            
+            # Fallback to traditional generation if MCP fails
+            logger.info("🔄 Falling back to traditional content generation")
+            
+            # Generate traditional content requests
+            content_requests = self._generate_batch_requests(batch_size)
+            traditional_result = await self._execute_content_batch(content_requests)
+            
+            # Mark as fallback
+            traditional_result["metrics"]["mcp_fallback"] = True
+            traditional_result["mcp_error"] = str(e)
+            
+            return traditional_result
+    
     def _update_usage_tracking(self, batch_result: Dict[str, Any]):
         """Update daily usage tracking"""
         metrics = batch_result["metrics"]
@@ -698,6 +809,154 @@ class DailyContentScheduler:
             "last_execution": self.execution_history[-1] if self.execution_history else None,
             "next_scheduled": next_execution.isoformat() if next_execution else None
         }
+
+
+    async def _generate_strategic_topics(self, batch_size: int, current_time: str) -> List[str]:
+        """Generate strategic topics using intelligent topic generator and YouTube expert"""
+        try:
+            # Get time-based context
+            time_context = self._get_time_context(current_time)
+            
+            # Generate base topics
+            base_topics = await self.topic_generator.generate_topics(
+                count=batch_size,
+                time_context=time_context
+            )
+            
+            # Enhance topics with YouTube expert insights if available
+            if self.youtube_expert:
+                enhanced_topics = []
+                for topic in base_topics:
+                    try:
+                        # Get trending analysis for topic
+                        trending_analysis = self.youtube_expert.monitor_trends()
+                        opportunities = trending_analysis.get("opportunities", [])
+                        
+                        # Enhance topic based on trending opportunities
+                        if opportunities:
+                            top_opportunity = opportunities[0]
+                            enhanced_topic = f"{topic} - {top_opportunity.get('keyword', topic)}"
+                            enhanced_topics.append(enhanced_topic)
+                        else:
+                            enhanced_topics.append(topic)
+                            
+                    except Exception as e:
+                        logger.warning(f"⚠️ YouTube expert enhancement failed for '{topic}': {e}")
+                        enhanced_topics.append(topic)
+                
+                return enhanced_topics[:batch_size]
+            
+            return base_topics[:batch_size]
+            
+        except Exception as e:
+            logger.error(f"❌ Strategic topic generation failed: {e}")
+            # Fallback to simple topics
+            return [f"AI Innovation Topic {i+1}" for i in range(batch_size)]
+    
+    def _distribute_content_tiers(self, batch_size: int, current_time: str) -> List[str]:
+        """Distribute content across tiers based on time-based strategy"""
+        distribution = self.tier_distribution.get(current_time, self.tier_distribution["14:00"])
+        
+        tiers = []
+        premium_count = int(batch_size * distribution["premium"])
+        standard_count = int(batch_size * distribution["standard"])
+        volume_count = batch_size - premium_count - standard_count
+        
+        tiers.extend(["premium"] * premium_count)
+        tiers.extend(["standard"] * standard_count)
+        tiers.extend(["volume"] * volume_count)
+        
+        # Shuffle to avoid predictable patterns
+        import random
+        random.shuffle(tiers)
+        
+        return tiers
+    
+    def _distribute_target_platforms(self, batch_size: int, current_time: str) -> List[str]:
+        """Distribute content across platforms based on time-based strategy"""
+        distribution = self.platform_distribution.get(current_time, self.platform_distribution["14:00"])
+        
+        platforms = []
+        for platform, ratio in distribution.items():
+            count = int(batch_size * ratio)
+            platforms.extend([platform] * count)
+        
+        # Fill any remaining slots with YouTube (default)
+        while len(platforms) < batch_size:
+            platforms.append("youtube")
+        
+        # Shuffle to avoid predictable patterns
+        import random
+        random.shuffle(platforms)
+        
+        return platforms[:batch_size]
+    
+    def _get_time_context(self, current_time: str) -> str:
+        """Get contextual information based on current time"""
+        time_contexts = {
+            "06:00": "morning_professional_content",
+            "10:00": "midday_educational_content", 
+            "14:00": "afternoon_entertainment_content",
+            "18:00": "evening_viral_content",
+            "22:00": "night_productivity_content"
+        }
+        
+        return time_contexts.get(current_time, "general_content")
+    
+    def _calculate_upload_success_rate(self, mcp_result: Dict[str, Any]) -> float:
+        """Calculate upload success rate from MCP result"""
+        upload_orchestration = mcp_result.get("upload_orchestration", {})
+        
+        successful_uploads = upload_orchestration.get("successful_uploads", 0)
+        total_uploads = upload_orchestration.get("total_uploads", 0)
+        
+        if total_uploads == 0:
+            return 0.0
+        
+        return (successful_uploads / total_uploads) * 100
+    
+    async def get_mcp_performance_summary(self) -> Dict[str, Any]:
+        """Get comprehensive MCP performance summary"""
+        if not self.mcp_enabled or not self.content_orchestrator:
+            return {"mcp_enabled": False, "error": "MCP integration not available"}
+        
+        try:
+            # Get template performance analytics
+            template_analytics = await self.content_orchestrator.get_mcp_template_performance_analytics()
+            
+            # Combine with execution history
+            mcp_executions = [
+                exec_hist for exec_hist in self.execution_history 
+                if exec_hist.get("result", {}).get("metrics", {}).get("mcp_enabled")
+            ]
+            
+            performance_summary = {
+                "mcp_enabled": True,
+                "template_analytics": template_analytics,
+                "execution_count": len(mcp_executions),
+                "total_videos_generated": sum(
+                    exec_hist.get("result", {}).get("metrics", {}).get("generated", 0)
+                    for exec_hist in mcp_executions
+                ),
+                "total_estimated_cost": sum(
+                    exec_hist.get("result", {}).get("metrics", {}).get("total_estimated_cost", 0)
+                    for exec_hist in mcp_executions
+                ),
+                "average_success_rate": sum(
+                    exec_hist.get("result", {}).get("metrics", {}).get("generation_success_rate", 0)
+                    for exec_hist in mcp_executions
+                ) / len(mcp_executions) if mcp_executions else 0,
+                "fallback_count": len([
+                    exec_hist for exec_hist in mcp_executions
+                    if exec_hist.get("result", {}).get("metrics", {}).get("mcp_fallback")
+                ])
+            }
+            
+            return performance_summary
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to get MCP performance summary: {e}")
+            return {"mcp_enabled": True, "error": str(e)}
 
 
 def main():

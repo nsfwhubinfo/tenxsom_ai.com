@@ -1,0 +1,155 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Explainer_VoxStyle_v1",
+  "description": "A template for creating short-form explainer videos with a strong narrative arc. Relies heavily on B-roll and text callouts.",
+  "archetype": "narrative_explainer",
+  "target_platform": "youtube",
+  "content_tier": "standard",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "cinematic, high-contrast lighting, thoughtful pacing, 4K, photorealistic",
+      "artifacts": [
+        { "type": "subtle_color_grading", "style": "modern_documentary" }
+      ]
+    },
+    "audio": {
+      "music_palette": "ambient, slightly tense, building to a crescendo, thoughtful piano",
+      "narration_style": "calm, authoritative, mid-range male voice",
+      "sfx_palette": "subtle transitions, paper rustles, digital interface sounds"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Hook",
+      "scene_type": "Hook",
+      "duration_estimate_seconds": 8,
+      "llm_prompt_for_script": "Based on the core topic '{topic}', write a compelling, one-sentence hook that presents a surprising or counter-intuitive fact to grab the viewer's attention immediately.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "An abstract, visually intriguing slow-motion shot related to '{topic}'. For example, if the topic is coffee, show a single drop of milk hitting black coffee in ultra-slow motion. Dramatic and eye-catching. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Starts with attention-grabbing musical sting"},
+        "sfx": [
+          {"time": 3, "description": "Subtle 'whoosh' transition sound", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "text_overlay_kinematic",
+          "content": "{hook_question_from_script}",
+          "font": "Inter, Bold",
+          "timing": "From second 3 to 7"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Context",
+      "scene_type": "Context Setting",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Briefly explain the basic, commonly known background of '{topic}' in 2-3 sentences. Set the stage for the viewer.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A series of three quick, clean, cinematic B-roll shots showing the everyday context of '{topic}'. Archival footage style. Sweeping drone shot. People interacting with the topic naturally. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Builds gradually, creating momentum"},
+        "sfx": [
+          {"time": 8, "description": "Soft page turn or digital transition", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": []
+    },
+    {
+      "scene_id": "03_Problem",
+      "scene_type": "Inciting Incident / The 'But'",
+      "duration_estimate_seconds": 12,
+      "llm_prompt_for_script": "Introduce the central conflict or problem. Start with 'But the problem is...' or a similar transition. Explain the core tension you will explore in the video. Reference '{problem_statement}'.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A sudden shift in mood. A shot that visually represents a problem. A cracked object, a failing machine, a frustrated person. The lighting becomes more dramatic and shadowy. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Tension increases, minor key elements enter"},
+        "sfx": [
+          {"time": 6, "description": "Subtle discordant note or tension sound", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "text_overlay_static",
+          "content": "{problem_summary_from_script}",
+          "font": "Inter, Regular",
+          "position": "bottom_third",
+          "timing": "From second 6 to 11"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Point_1",
+      "scene_type": "Supporting Point",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Explain the first key point, '{key_point_1}', that addresses the problem. Use a clear topic sentence and provide evidence or elaboration.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "A clear, illustrative shot demonstrating '{key_point_1}'. Animated chart showing data rising. A close-up on a specific detail. A visual metaphor for the point being made. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Music becomes more hopeful and forward-moving"},
+        "sfx": [
+          {"time": 10, "description": "Positive chime or success sound for key insight", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "infographic_element",
+          "content": "{key_point_1_visual}",
+          "timing": "From second 8 to 18"
+        }
+      ]
+    },
+    {
+      "scene_id": "05_Point_2",
+      "scene_type": "Supporting Point",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Explain the second key point, '{key_point_2}', building on the first. Show how this contributes to solving the problem.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Another illustrative shot for '{key_point_2}'. This should complement and build on the previous point. Show progression or evolution. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Continues building momentum"},
+        "sfx": [
+          {"time": 12, "description": "Another positive reinforcement sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "infographic_element",
+          "content": "{key_point_2_visual}",
+          "timing": "From second 8 to 18"
+        }
+      ]
+    },
+    {
+        "scene_id": "06_Conclusion",
+        "scene_type": "Conclusion / The 'So What'",
+        "duration_estimate_seconds": 15,
+        "llm_prompt_for_script": "Summarize the key findings and explain why this matters to the viewer. What is the main takeaway or future implication of '{topic}'? Reference '{conclusion_summary}'.",
+        "generative_video_prompts": [
+          {"time": 0, "prompt": "A forward-looking, inspiring, or thought-provoking final shot. A sunrise over a city skyline. A person looking thoughtfully into the distance. A clean, minimalist representation of the solution. {global_visual_modifiers}"}
+        ],
+        "audio_elements": {
+          "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Reaches satisfying resolution with uplifting finale"},
+          "sfx": []
+        },
+        "on_screen_elements": [
+            {
+                "type": "logo_reveal",
+                "content": "YourBrandLogo.png",
+                "timing": "Last 4 seconds"
+            },
+            {
+                "type": "subscribe_prompt",
+                "content": "Subscribe for more explainers",
+                "timing": "Last 6 seconds"
+            }
+        ]
+    }
+  ]
+}

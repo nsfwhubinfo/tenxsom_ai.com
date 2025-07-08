@@ -1,0 +1,110 @@
+{
+  "mcp_version": "1.2_Shorts",
+  "template_name": "Impossible_Fortnite_Play_v1",
+  "description": "About subverting expectations in a familiar gaming environment. The AI must generate a plausible but extraordinary game clip that showcases impossible-seeming skill.",
+  "archetype": "impossible_fortnite_play",
+  "target_platform": "youtube_shorts",
+  "content_tier": "volume",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "Fortnite replay mode aesthetic, dramatic camera angles, slow-motion highlights, vibrant game colors",
+      "artifacts": [
+        { "type": "game_ui_elements", "style": "fortnite_authentic" },
+        { "type": "elimination_effects", "intensity": "dramatic" },
+        { "type": "camera_shake", "on_action": "medium" }
+      ]
+    },
+    "audio": {
+      "music_palette": "high-energy electronic, gaming music, epic build-ups",
+      "narration_style": "excited gaming commentary, hype reactions",
+      "sfx_palette": "authentic Fortnite sounds, weapon effects, elimination audio, building sounds"
+    },
+    "format": {
+        "aspect_ratio": "9:16",
+        "pacing_strategy": "build_tension_to_explosive_moment"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Setup_Situation",
+      "scene_type": "Tension Building",
+      "duration_estimate_seconds": 4,
+      "llm_prompt_for_script": "Create excited gaming commentary setting up the impossible scenario: '{impossible_scenario}'. Build hype for what's about to happen.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Fortnite gameplay showing the setup for {impossible_scenario}. Player in precarious position, multiple enemies visible, seemingly impossible odds. Replay mode camera capturing the tension. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Building tension, anticipation rising"},
+        "sfx": [
+          {"time": 1, "description": "Fortnite weapon reload or building sound", "volume": "medium"},
+          {"time": 3, "description": "Enemy footsteps or building sounds nearby", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "player_health_indicator",
+          "content": "Low health visible",
+          "timing": "From second 1 to 4"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_The_Impossible_Moment",
+      "scene_type": "Epic Play Execution",
+      "duration_estimate_seconds": 8,
+      "llm_prompt_for_script": "React with intense excitement as the impossible play happens. Use gaming expressions and hype language appropriate to the incredible skill being displayed.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "The execution of {impossible_scenario}. Slow-motion highlights of impossible accuracy, perfect timing, or incredible building skills. Multiple camera angles showing the play from different perspectives. Elimination effects and damage numbers clearly visible. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Explosive crescendo during the key moment"},
+        "sfx": [
+          {"time": 1, "description": "Weapon firing sounds (sniper shot, shotgun blast, etc.)", "volume": "high"},
+          {"time": 3, "description": "Multiple elimination sounds in rapid succession", "volume": "high"},
+          {"time": 5, "description": "Victory royale or squad wipe sound", "volume": "high"},
+          {"time": 7, "description": "Crowd cheer or approval sound effect", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "elimination_feed",
+          "content": "Multiple eliminations",
+          "timing": "From second 2 to 6"
+        },
+        {
+          "type": "damage_numbers",
+          "content": "Critical hit indicators",
+          "timing": "From second 1 to 4"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Reaction_Replay",
+      "scene_type": "Hype Reaction",
+      "duration_estimate_seconds": 3,
+      "llm_prompt_for_script": "Pure hype reaction to what just happened. Use expressions like 'WHAT?!', 'NO WAY!', 'That's actually insane!' to convey disbelief and excitement.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Replay of the key moment from a different angle, emphasizing the most impressive aspect of {impossible_scenario}. Slow-motion replay with perfect timing highlighted. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Triumphant, celebratory conclusion"},
+        "sfx": [
+          {"time": 0.5, "description": "Replay whoosh sound", "volume": "medium"},
+          {"time": 2, "description": "Final epic conclusion sound", "volume": "high"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "replay_indicator",
+          "content": "REPLAY",
+          "timing": "From second 0 to 1"
+        },
+        {
+          "type": "like_subscribe_prompt",
+          "content": "Like if this was insane!",
+          "timing": "From second 1.5 to 3"
+        }
+      ]
+    }
+  ]
+}

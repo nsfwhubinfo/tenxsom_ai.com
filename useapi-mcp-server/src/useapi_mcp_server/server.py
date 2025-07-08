@@ -16,6 +16,8 @@ import mcp.server.stdio
 from .client import UseAPIClient
 from .config import UseAPIConfig, get_service_config, validate_prompt, validate_aspect_ratio, validate_model
 from .exceptions import UseAPIError, UseAPIValidationError
+from .database import get_database, close_database
+from .template_processor import TemplateProcessor
 from .tools import (
     MidjourneyTools,
     RunwayTools,
@@ -40,6 +42,7 @@ class UseAPIServer:
         self.config = config or UseAPIConfig()
         self.server = Server("useapi-mcp-server")
         self.client: Optional[UseAPIClient] = None
+        self.template_processor = TemplateProcessor()
         
         # Tool handlers
         self.tools: Dict[str, Any] = {}
@@ -346,6 +349,97 @@ class UseAPIServer:
                         "required": ["prompt"]
                     }
                 ),
+                
+                # MCP Template tools
+                types.Tool(
+                    name="mcp_template_store",
+                    description="Store a new MCP template in the database",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "template_data": {
+                                "type": "object",
+                                "description": "Complete MCP template JSON data",
+                                "required": ["template_name", "scenes"]
+                            }
+                        },
+                        "required": ["template_data"]
+                    }
+                ),
+                types.Tool(
+                    name="mcp_template_get",
+                    description="Retrieve an MCP template by name",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "template_name": {
+                                "type": "string",
+                                "description": "Name of the template to retrieve"
+                            }
+                        },
+                        "required": ["template_name"]
+                    }
+                ),
+                types.Tool(
+                    name="mcp_template_list",
+                    description="List available MCP templates with optional filtering",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "archetype": {
+                                "type": "string",
+                                "description": "Filter by archetype (e.g., 'documentary_mystery', 'viral_shorts')"
+                            },
+                            "target_platform": {
+                                "type": "string",
+                                "description": "Filter by target platform (e.g., 'youtube', 'tiktok')"
+                            },
+                            "content_tier": {
+                                "type": "string",
+                                "description": "Filter by content tier (premium, standard, volume)"
+                            },
+                            "limit": {
+                                "type": "integer",
+                                "description": "Maximum number of templates to return",
+                                "default": 50,
+                                "minimum": 1,
+                                "maximum": 100
+                            }
+                        }
+                    }
+                ),
+                types.Tool(
+                    name="mcp_template_process",
+                    description="Process an MCP template into an executable production plan",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "template_name": {
+                                "type": "string",
+                                "description": "Name of the template to process"
+                            },
+                            "context_variables": {
+                                "type": "object",
+                                "description": "Variables to substitute in the template (e.g., topic, key_points, etc.)"
+                            }
+                        },
+                        "required": ["template_name", "context_variables"]
+                    }
+                ),
+                types.Tool(
+                    name="mcp_template_analytics",
+                    description="Get analytics and performance data for a template",
+                    inputSchema={
+                        "type": "object",
+                        "properties": {
+                            "template_name": {
+                                "type": "string",
+                                "description": "Name of the template to analyze"
+                            }
+                        },
+                        "required": ["template_name"]
+                    }
+                ),
             ]
         
         @self.server.call_tool()
@@ -356,31 +450,41 @@ class UseAPIServer:
                     self.client = UseAPIClient(self.config)
                 
                 # Route to appropriate tool handler
-                if name.startswith("midjourney_"):
+                if name.startswith("mcp_template_"):
+                    # Handle MCP template operations
+                    result = await self._handle_template_operation(name, arguments)
+                elif name.startswith("midjourney_"):
                     handler = MidjourneyTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("ltx_studio_"):
                     handler = LTXStudioTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("runway_"):
                     handler = RunwayTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("minimax_"):
                     handler = MiniMaxTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("kling_"):
                     handler = KlingTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("pixverse_"):
                     handler = PixVerseTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("pika_"):
                     handler = PikaTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("mureka_"):
                     handler = MurekaTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("tempolor_"):
                     handler = TemPolorTools(self.client)
+                    result = await handler.execute(name, arguments)
                 elif name.startswith("insight_"):
                     handler = InsightFaceSwapTools(self.client)
+                    result = await handler.execute(name, arguments)
                 else:
                     raise UseAPIError(f"Unknown tool: {name}")
-                
-                # Execute the tool
-                result = await handler.execute(name, arguments)
                 
                 # Format response
                 if isinstance(result, dict):
@@ -473,6 +577,98 @@ class UseAPIServer:
                 logger.exception(f"Error reading resource {uri}")
                 return json.dumps({"error": str(e)}, indent=2)
     
+    async def _handle_template_operation(self, name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
+        """Handle MCP template operations"""
+        db = await get_database()
+        
+        if name == "mcp_template_store":
+            template_data = arguments.get("template_data")
+            if not template_data:
+                raise UseAPIValidationError("template_data is required", "template_data")
+            
+            template_id = await db.store_template(template_data)
+            return {
+                "status": "success",
+                "message": f"Template '{template_data.get('template_name')}' stored successfully",
+                "template_id": template_id
+            }
+        
+        elif name == "mcp_template_get":
+            template_name = arguments.get("template_name")
+            if not template_name:
+                raise UseAPIValidationError("template_name is required", "template_name")
+            
+            template = await db.get_template(template_name)
+            if not template:
+                raise UseAPIError(f"Template '{template_name}' not found")
+            
+            return template
+        
+        elif name == "mcp_template_list":
+            archetype = arguments.get("archetype")
+            target_platform = arguments.get("target_platform")
+            content_tier = arguments.get("content_tier")
+            limit = arguments.get("limit", 50)
+            
+            templates = await db.list_templates(
+                archetype=archetype,
+                target_platform=target_platform,
+                content_tier=content_tier,
+                limit=limit
+            )
+            
+            return {
+                "templates": templates,
+                "count": len(templates),
+                "filters": {
+                    "archetype": archetype,
+                    "target_platform": target_platform,
+                    "content_tier": content_tier
+                }
+            }
+        
+        elif name == "mcp_template_process":
+            template_name = arguments.get("template_name")
+            context_variables = arguments.get("context_variables", {})
+            
+            if not template_name:
+                raise UseAPIValidationError("template_name is required", "template_name")
+            
+            # Get template from database
+            template_data = await db.get_template(template_name)
+            if not template_data:
+                raise UseAPIError(f"Template '{template_name}' not found")
+            
+            # Increment usage count
+            await db.increment_usage(template_name)
+            
+            # Process template into production plan
+            production_plan = self.template_processor.process_template(template_data, context_variables)
+            
+            # Store execution record
+            await db.store_execution(
+                template_data['id'],
+                production_plan.execution_id,
+                context_variables,
+                self.template_processor.serialize_production_plan(production_plan)
+            )
+            
+            return self.template_processor.serialize_production_plan(production_plan)
+        
+        elif name == "mcp_template_analytics":
+            template_name = arguments.get("template_name")
+            if not template_name:
+                raise UseAPIValidationError("template_name is required", "template_name")
+            
+            analytics = await db.get_template_analytics(template_name)
+            if not analytics:
+                raise UseAPIError(f"Template '{template_name}' not found")
+            
+            return analytics
+        
+        else:
+            raise UseAPIError(f"Unknown template operation: {name}")
+    
     def _register_tools(self):
         """Register all tool handlers"""
         # This would register the actual tool implementation classes
@@ -508,6 +704,7 @@ class UseAPIServer:
         finally:
             if self.client:
                 await self.client.close()
+            await close_database()
 
 
 async def main():

@@ -1,0 +1,191 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Cinematic_Tutorial_MKBHD_v1",
+  "description": "Teaches a skill or reviews a product using premium, clean aesthetics, slow-motion B-roll, and crisp sound design. Focus on making the subject look as good as possible.",
+  "archetype": "cinematic_tutorial",
+  "target_platform": "youtube",
+  "content_tier": "premium",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "cinematic, professional lighting, shallow depth of field, 4K, pristine quality, minimalist aesthetic",
+      "artifacts": [
+        { "type": "subtle_lens_flare", "intensity": "low" },
+        { "type": "perfect_color_grading", "style": "premium_tech" },
+        { "type": "smooth_camera_movements", "style": "gimbal_stabilized" }
+      ]
+    },
+    "audio": {
+      "music_palette": "ambient electronic, subtle beats, professional presentation music",
+      "narration_style": "calm, confident, professional, clear enunciation",
+      "sfx_palette": "pristine tech sounds, button clicks, interface beeps, satisfying mechanical sounds"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Clean_Intro",
+      "scene_type": "Professional Introduction",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Professional introduction covering what we'll be exploring today with {product_name} or {tutorial_topic}. Set expectations for what viewers will learn.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Clean, minimal studio setup with perfect lighting. The {product_name} or {tutorial_subject} prominently displayed with premium presentation aesthetics. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Subtle, professional intro music that doesn't overwhelm"},
+        "sfx": []
+      },
+      "on_screen_elements": [
+        {
+          "type": "clean_title_card",
+          "content": "{product_name} / {tutorial_topic}",
+          "timing": "From second 8 to 13"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Unboxing_Setup",
+      "scene_type": "Premium Unboxing/Setup",
+      "duration_estimate_seconds": 30,
+      "llm_prompt_for_script": "If product review: Walk through the unboxing experience and first impressions. If tutorial: Show the initial setup or preparation phase. Focus on {key_first_impressions}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Slow-motion, cinematic unboxing or setup shots. Every detail captured in perfect lighting. Hands moving precisely, product reveals with dramatic flair. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Close-up detail shots of key components, textures, or interface elements. Macro photography quality showing craftsmanship or design details. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Builds anticipation with subtle crescendo"},
+        "sfx": [
+          {"time": 5, "description": "Satisfying unboxing or setup sound (tape removal, click, etc.)", "volume": "medium"},
+          {"time": 15, "description": "Premium tactile feedback sound", "volume": "low"},
+          {"time": 25, "description": "Completion or satisfaction sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "feature_callout",
+          "content": "{key_feature_1}",
+          "timing": "From second 18 to 25"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Key_Features",
+      "scene_type": "Feature Deep Dive",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Deep dive into the main features or tutorial steps. Cover {key_feature_1}, {key_feature_2}, and {key_feature_3}. Explain both what it does and why it matters.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Demonstration of {key_feature_1} with perfect cinematography. Show it in action with multiple angles and slow-motion highlights. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Showcase {key_feature_2} with emphasis on user experience and practical benefits. Clean, professional demonstration. {global_visual_modifiers}"},
+        {"time": 30, "prompt": "Feature {key_feature_3} presentation with before/after comparisons or performance metrics. Data visualization if applicable. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Steady, professional background that supports learning"},
+        "sfx": [
+          {"time": 8, "description": "Feature activation or demonstration sound", "volume": "medium"},
+          {"time": 23, "description": "Transition or interface sound", "volume": "low"},
+          {"time": 38, "description": "Achievement or success sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "feature_overlay",
+          "content": "{key_feature_1}",
+          "timing": "From second 3 to 12"
+        },
+        {
+          "type": "feature_overlay",
+          "content": "{key_feature_2}",
+          "timing": "From second 18 to 27"
+        },
+        {
+          "type": "feature_overlay",
+          "content": "{key_feature_3}",
+          "timing": "From second 33 to 42"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Real_World_Usage",
+      "scene_type": "Practical Application",
+      "duration_estimate_seconds": 35,
+      "llm_prompt_for_script": "Show how this works in real-world scenarios. Demonstrate {use_case_1} and {use_case_2}. Focus on practical benefits and actual user experience.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Real-world usage scenario for {use_case_1}. Natural environment, authentic use case, professional cinematography capturing genuine interaction. {global_visual_modifiers}"},
+        {"time": 18, "prompt": "Second practical scenario for {use_case_2}. Different environment or context showing versatility and practical application. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Practical, grounded music that feels authentic"},
+        "sfx": [
+          {"time": 10, "description": "Environmental or contextual sound for use case", "volume": "low"},
+          {"time": 25, "description": "Positive outcome or satisfaction sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "use_case_label",
+          "content": "{use_case_1}",
+          "timing": "From second 3 to 15"
+        },
+        {
+          "type": "use_case_label",
+          "content": "{use_case_2}",
+          "timing": "From second 21 to 33"
+        }
+      ]
+    },
+    {
+      "scene_id": "05_Pros_Cons",
+      "scene_type": "Balanced Assessment",
+      "duration_estimate_seconds": 25,
+      "llm_prompt_for_script": "Balanced discussion of pros and cons. Cover {main_pro_1}, {main_pro_2} and {main_con_1}, {main_con_2}. Be honest and objective.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Split-screen or comparison visuals showing advantages and disadvantages. Clean, organized presentation of pros and cons. {global_visual_modifiers}"},
+        {"time": 12, "prompt": "Additional supporting footage that illustrates the balance of benefits and limitations. Fair, objective presentation. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Neutral, analytical tone supporting objective review"},
+        "sfx": [
+          {"time": 6, "description": "Positive chime for pros", "volume": "low"},
+          {"time": 15, "description": "Neutral or slightly negative tone for cons", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "pros_list",
+          "content": "{main_pro_1}, {main_pro_2}",
+          "timing": "From second 3 to 10"
+        },
+        {
+          "type": "cons_list",
+          "content": "{main_con_1}, {main_con_2}",
+          "timing": "From second 12 to 20"
+        }
+      ]
+    },
+    {
+      "scene_id": "06_Final_Verdict",
+      "scene_type": "Professional Conclusion",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Final thoughts and recommendation. Who should consider this? Is it worth it? What are the alternatives? Give clear guidance based on {target_audience} and {price_point}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Final beauty shots of the {product_name} or completed {tutorial_result}. Pristine presentation that summarizes the entire experience. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Confident, conclusive music that provides closure"},
+        "sfx": [
+          {"time": 15, "description": "Final positive confirmation sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "verdict_card",
+          "content": "{final_recommendation}",
+          "timing": "From second 8 to 16"
+        },
+        {
+          "type": "subscribe_prompt",
+          "content": "Subscribe for more reviews",
+          "timing": "From second 16 to 20"
+        }
+      ]
+    }
+  ]
+}

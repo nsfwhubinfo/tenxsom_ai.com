@@ -1,0 +1,163 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Aspirational_Showcase_AD_v1",
+  "description": "Creates a feeling of luxury and desire. Relies on smooth, gliding camera movements, perfect lighting, and sound design that emphasizes texture and quiet elegance.",
+  "archetype": "aspirational_showcase",
+  "target_platform": "youtube",
+  "content_tier": "premium",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "luxury aesthetic, perfect lighting, smooth camera movements, high-end production values, elegant composition",
+      "artifacts": [
+        { "type": "golden_hour_lighting", "intensity": "warm" },
+        { "type": "shallow_depth_of_field", "focus": "selective" },
+        { "type": "smooth_gimbal_movements", "style": "floating" }
+      ]
+    },
+    "audio": {
+      "music_palette": "ambient luxury, subtle classical elements, refined instrumental",
+      "narration_style": "sophisticated, calm, aspirational, refined accent",
+      "sfx_palette": "textile sounds, gentle footsteps, ambient room tone, texture emphasis"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Elegant_Entrance",
+      "scene_type": "Luxurious Introduction",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Set an aspirational tone by introducing the {luxury_subject} or {showcase_theme}. Focus on exclusivity, craftsmanship, and the elevated experience that awaits.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Elegant establishing shot of {luxury_subject}. Smooth, gliding camera movement revealing the space or product in perfect lighting. Every detail suggests quality and sophistication. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Gentle, sophisticated opening that sets a refined mood"},
+        "sfx": [
+          {"time": 3, "description": "Subtle ambient sound - soft fabric rustling, gentle footsteps, or quiet luxury environment sounds", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "elegant_title",
+          "content": "{luxury_brand} / {showcase_title}",
+          "timing": "From second 8 to 13"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Craftsmanship_Details",
+      "scene_type": "Artisan Focus",
+      "duration_estimate_seconds": 25,
+      "llm_prompt_for_script": "Highlight the exceptional craftsmanship and attention to detail. Discuss {craftsmanship_element_1} and {craftsmanship_element_2}. Emphasize the human touch and artistic skill involved.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Extreme close-up shots of {craftsmanship_element_1}. Show texture, stitching, grain, or fine details. Lighting emphasizes the quality and precision of the work. {global_visual_modifiers}"},
+        {"time": 12, "prompt": "Artisan hands working on {craftsmanship_element_2}. Slow, deliberate movements showing skill and care. Tools and materials suggest premium quality. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Builds appreciation for artistry and skill"},
+        "sfx": [
+          {"time": 5, "description": "Gentle crafting sounds - leather working, fabric handling, or tool use", "volume": "low"},
+          {"time": 15, "description": "Subtle workspace sounds that emphasize precision and care", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "craftsmanship_callout",
+          "content": "{craftsmanship_element_1}",
+          "timing": "From second 5 to 10"
+        },
+        {
+          "type": "artisan_credit",
+          "content": "Handcrafted by {artisan_name}",
+          "timing": "From second 18 to 23"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Lifestyle_Integration",
+      "scene_type": "Elevated Living",
+      "duration_estimate_seconds": 30,
+      "llm_prompt_for_script": "Show how {luxury_subject} integrates into an elevated lifestyle. Present {lifestyle_scenario_1} and {lifestyle_scenario_2}. Focus on the emotional benefits and status enhancement.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Elegant lifestyle scene featuring {lifestyle_scenario_1}. Beautiful people in refined settings enjoying {luxury_subject}. Perfect lighting and composition suggest aspiration. {global_visual_modifiers}"},
+        {"time": 15, "prompt": "Second lifestyle scenario: {lifestyle_scenario_2}. Show versatility and different ways the luxury fits into sophisticated living. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Emotional connection, suggests aspiration and achievement"},
+        "sfx": [
+          {"time": 8, "description": "Elegant environmental sounds - wine pouring, soft conversation, refined ambiance", "volume": "low"},
+          {"time": 20, "description": "Luxurious texture sounds - silk, cashmere, or premium materials", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "lifestyle_label",
+          "content": "{lifestyle_scenario_1}",
+          "timing": "From second 3 to 12"
+        },
+        {
+          "type": "lifestyle_label",
+          "content": "{lifestyle_scenario_2}",
+          "timing": "From second 18 to 27"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Heritage_Story",
+      "scene_type": "Legacy and Tradition",
+      "duration_estimate_seconds": 20,
+      "llm_prompt_for_script": "Share the heritage story behind {luxury_subject}. Discuss {heritage_element} and {tradition_aspect}. Connect past mastery with present excellence.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Historical or heritage imagery related to {heritage_element}. Vintage photos, traditional techniques, or founding moments. Sepia tones or classic presentation. {global_visual_modifiers}"},
+        {"time": 10, "prompt": "Modern interpretation of traditional {tradition_aspect}. Show how heritage informs contemporary excellence. Bridge between past and present. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Reverent, respectful of tradition while looking forward"},
+        "sfx": [
+          {"time": 5, "description": "Subtle historical ambiance - pages turning, old workshop sounds", "volume": "very_low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "heritage_date",
+          "content": "Since {founding_year}",
+          "timing": "From second 3 to 8"
+        },
+        {
+          "type": "tradition_highlight",
+          "content": "{tradition_aspect}",
+          "timing": "From second 12 to 18"
+        }
+      ]
+    },
+    {
+      "scene_id": "05_Exclusive_Invitation",
+      "scene_type": "Call to Aspiration",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Extend an exclusive invitation to experience {luxury_subject}. Use language that suggests membership in an elite group. Reference {exclusive_offer} or {contact_method}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Final beauty shot of {luxury_subject} in perfect presentation. Lighting and composition suggest ultimate desirability. Logo or brand mark elegantly integrated. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Confident, inviting conclusion that suggests exclusivity"},
+        "sfx": []
+      },
+      "on_screen_elements": [
+        {
+          "type": "exclusive_invitation",
+          "content": "{exclusive_offer}",
+          "timing": "From second 5 to 12"
+        },
+        {
+          "type": "elegant_logo",
+          "content": "{luxury_brand_logo}",
+          "timing": "From second 10 to 15"
+        },
+        {
+          "type": "contact_information",
+          "content": "{contact_method}",
+          "timing": "From second 12 to 15"
+        }
+      ]
+    }
+  ]
+}

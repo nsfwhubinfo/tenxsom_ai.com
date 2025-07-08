@@ -1,0 +1,119 @@
+{
+  "mcp_version": "1.2_Shorts",
+  "template_name": "Compressed_History_Timeline_v1",
+  "description": "Tells a life story or historical progression in seconds, creating powerful emotional impact through time compression. Series of morphs rather than just one.",
+  "archetype": "compressed_history",
+  "target_platform": "youtube_shorts",
+  "content_tier": "standard",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "historical accuracy, period-appropriate styling, emotional portraiture, seamless aging transitions",
+      "artifacts": [
+        { "type": "period_photo_grain", "era_appropriate": true },
+        { "type": "aging_effects", "subtle": true },
+        { "type": "color_desaturation", "increasing_with_age": true }
+      ]
+    },
+    "audio": {
+      "music_palette": "emotional, cinematic, building intensity, life-story appropriate",
+      "narration_style": "thoughtful, contemplative, documentary-style voiceover",
+      "sfx_palette": "time passage sounds, photo shutter clicks, heartbeat, breathing"
+    },
+    "format": {
+        "aspect_ratio": "9:16",
+        "emotional_arc": "birth_to_legacy"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Origin_Introduction",
+      "scene_type": "Beginning State",
+      "duration_estimate_seconds": 3,
+      "llm_prompt_for_script": "Set the stage for {subject_name}'s journey. Mention their humble beginnings or starting point in {birth_year} with context about {origin_context}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Portrait of {subject_name} as {first_life_stage}. Example: 'Baby photo of {subject_name} from {birth_year}' or 'Young {subject_name} at age {starting_age}'. Photo should have authentic period styling and grain. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Gentle, hopeful beginning, like a life just starting"},
+        "sfx": [
+          {"time": 1, "description": "Soft, gentle sound like a heartbeat or first breath", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "birth_year_stamp",
+          "content": "{birth_year}",
+          "timing": "From second 1 to 3"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Time_Progression",
+      "scene_type": "Life Stages Morph",
+      "duration_estimate_seconds": 10,
+      "llm_prompt_for_script": "Narrate the key life stages and transformations of {subject_name}. Mention {key_achievement_1} in {milestone_year_1}, {key_achievement_2} in {milestone_year_2}, and their rise to {final_status}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Smooth morph sequence from {first_life_stage} to {second_life_stage}. Example: 'Young {subject_name} aging to teenage years, {milestone_year_1}'. Maintain facial recognition while showing age progression. {global_visual_modifiers}"},
+        {"time": 3, "prompt": "Continue morph to {third_life_stage}. Example: '{subject_name} as young adult, showing {key_achievement_1}, circa {milestone_year_1}'. Show period-appropriate clothing and styling. {global_visual_modifiers}"},
+        {"time": 6, "prompt": "Further progression to {fourth_life_stage}. Example: 'Mature {subject_name} during {key_achievement_2}, {milestone_year_2}'. Show the wisdom and experience gained. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Building through life stages, gaining complexity and depth"},
+        "sfx": [
+          {"time": 2, "description": "Subtle time passage sound, like pages turning or clock ticking", "volume": "very_low"},
+          {"time": 5, "description": "Achievement or milestone sound", "volume": "low"},
+          {"time": 8, "description": "Another milestone or success sound", "volume": "low"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "year_progression",
+          "content": "{milestone_year_1}",
+          "timing": "From second 2 to 4"
+        },
+        {
+          "type": "achievement_label",
+          "content": "{key_achievement_1}",
+          "timing": "From second 3 to 5"
+        },
+        {
+          "type": "year_progression",
+          "content": "{milestone_year_2}",
+          "timing": "From second 6 to 8"
+        },
+        {
+          "type": "achievement_label",
+          "content": "{key_achievement_2}",
+          "timing": "From second 7 to 9"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Final_Legacy",
+      "scene_type": "Ultimate Impact",
+      "duration_estimate_seconds": 2,
+      "llm_prompt_for_script": "Conclude with {subject_name}'s final legacy or current status. What they became, what they're remembered for. Reference {legacy_statement}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Final portrait of {subject_name} at {final_life_stage}. Example: '{subject_name} in their iconic {final_role} or {legendary_status}'. This should be their most recognizable, powerful image. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Reaches emotional peak, powerful and inspiring conclusion"},
+        "sfx": [
+          {"time": 1, "description": "Final, resonant impact sound - like a bell or gong signifying lasting legacy", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "final_year_or_status",
+          "content": "{final_year} / {current_status}",
+          "timing": "From second 0.5 to 2"
+        },
+        {
+          "type": "legacy_text",
+          "content": "{legacy_statement}",
+          "timing": "From second 1 to 2"
+        }
+      ]
+    }
+  ]
+}

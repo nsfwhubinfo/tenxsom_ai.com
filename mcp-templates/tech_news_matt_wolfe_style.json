@@ -1,0 +1,195 @@
+{
+  "mcp_version": "1.1",
+  "template_name": "Tech_News_MattWolfe_Style_v1",
+  "description": "Fast-paced rundowns of the latest tech news. Relies on screen recordings, official promo footage, and clear, concise narration with high information density.",
+  "archetype": "tech_news_update",
+  "target_platform": "youtube",
+  "content_tier": "standard",
+  "global_style_profile": {
+    "visual": {
+      "prompt_modifiers": "crisp, modern, high-definition, clean presentation, tech-focused",
+      "artifacts": [
+        { "type": "subtle_glow", "color": "blue", "intensity": "low" },
+        { "type": "tech_overlay_elements", "style": "minimal_futuristic" }
+      ]
+    },
+    "audio": {
+      "music_palette": "upbeat electronic, tech-inspired, subtle background beats",
+      "narration_style": "energetic, clear, fast-paced, enthusiastic male voice",
+      "sfx_palette": "tech sounds, notification beeps, interface clicks, whooshes"
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "01_Intro",
+      "scene_type": "Channel Intro & Headlines",
+      "duration_estimate_seconds": 10,
+      "llm_prompt_for_script": "Create an energetic intro mentioning it's {current_date} and today we're covering {news_count} major tech stories. Build excitement for what's coming.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Animated channel logo with tech-inspired graphics. Headlines fly across the screen. Modern, energetic presentation with glowing elements. {global_visual_modifiers}"}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "High energy intro music, builds excitement"},
+        "sfx": [
+          {"time": 2, "description": "Notification sound for first headline", "volume": "medium"},
+          {"time": 4, "description": "Whoosh for second headline", "volume": "medium"},
+          {"time": 6, "description": "Tech chime for third headline", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "headline_ticker",
+          "content": "{headline_1}, {headline_2}, {headline_3}",
+          "timing": "From second 3 to 9"
+        }
+      ]
+    },
+    {
+      "scene_id": "02_Story_1",
+      "scene_type": "News Story with Demo",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Cover the first major story: {story_1_topic}. Explain what happened, why it matters, and show the practical implications. Reference {story_1_details}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Screen recording style footage showing {story_1_topic} in action. Official demo videos, interface screenshots, or product reveals. Clean, high-resolution presentation."},
+        {"time": 20, "prompt": "Close-up shots of the technology or interface elements relevant to {story_1_topic}. Show specific features or capabilities being discussed."},
+        {"time": 35, "prompt": "Wide shot or comparison view showing the bigger picture impact of {story_1_topic}. Charts, graphs, or before/after comparisons."}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Steady background beat, maintains energy without overwhelming narration"},
+        "sfx": [
+          {"time": 0, "description": "Tech transition sound", "volume": "medium"},
+          {"time": 20, "description": "Interface click or selection sound", "volume": "low"},
+          {"time": 40, "description": "Positive tech chime for conclusion", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "title_card",
+          "content": "{story_1_title}",
+          "timing": "From second 0 to 5"
+        },
+        {
+          "type": "key_stat_callout",
+          "content": "{story_1_key_stat}",
+          "timing": "From second 25 to 32"
+        }
+      ]
+    },
+    {
+      "scene_id": "03_Story_2",
+      "scene_type": "News Story with Demo",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Cover the second major story: {story_2_topic}. Explain the breakthrough, demonstrate the technology, and discuss future implications. Reference {story_2_details}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Demo footage or official promotional material for {story_2_topic}. Show the technology in use, user interface, or key capabilities."},
+        {"time": 20, "prompt": "Technical details or behind-the-scenes view of {story_2_topic}. Code, algorithms, or technical specifications presented clearly."},
+        {"time": 35, "prompt": "Future-looking shot showing potential applications of {story_2_topic}. Conceptual visuals or roadmap presentations."}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Continues with consistent energy"},
+        "sfx": [
+          {"time": 0, "description": "Smooth tech transition", "volume": "medium"},
+          {"time": 25, "description": "Data processing or computational sound", "volume": "low"},
+          {"time": 40, "description": "Forward-looking tech sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "title_card",
+          "content": "{story_2_title}",
+          "timing": "From second 0 to 5"
+        },
+        {
+          "type": "progress_indicator",
+          "content": "Story 2 of {news_count}",
+          "timing": "From second 1 to 3"
+        }
+      ]
+    },
+    {
+      "scene_id": "04_Story_3",
+      "scene_type": "News Story with Demo",
+      "duration_estimate_seconds": 45,
+      "llm_prompt_for_script": "Cover the third major story: {story_3_topic}. Focus on market impact, user benefits, and competitive landscape. Reference {story_3_details}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Product demonstrations, user testimonials, or market analysis visuals for {story_3_topic}. Professional presentation style."},
+        {"time": 20, "prompt": "Competitive comparison or market positioning graphics. Charts showing market share, adoption rates, or performance metrics."},
+        {"time": 35, "prompt": "Real-world application scenarios for {story_3_topic}. Users in natural environments benefiting from the technology."}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Maintains momentum, slight build toward conclusion"},
+        "sfx": [
+          {"time": 0, "description": "Professional tech transition", "volume": "medium"},
+          {"time": 20, "description": "Chart or graph reveal sound", "volume": "low"},
+          {"time": 40, "description": "Success or achievement sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "title_card",
+          "content": "{story_3_title}",
+          "timing": "From second 0 to 5"
+        },
+        {
+          "type": "market_data_overlay",
+          "content": "{story_3_market_data}",
+          "timing": "From second 20 to 30"
+        }
+      ]
+    },
+    {
+      "scene_id": "05_Quick_Hits",
+      "scene_type": "Rapid Fire Updates",
+      "duration_estimate_seconds": 30,
+      "llm_prompt_for_script": "Rapid-fire coverage of {quick_hits_count} smaller tech updates. Mention {quick_hit_1}, {quick_hit_2}, and {quick_hit_3} with brief explanations of their significance.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Fast-paced montage of tech logos, product shots, and interface elements for the quick hit stories. Rapid transitions, high energy."},
+        {"time": 15, "prompt": "Continuation of the montage with additional quick updates. Keep the pace very fast and visually engaging."}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Tempo increases for rapid-fire section"},
+        "sfx": [
+          {"time": 5, "description": "Quick notification beep", "volume": "medium"},
+          {"time": 10, "description": "Another notification beep", "volume": "medium"},
+          {"time": 15, "description": "Third notification beep", "volume": "medium"},
+          {"time": 25, "description": "Transition whoosh to conclusion", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "rapid_fire_titles",
+          "content": "{quick_hit_1}, {quick_hit_2}, {quick_hit_3}",
+          "timing": "Rapid succession throughout scene"
+        }
+      ]
+    },
+    {
+      "scene_id": "06_Outro",
+      "scene_type": "Wrap-up and CTA",
+      "duration_estimate_seconds": 15,
+      "llm_prompt_for_script": "Wrap up by summarizing the biggest takeaway from today's tech news. Encourage viewers to subscribe and mention what to expect in upcoming videos. Reference {next_week_preview}.",
+      "generative_video_prompts": [
+        {"time": 0, "prompt": "Host presentation setup or channel branding elements. Clean, professional tech background. Subscribe button animations and channel graphics."}
+      ],
+      "audio_elements": {
+        "music_cue": {"track_style": "{global_audio_style}", "dynamic": "Resolves to upbeat, positive conclusion"},
+        "sfx": [
+          {"time": 8, "description": "Subscribe notification sound", "volume": "medium"},
+          {"time": 12, "description": "Positive tech outro sound", "volume": "medium"}
+        ]
+      },
+      "on_screen_elements": [
+        {
+          "type": "subscribe_animation",
+          "content": "Subscribe for daily tech news",
+          "timing": "From second 8 to 15"
+        },
+        {
+          "type": "next_video_preview",
+          "content": "{next_week_preview}",
+          "timing": "From second 10 to 15"
+        }
+      ]
+    }
+  ]
+}
