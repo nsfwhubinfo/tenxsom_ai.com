@@ -10,6 +10,8 @@ from typing import Any, Dict, List, Optional
 import asyncpg
 import os
 
+from .monitoring import performance_timer
+
 logger = logging.getLogger(__name__)
 
 
@@ -120,6 +122,7 @@ class MCPTemplateDatabase:
             await conn.execute(create_sql)
         logger.info("MCP template tables created/verified")
     
+    @performance_timer("store_template")
     async def store_template(self, template_data: Dict[str, Any]) -> int:
         """Store a new MCP template"""
         insert_sql = """
@@ -158,6 +161,7 @@ class MCPTemplateDatabase:
         logger.info(f"Stored template '{template_name}' with ID {template_id}")
         return template_id
     
+    @performance_timer("get_template")
     async def get_template(self, template_name: str) -> Optional[Dict[str, Any]]:
         """Retrieve a template by name"""
         select_sql = """
@@ -186,6 +190,7 @@ class MCPTemplateDatabase:
         
         return template_data
     
+    @performance_timer("list_templates")
     async def list_templates(
         self, 
         archetype: Optional[str] = None,

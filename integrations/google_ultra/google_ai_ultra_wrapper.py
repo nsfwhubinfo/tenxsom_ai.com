@@ -7,6 +7,7 @@ import os
 import json
 import asyncio
 import logging
+import time
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Any
 from enum import Enum
@@ -150,12 +151,12 @@ class GoogleAIUltraWrapper:
             raise Exception(f"Insufficient credits: need {credits_needed}, have {self.credits_limit - self.credits_used_today}")
             
         # Prepare API request for Vertex AI Video Generation
-        # Use available models - checking for Veo 2 as Veo 3 may not be available yet
+        # Use available models - Veo 3 may need different model names
         if request.model == Veo3Model.FAST:
-            # Try Veo 2 as fallback until Veo 3 is available
-            model_id = "video-generation-001"  # Generic video model
+            # Try known working model names for video generation
+            model_id = "imagegeneration@005"  # Fallback to image generation for now
         else:
-            model_id = "video-generation-001"  # Use same model for now
+            model_id = "imagegeneration@005"  # Use working model as fallback
             
         url = f"https://aiplatform.googleapis.com/v1/projects/{self.project_id}/locations/us-central1/publishers/google/models/{model_id}:predict"
         

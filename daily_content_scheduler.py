@@ -57,7 +57,7 @@ class DailyContentScheduler:
         if self.mcp_enabled:
             self.content_orchestrator = ContentUploadOrchestrator(
                 config_manager=self.config,
-                mcp_server_url="http://localhost:8000"
+                mcp_server_url="https://tenxsom-mcp-server-540103863590.us-central1.run.app"
             )
             self.youtube_expert = YouTubePlatformExpert()
             logger.info("✅ MCP integration enabled for template-based content generation")
@@ -815,7 +815,7 @@ class DailyContentScheduler:
         """Generate strategic topics using intelligent topic generator and YouTube expert"""
         try:
             # Get time-based context
-            time_context = self._get_time_context(current_time)
+            time_context = self._get_time_context_string(current_time)
             
             # Generate base topics
             base_topics = await self.topic_generator.generate_topics(
@@ -891,8 +891,8 @@ class DailyContentScheduler:
         
         return platforms[:batch_size]
     
-    def _get_time_context(self, current_time: str) -> str:
-        """Get contextual information based on current time"""
+    def _get_time_context_string(self, current_time: str) -> str:
+        """Get contextual information based on current time string"""
         time_contexts = {
             "06:00": "morning_professional_content",
             "10:00": "midday_educational_content", 
@@ -966,6 +966,7 @@ def main():
     parser = argparse.ArgumentParser(description="Tenxsom AI Daily Content Scheduler")
     parser.add_argument("--daemon", action="store_true", help="Run in daemon mode")
     parser.add_argument("--test", action="store_true", help="Run test mode")
+    parser.add_argument("--execute-batch", action="store_true", help="Execute single batch now")
     
     args = parser.parse_args()
     
@@ -1019,6 +1020,38 @@ def main():
         
         print(f"\n✅ Scheduler ready for automated execution!")
         print(f"   To start daemon: python daily_content_scheduler.py --daemon")
+        
+    elif args.execute_batch:
+        # Execute batch mode - run single batch now
+        print("🚀 Executing Single Batch - Live Production Test")
+        print("=" * 60)
+        
+        # Initialize scheduler
+        config_manager = ProductionConfigManager()
+        scheduler = DailyContentScheduler(config_manager)
+        
+        print(f"\n📊 Starting single batch execution...")
+        print(f"   Target: YouTube videos for 30-day monetization plan")
+        print(f"   Quality tiers: Premium/Standard/Volume mix")
+        
+        try:
+            # Generate batch requests
+            batch_size = scheduler._calculate_optimal_batch_size()
+            content_requests = scheduler._generate_batch_requests(batch_size)
+            
+            print(f"\n📋 Generated {len(content_requests)} content requests")
+            
+            # Execute immediate batch
+            import asyncio
+            result = asyncio.run(scheduler._execute_content_batch(content_requests))
+            
+            print(f"\n✅ Batch execution completed!")
+            print(f"   Results: {result}")
+            
+        except Exception as e:
+            print(f"\n❌ Batch execution failed: {e}")
+            import traceback
+            traceback.print_exc()
         
     else:
         # Default: show help

@@ -55,7 +55,7 @@ class MCPOrchestratorIntegration:
     - Cost-optimized generation tier recommendation
     """
     
-    def __init__(self, mcp_server_url: str = "http://localhost:8000", youtube_expert: YouTubePlatformExpert = None):
+    def __init__(self, mcp_server_url: str = "https://tenxsom-mcp-server-540103863590.us-central1.run.app", youtube_expert: YouTubePlatformExpert = None):
         """Initialize MCP integration"""
         self.mcp_server_url = mcp_server_url
         self.youtube_expert = youtube_expert or YouTubePlatformExpert()

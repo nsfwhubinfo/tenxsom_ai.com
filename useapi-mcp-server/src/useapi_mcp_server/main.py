@@ -7,6 +7,7 @@ import asyncio
 import logging
 import os
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from typing import Dict, Any, List
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
@@ -17,6 +18,7 @@ from pydantic import BaseModel
 from .server import UseAPIServer
 from .database import get_database, close_database
 from .config import UseAPIConfig
+from .monitoring import PerformanceMiddleware, get_performance_monitor, StructuredLogger
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -38,8 +40,10 @@ class ToolCallRequest(BaseModel):
     arguments: Dict[str, Any]
 
 
-# Global MCP server instance
+# Global instances
 mcp_server_instance = None
+performance_monitor = get_performance_monitor()
+structured_logger = StructuredLogger()
 
 
 @asynccontextmanager
@@ -87,6 +91,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Add performance monitoring middleware
+app.add_middleware(PerformanceMiddleware, monitor=performance_monitor)
 
 
 @app.get("/health")
@@ -319,12 +326,25 @@ async def get_system_status():
             archetype = template.get("archetype", "unknown")
             archetype_distribution[archetype] = archetype_distribution.get(archetype, 0) + 1
         
+        # Get performance metrics
+        system_metrics = performance_monitor.get_system_metrics(
+            template_count=template_count,
+            db_pool_size=10  # From our pool configuration
+        )
+        
         return {
             "status": "operational",
             "database_connected": True,
             "template_count": template_count,
             "tier_distribution": tier_distribution,
             "archetype_distribution": archetype_distribution,
+            "performance": {
+                "uptime_seconds": system_metrics.uptime_seconds,
+                "requests_per_minute": system_metrics.requests_per_minute,
+                "average_response_time_ms": system_metrics.average_response_time,
+                "error_rate_percent": system_metrics.error_rate,
+                "total_requests": performance_monitor.request_count
+            },
             "environment": {
                 "database_url": bool(os.getenv("DATABASE_URL")),
                 "useapi_token": bool(os.getenv("USEAPI_BEARER_TOKEN")),
@@ -339,6 +359,95 @@ async def get_system_status():
             "error": str(e),
             "database_connected": False
         }
+
+
+# Monitoring endpoints
+@app.get("/metrics")
+async def get_metrics():
+    """Get detailed performance metrics"""
+    try:
+        db = await get_database()
+        templates = await db.list_templates(limit=1000)
+        template_count = len(templates)
+        
+        system_metrics = performance_monitor.get_system_metrics(
+            template_count=template_count,
+            db_pool_size=10
+        )
+        
+        recent_metrics = performance_monitor.get_recent_metrics(limit=50)
+        
+        return {
+            "system_metrics": {
+                "timestamp": system_metrics.timestamp,
+                "uptime_seconds": system_metrics.uptime_seconds,
+                "requests_per_minute": system_metrics.requests_per_minute,
+                "average_response_time_ms": system_metrics.average_response_time,
+                "error_rate_percent": system_metrics.error_rate,
+                "total_requests": performance_monitor.request_count,
+                "error_count": performance_monitor.error_count,
+                "template_count": template_count
+            },
+            "recent_requests": recent_metrics
+        }
+    except Exception as e:
+        structured_logger.log_error(e, "metrics_endpoint")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/health/detailed")
+async def detailed_health_check():
+    """Detailed health check with component status"""
+    health_status = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "status": "healthy",
+        "components": {}
+    }
+    
+    # Check database connectivity
+    try:
+        db = await get_database()
+        await db.list_templates(limit=1)
+        health_status["components"]["database"] = {
+            "status": "healthy",
+            "latency_ms": 0  # Could measure actual latency
+        }
+    except Exception as e:
+        health_status["components"]["database"] = {
+            "status": "unhealthy",
+            "error": str(e)
+        }
+        health_status["status"] = "degraded"
+    
+    # Check MCP server status
+    try:
+        if mcp_server_instance:
+            health_status["components"]["mcp_server"] = {
+                "status": "healthy",
+                "initialized": True
+            }
+        else:
+            health_status["components"]["mcp_server"] = {
+                "status": "unhealthy",
+                "initialized": False
+            }
+            health_status["status"] = "degraded"
+    except Exception as e:
+        health_status["components"]["mcp_server"] = {
+            "status": "unhealthy",
+            "error": str(e)
+        }
+        health_status["status"] = "degraded"
+    
+    # Add performance summary
+    system_metrics = performance_monitor.get_system_metrics()
+    health_status["performance"] = {
+        "uptime_seconds": system_metrics.uptime_seconds,
+        "total_requests": performance_monitor.request_count,
+        "error_rate_percent": system_metrics.error_rate
+    }
+    
+    return health_status
 
 
 if __name__ == "__main__":

@@ -1,0 +1,59 @@
+# Main Content Generation Pipeline Dockerfile
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for better caching
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install additional requirements for cloud deployment
+RUN pip install --no-cache-dir \
+    google-cloud-tasks \
+    google-cloud-storage \
+    google-cloud-logging \
+    google-cloud-monitoring \
+    google-cloud-secret-manager \
+    gunicorn
+
+# Copy application code
+COPY . .
+
+# Copy specific components
+COPY monetization_strategy_executor.py .
+COPY analytics_tracker.py .
+COPY content_upload_orchestrator.py .
+COPY production_config_manager.py .
+COPY integrations/ integrations/
+COPY agents/ agents/
+COPY youtube-upload-pipeline/ youtube-upload-pipeline/
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/analytics /app/videos/output
+
+# Environment variables (will be overridden by Cloud Run)
+ENV PORT=8080
+ENV PYTHONUNBUFFERED=1
+ENV GOOGLE_CLOUD_PROJECT=tenxsom-ai-1631088
+
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/health || exit 1
+
+# Expose port
+EXPOSE ${PORT}
+
+# Start the application with gunicorn
+CMD exec gunicorn --bind :${PORT} --workers 2 --threads 8 --timeout 900 \
+    --worker-class sync \
+    --access-logfile - \
+    --error-logfile - \
+    content_pipeline_server:app

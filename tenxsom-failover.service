@@ -1,0 +1,14 @@
+[Unit]
+Description=TenxsomAI Cloud Failover Manager
+After=network.target
+
+[Service]
+Type=simple
+User=golde
+WorkingDirectory=/home/golde/tenxsom-ai-vertex
+ExecStart=/usr/bin/python3 /home/golde/tenxsom-ai-vertex/cloud_failover_manager.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

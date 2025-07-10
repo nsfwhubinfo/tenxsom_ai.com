@@ -161,14 +161,14 @@ class UseAPIServer:
                             "model": {
                                 "type": "string",
                                 "description": "Video generation model",
-                                "enum": ["ltx-video", "veo2", "veo3"],
-                                "default": "ltx-video"
+                                "enum": ["veo2", "veo3", "ltx-video"],
+                                "default": "veo2"
                             },
                             "duration": {
                                 "type": "integer",
-                                "description": "Video duration in seconds",
-                                "minimum": 1,
-                                "maximum": 45,
+                                "description": "Video duration in seconds (fixed at 5 for reliability)",
+                                "minimum": 5,
+                                "maximum": 5,
                                 "default": 5
                             },
                             "aspect_ratio": {

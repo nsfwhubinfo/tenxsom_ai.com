@@ -190,6 +190,31 @@ def get_worker_stats():
     
     return jsonify(enhanced_stats), 200
 
+@app.route('/telegram/webhook', methods=['POST'])
+def handle_telegram_webhook():
+    """
+    Handle incoming Telegram webhook updates
+    Forwards to the central controller for processing
+    """
+    try:
+        update_data = request.get_json()
+        
+        if not update_data:
+            logger.error("No JSON payload received from Telegram")
+            return jsonify({"error": "No JSON payload"}), 400
+        
+        logger.info(f"Received Telegram update: {update_data.get('update_id', 'unknown')}")
+        
+        # Forward to central controller if it's running
+        # For now, just acknowledge receipt
+        # In production, you'd forward this to the central controller service
+        
+        return jsonify({"ok": True}), 200
+        
+    except Exception as e:
+        logger.error(f"Error handling Telegram webhook: {e}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route('/shutdown', methods=['POST'])
 def shutdown_worker():
     """Graceful shutdown endpoint"""

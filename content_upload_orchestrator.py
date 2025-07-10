@@ -78,7 +78,7 @@ class ContentUploadOrchestrator:
     - Performance analytics and monitoring
     """
     
-    def __init__(self, config_manager: ProductionConfigManager = None, mcp_server_url: str = "http://localhost:8000"):
+    def __init__(self, config_manager: ProductionConfigManager = None, mcp_server_url: str = "https://tenxsom-mcp-server-540103863590.us-central1.run.app"):
         """Initialize the upload orchestrator"""
         self.config = config_manager or ProductionConfigManager()
         
@@ -1007,9 +1007,13 @@ class ContentUploadOrchestrator:
             }
             
             # Upload video
-            upload_result = await youtube_uploader.upload_video(
+            upload_result = youtube_uploader.upload_video(
                 video_path=upload.video_path,
-                metadata=upload_metadata,
+                title=upload.title,
+                description=upload.description,
+                tags=upload.tags,
+                category_id=22,  # People & Blogs - default safe category
+                privacy_status=upload.privacy_status,
                 thumbnail_path=upload.thumbnail_path
             )
             
@@ -1144,7 +1148,7 @@ class ContentUploadOrchestrator:
             "platform_configs": self.platform_configs
         }
     
-    async def _upload_to_tiktok(self, upload: ContentUpload) -> UploadResult:
+    async def _upload_to_tiktok(self, upload: UploadRequest) -> UploadResult:
         """Upload content to TikTok using API"""
         try:
             # Check if TikTok API credentials are configured
@@ -1178,7 +1182,7 @@ class ContentUploadOrchestrator:
                 upload_time=datetime.now()
             )
     
-    async def _upload_to_instagram(self, upload: ContentUpload) -> UploadResult:
+    async def _upload_to_instagram(self, upload: UploadRequest) -> UploadResult:
         """Upload content to Instagram using API"""
         try:
             # Check if Instagram API credentials are configured
@@ -1212,7 +1216,7 @@ class ContentUploadOrchestrator:
                 upload_time=datetime.now()
             )
     
-    async def _upload_to_x(self, upload: ContentUpload) -> UploadResult:
+    async def _upload_to_x(self, upload: UploadRequest) -> UploadResult:
         """Upload content to X (Twitter) using API"""
         try:
             # Check if X Platform API credentials are configured

@@ -145,8 +145,8 @@ class MonetizationStrategyExecutor:
             self.model_router = EnhancedModelRouter(
                 google_ultra_credentials=google_creds,
                 useapi_accounts_config=useapi_config,
-                strategy="adaptive_failover",  # Enable adaptive failover
-                enable_adaptive_failover=True
+                strategy="youtube_monetization",  # Use YouTube monetization strategy
+                enable_adaptive_failover=False  # Disable adaptive failover to use our defined tiers
             )
             logger.info("✅ Enhanced model router initialized for production")
             
@@ -209,13 +209,12 @@ class MonetizationStrategyExecutor:
                 "estimated_monthly_cost": 0.0
             }
         else:
-            # NORMAL MODE: Optimal allocation for balanced cost/quality
-            premium_daily = min(4, daily_credits // 100)  # Veo 3 Quality (100 credits)
-            remaining_credits = daily_credits - (premium_daily * 100)
-            standard_daily = min(8, remaining_credits // 20)  # Veo 3 Fast (20 credits)
+            # NORMAL MODE: Simplified two-service allocation
+            premium_daily = 3  # Veo 3 Quality (100 credits each = 300 credits)
+            standard_daily = 5  # Veo 3 Fast (20 credits each = 100 credits)
+            volume_daily = 88  # LTX Studio Veo 2 (UseAPI.net credits)
             
-            # LTX Turbo is unlimited (0 credits)
-            volume_daily = 96 - premium_daily - standard_daily
+            # Total Google credits: 400 (under 417 daily limit)
             
             return {
                 "premium_daily": premium_daily,

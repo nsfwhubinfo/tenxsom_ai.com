@@ -1,0 +1,44 @@
+# Platform Expert Agents Dockerfile
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install additional cloud dependencies
+RUN pip install --no-cache-dir \
+    google-cloud-logging \
+    google-cloud-monitoring \
+    fastapi \
+    uvicorn \
+    httpx \
+    aiofiles
+
+# Copy agent code
+COPY agents/ agents/
+COPY platform_agents_server.py .
+
+# Environment variables
+ENV PORT=8080
+ENV PYTHONUNBUFFERED=1
+ENV GOOGLE_CLOUD_PROJECT=tenxsom-ai-1631088
+ENV AGENT_TYPE=all
+
+# Expose port
+EXPOSE ${PORT}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/health || exit 1
+
+# Start the agents server
+CMD exec uvicorn platform_agents_server:app --host 0.0.0.0 --port ${PORT}

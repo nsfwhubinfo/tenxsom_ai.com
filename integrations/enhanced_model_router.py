@@ -66,13 +66,13 @@ class ModelSelectionStrategy:
     @staticmethod
     def select_for_youtube_monetization(request: GenerationRequest) -> tuple[str, str]:
         """Select model optimized for YouTube monetization"""
-        # Prioritize UseAPI.net Pixverse for video generation
+        # Simplified two-service architecture
         if request.quality_tier == QualityTier.PREMIUM:
-            return "useapi_premium", "pixverse"
+            return "google_ultra", "veo3_quality"
         elif request.quality_tier == QualityTier.STANDARD:
-            return "useapi_premium", "pixverse"
-        else:
-            return "useapi_volume", "ltx_turbo"
+            return "google_ultra", "veo3_fast"
+        else:  # VOLUME
+            return "useapi_volume", "ltx_studio"
     
     @staticmethod
     def select_cost_optimized(request: GenerationRequest) -> tuple[str, str]:
@@ -412,31 +412,34 @@ class EnhancedModelRouter:
             except Exception as e:
                 logger.warning(f"Image upload failed, proceeding without reference image: {e}")
         
-        url = "https://api.useapi.net/v1/ltxstudio/videos/ltx-create"  # Updated to correct LTX Studio endpoint
+        url = "https://api.useapi.net/v1/ltxstudio/videos/veo-create"  # LTX Studio Veo endpoint
         headers = {
             "Authorization": f"Bearer {account.bearer_token}",
             "Content-Type": "application/json"
         }
         
-        # Use correct LTX Studio API parameters matching documentation
+        # Use LTX Studio API parameters - go back to veo2 with proper asset handling
+        model_name = "veo2"  # Use veo2 model which has proven working examples
+        valid_durations = [5]  # Use only duration 5 which was confirmed working
+        ltx_duration = 5  # Fixed duration for consistency
+        
         payload = {
             "prompt": request.prompt,
-            "model": "ltxv-turbo",  # Official model name
-            "duration": min(request.duration, 9),  # LTX supports 3,5,7,9 seconds
-            "aspectRatio": request.aspect_ratio.replace(":", ""),  # LTX format: "169" not "16:9" 
-            "intensity": "medium"  # low, medium, high
+            "model": model_name,
+            "duration": str(ltx_duration),  # Convert to string as per working examples
+            "aspectRatio": request.aspect_ratio,  # LTX uses standard format: "16:9"
         }
         
-        # LTX Studio requires startAssetId or endAssetId - generate default if none provided
+        # veo2 requires startAssetId - create a minimal placeholder image if needed
         if image_url:
-            payload["startAssetId"] = image_url  # Use as starting frame
+            payload["startAssetId"] = image_url
+            logger.info(f"Using provided image URL: {image_url[:50]}...")
         else:
-            # Generate default background asset for LTX Studio
-            try:
-                default_asset_id = await self._get_or_create_default_asset(account.bearer_token)
-                payload["startAssetId"] = default_asset_id
-            except Exception as e:
-                logger.warning(f"Failed to create default asset, LTX Studio may fail: {e}")
+            # Use the exact format from working examples
+            # This was the proven working format from video-generation-success.md
+            asset_id = "asset:708f0544-8a77-4325-a455-08bdf3d2501a-type:image/jpeg"
+            payload["startAssetId"] = asset_id
+            logger.info(f"Using working production asset ID: {asset_id}")
         
         # Retry logic for server issues
         max_retries = 3
@@ -457,10 +460,10 @@ class EnhancedModelRouter:
                             return GenerationResponse(
                                 video_id=job_id,
                                 download_url=download_url,
-                                model_used="ltx_turbo",
+                                model_used="ltxv",
                                 service_used="useapi_volume",
-                                credits_used=0,  # LTX Turbo is free
-                                cost_usd=0.0,
+                                credits_used=1,  # LTX Studio Veo 2 uses credits from subscription
+                                cost_usd=0.01,  # Approximate cost per video from $336/year plan
                                 generation_time=0.0,
                                 metadata={"account": account.email, "platform": request.platform.value}
                             )
@@ -521,8 +524,8 @@ class EnhancedModelRouter:
         raise Exception("Pixverse generation timed out after 5 minutes")
     
     async def _poll_ltx_status(self, session: aiohttp.ClientSession, job_id: str, headers: dict) -> str:
-        """Poll LTX Turbo generation status until completion"""
-        status_url = f"https://api.useapi.net/v1/ltxstudio/assets/{job_id}"  # Updated to correct LTX Studio status endpoint
+        """Poll LTX Studio generation status until completion"""
+        status_url = f"https://api.useapi.net/v1/ltxstudio/videos/{job_id}"  # LTX Studio status endpoint
         
         for attempt in range(20):  # Max 20 attempts (2 minutes)
             try:
@@ -573,6 +576,45 @@ class EnhancedModelRouter:
             logger.error(f"Image upload error: {e}")
             raise
     
+    async def _create_minimal_placeholder_asset(self, bearer_token: str) -> str:
+        """Create a minimal 1x1 pixel placeholder image asset"""
+        try:
+            # Create a minimal 1x1 pixel JPEG image in memory
+            import io
+            from PIL import Image
+            
+            # Create a tiny 16x16 neutral gray image
+            img = Image.new('RGB', (16, 16), color=(128, 128, 128))
+            img_buffer = io.BytesIO()
+            img.save(img_buffer, format='JPEG', quality=85)
+            img_data = img_buffer.getvalue()
+            
+            # Upload the placeholder image
+            url = "https://api.useapi.net/v1/ltxstudio/assets/"
+            headers = {
+                "Authorization": f"Bearer {bearer_token}",
+                "Content-Type": "image/jpeg"
+            }
+            
+            async with aiohttp.ClientSession() as session:
+                async with session.post(url, headers=headers, data=img_data, params={"type": "reference-image"}) as response:
+                    if response.status == 200:
+                        data = await response.json()
+                        asset_id = data.get("asset", {}).get("fileId")
+                        if asset_id:
+                            logger.info(f"Created minimal placeholder asset: {asset_id}")
+                            return asset_id
+                    
+                    logger.warning(f"Placeholder asset creation failed: {response.status}")
+                    return None
+                    
+        except ImportError:
+            logger.warning("PIL not available for image creation")
+            return None
+        except Exception as e:
+            logger.warning(f"Placeholder asset creation error: {e}")
+            return None
+    
     async def _get_or_create_default_asset(self, bearer_token: str) -> str:
         """Get or create a default background asset for LTX Studio"""
         # Check if we have a cached default asset ID
@@ -586,13 +628,13 @@ class EnhancedModelRouter:
             "Content-Type": "application/json"
         }
         
-        # Generate a simple default background
+        # Use a simpler approach - create a minimal image asset
+        # Instead of generating, just create a placeholder asset record
         default_payload = {
-            "type": "generate-background",
-            "prompt": "Simple neutral gradient background, calm colors",
+            "type": "reference-image",
+            "description": "Default placeholder asset for video generation",
             "width": 1920,
-            "height": 1080,
-            "format": "jpg"
+            "height": 1080
         }
         
         try:
