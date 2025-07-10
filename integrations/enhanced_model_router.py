@@ -396,7 +396,64 @@ class EnhancedModelRouter:
                 raise
         
     async def _generate_with_useapi_volume(self, request: GenerationRequest) -> GenerationResponse:
-        """Generate video using UseAPI.net volume account (LTX Turbo) with retry logic"""
+        """Generate video using UseAPI.net volume account (LTX Studio) with chaining logic"""
+        
+        # Check if video length requires chaining
+        if request.duration > 5:
+            logger.info(f"Duration {request.duration}s requires video chaining - using segment approach")
+            return await self._generate_chained_video(request)
+        else:
+            return await self._generate_single_ltx_segment(request)
+    
+    async def _generate_chained_video(self, request: GenerationRequest) -> GenerationResponse:
+        """Generate longer videos by chaining multiple 5-second LTX Studio segments"""
+        try:
+            from video_chaining_architecture import VideoChainOrchestrator, VideoChainRequest
+            
+            # Initialize chaining orchestrator
+            chain_orchestrator = VideoChainOrchestrator(self)
+            
+            # Create simplified chain request for single prompt
+            chain_request = VideoChainRequest(
+                content_id=f"ltx_chain_{int(time.time())}",
+                template_name="single_prompt_chain",
+                target_duration=request.duration,
+                scenes=[{
+                    "scene_id": "main_scene",
+                    "duration_seconds": request.duration,
+                    "resolved_video_prompts": [{"prompt": request.prompt}]
+                }]
+            )
+            
+            # Generate chained video
+            result = await chain_orchestrator.generate_chained_video(chain_request)
+            
+            if result.success:
+                return GenerationResponse(
+                    video_id=result.content_id,
+                    download_url=f"file://{result.final_video_path}",
+                    model_used="ltx_studio_chained",
+                    service_used="useapi_volume",
+                    credits_used=result.segments_used,  # Credits per segment
+                    cost_usd=result.segments_used * 0.01,
+                    generation_time=0.0,
+                    metadata={
+                        "chained_video": True,
+                        "segments_used": result.segments_used,
+                        "total_duration": result.total_duration
+                    }
+                )
+            else:
+                raise Exception(f"Video chaining failed: {result.error_message}")
+                
+        except Exception as e:
+            logger.error(f"Chained video generation failed: {e}")
+            # Fallback to single 5-second segment
+            logger.warning("Falling back to single 5-second segment")
+            return await self._generate_single_ltx_segment(request)
+    
+    async def _generate_single_ltx_segment(self, request: GenerationRequest) -> GenerationResponse:
+        """Generate single 5-second video using LTX Studio (original logic)"""
         account = await self.useapi_pool.get_account_for_model(ModelType.LTX_TURBO, prefer_free=True)
         if not account:
             raise Exception("No volume accounts available")
