@@ -101,13 +101,13 @@ SERVICES_CONFIG = {
         "max_video_duration": 45,
         "supported_aspect_ratios": ["16:9", "9:16", "1:1", "4:3", "3:4"],
     },
-    "pixverse": {
-        "base_path": "/pixverse",
-        "max_prompt_length": 2000,
-        "supported_models": ["v4.5", "v4.0"],
-        "max_video_duration": 8,
-        "supported_aspect_ratios": ["16:9", "9:16", "1:1"],
-    },
+    # "pixverse": {
+    #     "base_path": "/pixverse",
+    #     "max_prompt_length": 2000,
+    #     "supported_models": ["v4.5", "v4.0"],
+    #     "max_video_duration": 8,
+    #     "supported_aspect_ratios": ["16:9", "9:16", "1:1"],
+    # },
     "pika": {
         "base_path": "/pika",
         "max_prompt_length": 1500,

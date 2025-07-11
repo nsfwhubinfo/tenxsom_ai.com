@@ -756,10 +756,9 @@ class DailyContentScheduler:
         logger.info(f"📈 Daily performance: {daily_report['summary']['videos_generated']}/96 videos ({daily_report['target_progress']['percentage']:.1f}%)")
     
     def _send_alert(self, title: str, message: str):
-        """Send alert notification (placeholder for actual notification system)"""
+        """Send alert notification via multiple channels"""
         logger.error(f"🚨 ALERT: {title} - {message}")
         
-        # TODO: Implement actual notification system (email, Telegram, etc.)
         alert_data = {
             "timestamp": datetime.now().isoformat(),
             "title": title,
@@ -767,13 +766,46 @@ class DailyContentScheduler:
             "severity": "error"
         }
         
-        # Save alert to file for now
+        # Save alert to file for audit trail
         alerts_dir = Path(__file__).parent / "logs" / "alerts"
         alerts_dir.mkdir(parents=True, exist_ok=True)
         
         alert_file = alerts_dir / f"alerts_{datetime.now().strftime('%Y_%m_%d')}.jsonl"
         with open(alert_file, 'a') as f:
             f.write(json.dumps(alert_data) + '\n')
+        
+        # Send Telegram notification if configured
+        self._send_telegram_alert(title, message)
+    
+    def _send_telegram_alert(self, title: str, message: str):
+        """Send alert via Telegram bot"""
+        try:
+            import requests
+            
+            bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+            authorized_user_id = os.getenv('AUTHORIZED_USER_ID')
+            
+            if not bot_token or not authorized_user_id:
+                logger.debug("Telegram credentials not configured, skipping notification")
+                return
+            
+            alert_message = f"🚨 *TenxsomAI Alert*\n\n*{title}*\n\n{message}\n\n_Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}_"
+            
+            telegram_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+            payload = {
+                "chat_id": authorized_user_id,
+                "text": alert_message,
+                "parse_mode": "Markdown"
+            }
+            
+            response = requests.post(telegram_url, json=payload, timeout=10)
+            if response.status_code == 200:
+                logger.info("✅ Alert sent via Telegram")
+            else:
+                logger.warning(f"⚠️ Telegram alert failed: {response.status_code}")
+                
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to send Telegram alert: {e}")
     
     def get_status(self) -> Dict[str, Any]:
         """Get current scheduler status"""
@@ -965,6 +997,7 @@ def main():
     
     parser = argparse.ArgumentParser(description="Tenxsom AI Daily Content Scheduler")
     parser.add_argument("--daemon", action="store_true", help="Run in daemon mode")
+    parser.add_argument("--production", action="store_true", help="Run in production mode with full logging")
     parser.add_argument("--test", action="store_true", help="Run test mode")
     parser.add_argument("--execute-batch", action="store_true", help="Execute single batch now")
     
@@ -972,7 +1005,21 @@ def main():
     
     if args.daemon:
         # Daemon mode - run continuous scheduler
-        print("🚀 Starting Tenxsom AI Content Scheduler in daemon mode")
+        if args.production:
+            print("🚀 Starting Tenxsom AI Content Scheduler in PRODUCTION daemon mode")
+            # Configure production logging
+            import logging
+            logging.basicConfig(
+                level=logging.INFO,
+                format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                handlers=[
+                    logging.StreamHandler(),
+                    logging.FileHandler('/home/golde/tenxsom-ai-vertex/logs/scheduler_production.log')
+                ]
+            )
+        else:
+            print("🚀 Starting Tenxsom AI Content Scheduler in daemon mode")
+            
         config_manager = ProductionConfigManager()
         scheduler = DailyContentScheduler(config_manager)
         

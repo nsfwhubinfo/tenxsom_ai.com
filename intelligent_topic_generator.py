@@ -235,7 +235,7 @@ class IntelligentTopicGenerator:
             (min(search_vol / 10000, 1.0)) * 0.2 + # Search volume (20%)
             (1.0 - competition) * 0.15 +         # Low competition bonus (15%)
             (min(growth_rate / 100, 1.0)) * 0.15 + # Growth rate (15%)
-            (monetization * cmp_multiplier / 2.5) * 0.2  # Monetization potential (20%)
+            (monetization * cpm_multiplier / 2.5) * 0.2  # Monetization potential (20%)
         ) * category_weight
         
         return round(overall_score, 3)
