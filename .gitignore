@@ -47,6 +47,12 @@ logs/
 .env.local
 .env.*.local
 
+# --- Production Credentials - DO NOT COMMIT ---
+*.env
+production.env
+service-account-key.json
+token.pickle
+
 # Google Cloud
 *.json
 !package.json
