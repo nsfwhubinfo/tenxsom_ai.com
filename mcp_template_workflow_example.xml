@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TemplateWorkflowExample name="tech_news_matt_wolfe_style" version="1.2">
+    
+    <!-- Template Metadata -->
+    <TemplateMetadata>
+        <TemplateName>tech_news_matt_wolfe_style</TemplateName>
+        <Description>High-energy tech news format with rapid information delivery and engaging hooks</Description>
+        <Archetype>tech_news_update</Archetype>
+        <Platform>youtube</Platform>
+        <ContentTier>standard</ContentTier>
+        <MCPVersion>1.1</MCPVersion>
+    </TemplateMetadata>
+
+    <!-- Global Style Profile -->
+    <GlobalStyleProfile>
+        <Visual>
+            <PromptModifiers>
+                <Modifier>tech demos</Modifier>
+                <Modifier>screen recordings</Modifier>
+                <Modifier>dynamic transitions</Modifier>
+                <Modifier>engaging graphics</Modifier>
+            </PromptModifiers>
+            <ArtifactPrompts>
+                <Prompt>Professional tech studio setup with modern equipment</Prompt>
+                <Prompt>Dynamic screen overlays showing tech interfaces</Prompt>
+                <Prompt>High-energy lighting with tech aesthetic</Prompt>
+            </ArtifactPrompts>
+        </Visual>
+        
+        <Audio>
+            <MusicPalette>
+                <Style>Upbeat background music suitable for tech content</Style>
+                <Energy>High-energy</Energy>
+                <Genre>Electronic, Tech-focused</Genre>
+            </MusicPalette>
+            <NarrationStyle>
+                <Tone>Enthusiastic and knowledgeable</Tone>
+                <Pace>Fast-paced</Pace>
+                <Delivery>Engaging and authoritative</Delivery>
+            </NarrationStyle>
+            <SFXPalette>
+                <Effect>Transition sounds</Effect>
+                <Effect>Emphasis effects</Effect>
+                <Effect>Notification sounds</Effect>
+            </SFXPalette>
+        </Audio>
+    </GlobalStyleProfile>
+
+    <!-- Scene Structure -->
+    <SceneStructure>
+        
+        <!-- Scene 1: Hook -->
+        <Scene>
+            <SceneID>1</SceneID>
+            <SceneType>hook</SceneType>
+            <DurationEstimate>2.0</DurationEstimate>
+            <ProcessingLogic>
+                <LLMPromptForScript>
+                    Create an attention-grabbing opening that immediately hooks the viewer. 
+                    Use phrases like "Breaking:", "This changes everything!", or "You won't believe what just happened".
+                    Topic: {topic_title}
+                    Duration: {duration_seconds} seconds total
+                </LLMPromptForScript>
+                
+                <GenerativeVideoPrompts>
+                    <VideoPrompt timing="0.0-1.0">
+                        Dynamic opening with {topic_title} visuals, tech demos, screen recordings, 
+                        attention-grabbing graphics, professional lighting
+                    </VideoPrompt>
+                    <VideoPrompt timing="1.0-2.0">
+                        Smooth transition to main content area with {topic_title} elements, 
+                        tech interface overlays, engaging visual effects
+                    </VideoPrompt>
+                </GenerativeVideoPrompts>
+                
+                <AudioElements>
+                    <MusicCue start="0.0" type="intro">High-energy electronic intro</MusicCue>
+                    <SFX start="0.5" type="emphasis">Notification sound for attention</SFX>
+                </AudioElements>
+                
+                <OnScreenElements>
+                    <TextOverlay start="0.0" duration="2.0">
+                        {topic_title} - Breaking News
+                    </TextOverlay>
+                </OnScreenElements>
+            </ProcessingLogic>
+        </Scene>
+
+        <!-- Scene 2: Explanation -->
+        <Scene>
+            <SceneID>2</SceneID>
+            <SceneType>explanation</SceneType>
+            <DurationEstimate>{duration_seconds} - 4.0</DurationEstimate>
+            <ProcessingLogic>
+                <LLMPromptForScript>
+                    Provide clear, concise explanation of {topic_title}.
+                    Break down complex concepts into digestible pieces.
+                    Use Matt Wolfe's style: energetic, fast-paced, informative.
+                    Include specific details and technical insights.
+                </LLMPromptForScript>
+                
+                <GenerativeVideoPrompts>
+                    <VideoPrompt timing="2.0-{duration_seconds - 2.0}">
+                        Clear explanatory visuals featuring {topic_title}, tech demos, 
+                        screen recordings, data visualizations, professional presentation style
+                    </VideoPrompt>
+                </GenerativeVideoPrompts>
+                
+                <AudioElements>
+                    <MusicCue start="2.0" type="background">Steady tech background music</MusicCue>
+                    <SFX start="variable" type="transition">Smooth transition effects</SFX>
+                </AudioElements>
+                
+                <OnScreenElements>
+                    <TextOverlay start="2.5" duration="1.0">
+                        Key Point: {extracted_key_point}
+                    </TextOverlay>
+                </OnScreenElements>
+            </ProcessingLogic>
+        </Scene>
+
+        <!-- Scene 3: Call to Action -->
+        <Scene>
+            <SceneID>3</SceneID>
+            <SceneType>call_to_action</SceneType>
+            <DurationEstimate>2.0</DurationEstimate>
+            <ProcessingLogic>
+                <LLMPromptForScript>
+                    Create engaging call-to-action encouraging viewer engagement.
+                    Ask for comments, subscriptions, and thoughts about {topic_title}.
+                    Use Matt Wolfe's signature enthusiastic closing style.
+                    Include future content teaser if relevant.
+                </LLMPromptForScript>
+                
+                <GenerativeVideoPrompts>
+                    <VideoPrompt timing="{duration_seconds - 2.0}-{duration_seconds}">
+                        Engaging outro with subscribe animation, tech demos, screen recordings,
+                        call-to-action graphics, professional closing sequence
+                    </VideoPrompt>
+                </GenerativeVideoPrompts>
+                
+                <AudioElements>
+                    <MusicCue start="{duration_seconds - 2.0}" type="outro">
+                        Energy build-up for engagement
+                    </MusicCue>
+                    <SFX start="{duration_seconds - 1.0}" type="emphasis">
+                        Subscribe bell sound
+                    </SFX>
+                </AudioElements>
+                
+                <OnScreenElements>
+                    <TextOverlay start="{duration_seconds - 1.5}" duration="1.5">
+                        SUBSCRIBE for more tech news!
+                    </TextOverlay>
+                </OnScreenElements>
+            </ProcessingLogic>
+        </Scene>
+    </SceneStructure>
+
+    <!-- Template Processing Rules -->
+    <ProcessingRules>
+        <VariableSubstitution>
+            <Variable name="topic_title" source="user_input" required="true" />
+            <Variable name="duration_seconds" source="user_input" default="30" />
+            <Variable name="extracted_key_point" source="llm_analysis" />
+        </VariableSubstitution>
+        
+        <ValidationRules>
+            <Rule>Duration must be between 15-60 seconds</Rule>
+            <Rule>Topic title must be provided</Rule>
+            <Rule>All scenes must have valid timing</Rule>
+        </ValidationRules>
+        
+        <PlatformOptimization>
+            <Platform name="youtube">
+                <AspectRatio>16:9</AspectRatio>
+                <OptimalDuration>30-60</OptimalDuration>
+                <EngagementTactics>Strong hook, clear CTA, subscribe reminder</EngagementTactics>
+            </Platform>
+            <Platform name="youtube_shorts">
+                <AspectRatio>9:16</AspectRatio>
+                <OptimalDuration>15-30</OptimalDuration>
+                <EngagementTactics>Immediate hook, loop potential, quick payoff</EngagementTactics>
+            </Platform>
+        </PlatformOptimization>
+    </ProcessingRules>
+
+    <!-- Quality Assurance -->
+    <QualityAssurance>
+        <ContentChecks>
+            <Check>Verify all timing constraints are met</Check>
+            <Check>Ensure visual prompts are coherent and actionable</Check>
+            <Check>Validate audio elements sync with video timing</Check>
+            <Check>Confirm on-screen elements don't overlap inappropriately</Check>
+        </ContentChecks>
+        
+        <ArchetypeAlignment>
+            <Requirement>Must maintain high-energy tech news style</Requirement>
+            <Requirement>Information delivery must be rapid and engaging</Requirement>
+            <Requirement>Visual elements must support tech-focused content</Requirement>
+        </ArchetypeAlignment>
+    </QualityAssurance>
+
+    <!-- Production Pipeline Integration -->
+    <ProductionPipeline>
+        <ContentGeneration>
+            <Phase name="script_generation">
+                <Input>Template prompts + user variables</Input>
+                <Processor>Claude LLM via Vertex AI</Processor>
+                <Output>Structured script with timing</Output>
+            </Phase>
+            
+            <Phase name="video_generation">
+                <Input>Generated video prompts</Input>
+                <Processor>UseAPI.net (LTX Studio/Pixverse)</Processor>
+                <Output>MP4 video files</Output>
+            </Phase>
+            
+            <Phase name="audio_generation">
+                <Input>Audio cues and requirements</Input>
+                <Processor>Audio synthesis service</Processor>
+                <Output>Audio track with music and SFX</Output>
+            </Phase>
+            
+            <Phase name="final_assembly">
+                <Input>Video + Audio + On-screen elements</Input>
+                <Processor>Video editing service</Processor>
+                <Output>Final deliverable MP4</Output>
+            </Phase>
+        </ContentGeneration>
+        
+        <QualityGates>
+            <Gate name="template_validation">Validate template structure</Gate>
+            <Gate name="content_review">Review generated content for quality</Gate>
+            <Gate name="technical_validation">Verify file formats and specifications</Gate>
+            <Gate name="platform_compliance">Ensure platform-specific requirements</Gate>
+        </QualityGates>
+    </ProductionPipeline>
+
+</TemplateWorkflowExample>
